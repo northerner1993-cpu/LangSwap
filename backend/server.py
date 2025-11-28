@@ -105,6 +105,8 @@ async def get_lesson(lesson_id: str):
             lesson["_id"] = str(lesson["_id"])
             return lesson
         raise HTTPException(status_code=404, detail="Lesson not found")
+    except HTTPException:
+        raise  # Re-raise HTTP exceptions as-is
     except Exception as e:
         raise HTTPException(status_code=400, detail=str(e))
 
