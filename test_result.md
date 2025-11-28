@@ -249,19 +249,16 @@ metadata:
 
 test_plan:
   current_focus:
-    - "Data Initialization API"
-    - "Thai Lessons API - Get all lessons"
-    - "Thai Lessons API - Get lesson by ID"
-    - "Progress Tracking API"
-    - "Favorites API"
     - "Home Screen - Learn Tab"
     - "Lesson Detail Screen - Flashcard Learning"
     - "Favorites Screen"
     - "Progress Screen"
   stuck_tasks: []
-  test_all: true
+  test_all: false
   test_priority: "sequential"
 
 agent_communication:
   - agent: "main"
     message: "Thai Language Learning App MVP completed. Backend has all CRUD endpoints for lessons, progress, and favorites. Thai content includes 44 consonants, 22 vowels, numbers 0-100, and conversation phrases (greetings, common phrases, dining, travel). Frontend has tab navigation with Learn, Favorites, and Progress screens. Flashcard-style learning interface with tap-to-reveal. Please test all backend endpoints first, then UI flows."
+  - agent: "testing"
+    message: "✅ BACKEND TESTING COMPLETE: All 5 backend APIs tested and working perfectly. Fixed minor error handling issue in lesson retrieval (404 vs 400). Data initialization creates 7 lessons with authentic Thai content (44 consonants, 22 vowels, 20 numbers, 4 conversation categories). All CRUD operations verified: lessons retrieval, progress tracking with upsert, favorites toggle functionality. Backend is production-ready. 100% test success rate (13/13 tests passed)."
