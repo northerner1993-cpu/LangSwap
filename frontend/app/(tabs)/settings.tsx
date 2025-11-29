@@ -158,8 +158,12 @@ export default function SettingsScreen() {
             <Text style={[styles.cardTitle, { color: colors.text }]}>Developer</Text>
           </View>
           <View style={styles.developerContent}>
-            <View style={[styles.developerBadge, { backgroundColor: colors.primary + '15' }]}>
-              <Ionicons name="person-circle" size={64} color={colors.primary} />
+            <View style={styles.profileImageContainer}>
+              <Image
+                source={{ uri: 'https://customer-assets.emergentagent.com/job_thai-buddy/artifacts/fzgug7nw_IMG_5979.jpg' }}
+                style={styles.profileImage}
+                resizeMode="cover"
+              />
             </View>
             <Text style={[styles.developerName, { color: colors.text }]}>
               Jake Adamson
@@ -168,7 +172,7 @@ export default function SettingsScreen() {
               Full-Stack Developer
             </Text>
             <Text style={[styles.developerDescription, { color: colors.textSecondary }]}>
-              Creator of Thai Language Learning App
+              Creator of LangSwap - Bidirectional Language Learning
             </Text>
           </View>
         </View>
