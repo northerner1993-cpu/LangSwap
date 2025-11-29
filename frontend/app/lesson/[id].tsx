@@ -369,6 +369,10 @@ const styles = StyleSheet.create({
     padding: 8,
     marginRight: 4,
   },
+  speakerButtonActive: {
+    backgroundColor: '#DCFCE7',
+    borderRadius: 8,
+  },
   favoriteButton: {
     padding: 8,
   },
