@@ -1285,6 +1285,36 @@ async def initialize_data(force: bool = False):
         {"thai": "หมี", "romanization": "Bear", "english": "Bear", "example": "Bears are big - หมีตัวใหญ่"}
     ]
     
+    # English Learning Songs
+    english_alphabet_song = [
+        {"thai": "ตอนนี้ฉันรู้ ABC แล้ว", "romanization": "Now I know my ABC", "english": "Now I know my ABC", "example": "บทเพลงตัวอักษร A-Z (คลาสสิก)"},
+        {"thai": "A B C D E F G", "romanization": "A B C D E F G", "english": "A B C D E F G", "example": "บรรทัด 1: เรียนตัวอักษร 7 ตัวแรก"},
+        {"thai": "H I J K L M N O P", "romanization": "H I J K L M N O P", "english": "H I J K L M N O P", "example": "บรรทัด 2: ตัวอักษร H ถึง P"},
+        {"thai": "Q R S T U V", "romanization": "Q R S T U V", "english": "Q R S T U V", "example": "บรรทัด 3: ตัวอักษร Q ถึง V"},
+        {"thai": "W X Y และ Z", "romanization": "W X Y and Z", "english": "W X Y and Z", "example": "บรรทัด 4: ตัวสุดท้าย W, X, Y, Z"},
+        {"thai": "ตอนนี้ฉันรู้ ABC แล้ว", "romanization": "Now I know my ABC", "english": "Now I know my ABC", "example": "ท่อนซ้ำ: ตอนนี้ฉันรู้ ABC แล้ว"},
+        {"thai": "ครั้งต่อไปคุณจะร้องเพลงกับฉันไหม?", "romanization": "Next time won't you sing with me?", "english": "Next time won't you sing with me?", "example": "จบเพลง: ชวนร้องด้วยกัน"}
+    ]
+    
+    english_numbers_song = [
+        {"thai": "หนึ่ง สอง ผูกรองเท้า", "romanization": "One, two, buckle my shoe", "english": "One, two, buckle my shoe", "example": "เพลงนับเลข 1-20 แบบสนุก"},
+        {"thai": "สาม สี่ เคาะประตู", "romanization": "Three, four, knock at the door", "english": "Three, four, knock at the door", "example": "บรรทัด 2: เลข 3 และ 4"},
+        {"thai": "ห้า หก หยิบไม้", "romanization": "Five, six, pick up sticks", "english": "Five, six, pick up sticks", "example": "บรรทัด 3: เลข 5 และ 6"},
+        {"thai": "เจ็ด แปด วางให้ตรง", "romanization": "Seven, eight, lay them straight", "english": "Seven, eight, lay them straight", "example": "บรรทัด 4: เลข 7 และ 8"},
+        {"thai": "เก้า สิบ ไก่ใหญ่อ้วนพี", "romanization": "Nine, ten, a big fat hen", "english": "Nine, ten, a big fat hen", "example": "บรรทัด 5: เลข 9 และ 10"},
+        {"thai": "สิบเอ็ด สิบสอง ขุดและขุด", "romanization": "Eleven, twelve, dig and delve", "english": "Eleven, twelve, dig and delve", "example": "บรรทัด 6: เลข 11 และ 12"},
+        {"thai": "มาร้องเพลงตัวเลขกันอีกครั้ง!", "romanization": "Let's sing the numbers song again!", "english": "Let's sing the numbers song again!", "example": "ท่อนซ้ำ: ร้องอีกครั้ง"}
+    ]
+    
+    english_colors_song = [
+        {"thai": "สีแดงและสีเหลือง สีชมพูและสีเขียว", "romanization": "Red and yellow, pink and green", "english": "Red and yellow, pink and green", "example": "เพลงสี - บรรทัดที่ 1"},
+        {"thai": "สีม่วงและสีส้ม และสีน้ำเงิน", "romanization": "Purple and orange and blue", "english": "Purple and orange and blue", "example": "เพลงสี - บรรทัดที่ 2"},
+        {"thai": "ฉันสามารถร้องเพลงสีรุ้งได้", "romanization": "I can sing a rainbow", "english": "I can sing a rainbow", "example": "ท่อนซ้ำ: ฉันร้องเพลงสีรุ้งได้"},
+        {"thai": "ร้องเพลงสีรุ้งด้วย", "romanization": "Sing a rainbow too", "english": "Sing a rainbow too", "example": "คุณก็ร้องได้เหมือนกัน"},
+        {"thai": "ฟังด้วยหูของคุณ มองด้วยตาของคุณ", "romanization": "Listen with your ears, look with your eyes", "english": "Listen with your ears, look with your eyes", "example": "บรรทัดที่ 5: ใช้ประสาทสัมผัส"},
+        {"thai": "และร้องเพลงทุกอย่างที่อยู่ข้างใน", "romanization": "And sing everything you find", "english": "And sing everything you find", "example": "ร้องเพลงทุกสิ่งที่เห็น"}
+    ]
+    
     english_lessons = [
         {
             "title": "English Alphabet (A-Z)",
