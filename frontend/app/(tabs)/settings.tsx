@@ -10,10 +10,14 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
+import { useRouter } from 'expo-router';
 import { useTheme } from '../../contexts/ThemeContext';
+import { useLanguageMode } from '../../contexts/LanguageModeContext';
 
 export default function SettingsScreen() {
   const { theme, toggleTheme, colors } = useTheme();
+  const { languageMode, setLanguageMode } = useLanguageMode();
+  const router = useRouter();
 
   const handleEmailSupport = () => {
     const email = 'jakemadamson2k14@gmail.com';
