@@ -475,7 +475,7 @@ async def initialize_data(force: bool = False):
         {"thai": "ลูก", "romanization": "luuk", "english": "Child", "example": "ลูกชาย, ลูกสาว"},
     ]
     
-    # Animals
+    # Animals (Expanded)
     animals_data = [
         {"thai": "สัตว์", "romanization": "sat", "english": "Animal", "example": "สัตว์เลี้ยง (pet)"},
         {"thai": "หมา", "romanization": "maa", "english": "Dog", "example": "หมาน่ารัก"},
@@ -489,6 +489,180 @@ async def initialize_data(force: bool = False):
         {"thai": "ไก่", "romanization": "gai", "english": "Chicken", "example": "ไก่ขัน"},
         {"thai": "เป็ด", "romanization": "pet", "english": "Duck", "example": "เป็ดว่ายน้ำ"},
         {"thai": "ลิง", "romanization": "ling", "english": "Monkey", "example": "ลิงกินกล้วย"},
+        {"thai": "เสือ", "romanization": "suea", "english": "Tiger", "example": "เสือดุร้าย"},
+        {"thai": "หมี", "romanization": "mii", "english": "Bear", "example": "หมีขั้วโลก"},
+        {"thai": "สิงโต", "romanization": "sing-toh", "english": "Lion", "example": "สิงโตเป็นราชสีห์"},
+        {"thai": "กระต่าย", "romanization": "gra-taai", "english": "Rabbit", "example": "กระต่ายกระโดด"},
+        {"thai": "เต่า", "romanization": "tao", "english": "Turtle", "example": "เต่าเดินช้า"},
+        {"thai": "งู", "romanization": "nguu", "english": "Snake", "example": "งูพิษ"},
+        {"thai": "จระเข้", "romanization": "jor-ra-kheh", "english": "Crocodile", "example": "จระเข้อันตราย"},
+        {"thai": "กบ", "romanization": "gop", "english": "Frog", "example": "กบกระโดด"},
+        {"thai": "หนู", "romanization": "nuu", "english": "Mouse/Rat", "example": "หนูเล็ก"},
+        {"thai": "ควาย", "romanization": "khwaai", "english": "Buffalo", "example": "ควายไทย"},
+        {"thai": "แพะ", "romanization": "phae", "english": "Goat", "example": "แพะกินหญ้า"},
+        {"thai": "แกะ", "romanization": "gae", "english": "Sheep", "example": "แกะขนฟู"},
+    ]
+    
+    # Insects
+    insects_data = [
+        {"thai": "แมลง", "romanization": "ma-laeng", "english": "Insect", "example": "แมลงบิน"},
+        {"thai": "ผีเสื้อ", "romanization": "phii-suea", "english": "Butterfly", "example": "ผีเสื้อสวย"},
+        {"thai": "ผึ้ง", "romanization": "phueng", "english": "Bee", "example": "ผึ้งทำน้ำผึ้ง"},
+        {"thai": "ต่อ", "romanization": "tor", "english": "Wasp", "example": "ต่อต่อย"},
+        {"thai": "มด", "romanization": "mot", "english": "Ant", "example": "มดดำ"},
+        {"thai": "ยุง", "romanization": "yung", "english": "Mosquito", "example": "ยุงกัด"},
+        {"thai": "แมลงวัน", "romanization": "ma-laeng wan", "english": "Fly", "example": "แมลงวันบิน"},
+        {"thai": "แมลงสาบ", "romanization": "ma-laeng saap", "english": "Cockroach", "example": "แมลงสาบน่ากลัว"},
+        {"thai": "ตั๊กแตน", "romanization": "tak-taen", "english": "Grasshopper", "example": "ตั๊กแตนกระโดด"},
+        {"thai": "แมลงปอ", "romanization": "ma-laeng por", "english": "Dragonfly", "example": "แมลงปอสีสวย"},
+        {"thai": "จิ้งหรีด", "romanization": "jing-reet", "english": "Cricket", "example": "จิ้งหรีดร้อง"},
+        {"thai": "หนอนผีเสื้อ", "romanization": "norn phii-suea", "english": "Caterpillar", "example": "หนอนเป็นผีเสื้อ"},
+        {"thai": "แมงมุม", "romanization": "maeng-mum", "english": "Spider", "example": "แมงมุมทอใย"},
+        {"thai": "ด้วง", "romanization": "duang", "english": "Beetle", "example": "ด้วงหนามยาว"},
+    ]
+    
+    # Plants and Trees
+    plants_data = [
+        {"thai": "ต้นไม้", "romanization": "ton-mai", "english": "Tree", "example": "ต้นไม้ใหญ่"},
+        {"thai": "พื้ช", "romanization": "phuet", "english": "Plant", "example": "พืชสีเขียว"},
+        {"thai": "ดอกไม้", "romanization": "dork-mai", "english": "Flower", "example": "ดอกไม้สวย"},
+        {"thai": "หญ้า", "romanization": "yaa", "english": "Grass", "example": "หญ้าเขียว"},
+        {"thai": "ใบไม้", "romanization": "bai-mai", "english": "Leaf", "example": "ใบไม้ร่วง"},
+        {"thai": "ราก", "romanization": "raak", "english": "Root", "example": "รากต้นไม้"},
+        {"thai": "กิ่งไม้", "romanization": "ging-mai", "english": "Branch", "example": "กิ่งไม้แตก"},
+        {"thai": "เมล็ด", "romanization": "ma-let", "english": "Seed", "example": "เมล็ดพืช"},
+        {"thai": "ดอกกุหลาบ", "romanization": "dork gu-laap", "english": "Rose", "example": "ดอกกุหลาบแดง"},
+        {"thai": "ดอกบัว", "romanization": "dork bua", "english": "Lotus", "example": "ดอกบัวบาน"},
+        {"thai": "ดอกกล้วยไม้", "romanization": "dork gluay-mai", "english": "Orchid", "example": "ดอกกล้วยไม้สวย"},
+        {"thai": "ต้นมะพร้าว", "romanization": "ton ma-phrao", "english": "Coconut tree", "example": "ต้นมะพร้าวสูง"},
+        {"thai": "ต้นกล้วย", "romanization": "ton gluay", "english": "Banana tree", "example": "ต้นกล้วยมีลูก"},
+        {"thai": "ต้นมะม่วง", "romanization": "ton ma-muang", "english": "Mango tree", "example": "ต้นมะม่วงให้ผล"},
+        {"thai": "ไผ่", "romanization": "phai", "english": "Bamboo", "example": "ต้นไผ่เติบโตเร็ว"},
+    ]
+    
+    # Automotive Parts
+    automotive_data = [
+        {"thai": "รถ", "romanization": "rot", "english": "Car/Vehicle", "example": "รถยนต์"},
+        {"thai": "เครื่องยนต์", "romanization": "khrueng-yon", "english": "Engine", "example": "เครื่องยนต์แรง"},
+        {"thai": "ล้อ", "romanization": "lor", "english": "Wheel", "example": "ล้อรถ"},
+        {"thai": "ยาง", "romanization": "yaang", "english": "Tire", "example": "ยางรถแบน"},
+        {"thai": "พวงมาลัย", "romanization": "phuang-maa-lai", "english": "Steering wheel", "example": "หมุนพวงมาลัย"},
+        {"thai": "เบรก", "romanization": "break", "english": "Brake", "example": "เหยียบเบรก"},
+        {"thai": "คันเร่ง", "romanization": "khan reng", "english": "Accelerator", "example": "เหยียบคันเร่ง"},
+        {"thai": "เกียร์", "romanization": "gear", "english": "Gear", "example": "เปลี่ยนเกียร์"},
+        {"thai": "ไฟหน้า", "romanization": "fai naa", "english": "Headlight", "example": "เปิดไฟหน้า"},
+        {"thai": "ไฟท้าย", "romanization": "fai thaai", "english": "Taillight", "example": "ไฟท้ายแดง"},
+        {"thai": "กระจก", "romanization": "gra-jok", "english": "Mirror/Window", "example": "กระจกหลัง"},
+        {"thai": "ประตู", "romanization": "pra-tuu", "english": "Door", "example": "ประตูรถ"},
+        {"thai": "กระโปรงหน้า", "romanization": "gra-proong naa", "english": "Hood", "example": "เปิดกระโปรงหน้า"},
+        {"thai": "ท้ายรถ", "romanization": "thaai rot", "english": "Trunk", "example": "เปิดท้ายรถ"},
+        {"thai": "เข็มขัดนิรภัย", "romanization": "khem-khat ni-ra-phai", "english": "Seatbelt", "example": "คาดเข็มขัดนิรภัย"},
+        {"thai": "แบตเตอรี่", "romanization": "battery", "english": "Battery", "example": "แบตเตอรี่หมด"},
+    ]
+    
+    # Human Anatomy
+    anatomy_data = [
+        {"thai": "ร่างกาย", "romanization": "raang-gaai", "english": "Body", "example": "ร่างกายแข็งแรง"},
+        {"thai": "หัว", "romanization": "hua", "english": "Head", "example": "ศีรษะ, หัว"},
+        {"thai": "หน้า", "romanization": "naa", "english": "Face", "example": "ใบหน้า"},
+        {"thai": "ตา", "romanization": "taa", "english": "Eye", "example": "ตาสองข้าง"},
+        {"thai": "หู", "romanization": "huu", "english": "Ear", "example": "หูสองข้าง"},
+        {"thai": "จมูก", "romanization": "ja-muuk", "english": "Nose", "example": "จมูกดม"},
+        {"thai": "ปาก", "romanization": "paak", "english": "Mouth", "example": "เปิดปาก"},
+        {"thai": "ฟัน", "romanization": "fan", "english": "Tooth/Teeth", "example": "ฟันขาว"},
+        {"thai": "ลิ้น", "romanization": "lin", "english": "Tongue", "example": "ลิ้นชิม"},
+        {"thai": "คอ", "romanization": "khor", "english": "Neck", "example": "คอยาว"},
+        {"thai": "ไหล่", "romanization": "lai", "english": "Shoulder", "example": "ไหล่กว้าง"},
+        {"thai": "แขน", "romanization": "khaen", "english": "Arm", "example": "แขนแข็งแรง"},
+        {"thai": "มือ", "romanization": "mue", "english": "Hand", "example": "มือสอง"},
+        {"thai": "นิ้ว", "romanization": "niw", "english": "Finger", "example": "นิ้วห้านิ้ว"},
+        {"thai": "อก", "romanization": "ok", "english": "Chest", "example": "อกกว้าง"},
+        {"thai": "หลัง", "romanization": "lang", "english": "Back", "example": "หลังตรง"},
+        {"thai": "ท้อง", "romanization": "thong", "english": "Stomach/Belly", "example": "ท้องหิว"},
+        {"thai": "ขา", "romanization": "khaa", "english": "Leg", "example": "ขายาว"},
+        {"thai": "เท้า", "romanization": "thao", "english": "Foot", "example": "เท้าสอง"},
+        {"thai": "หัวใจ", "romanization": "hua-jai", "english": "Heart", "example": "หัวใจเต้น"},
+    ]
+    
+    # Household Items
+    household_data = [
+        {"thai": "บ้าน", "romanization": "baan", "english": "House/Home", "example": "บ้านหลังใหญ่"},
+        {"thai": "ห้อง", "romanization": "hong", "english": "Room", "example": "ห้องนอน"},
+        {"thai": "ประตู", "romanization": "pra-tuu", "english": "Door", "example": "เปิดประตู"},
+        {"thai": "หน้าต่าง", "romanization": "naa-taang", "english": "Window", "example": "เปิดหน้าต่าง"},
+        {"thai": "โต๊ะ", "romanization": "toh", "english": "Table", "example": "โต๊ะทำงาน"},
+        {"thai": "เก้าอี้", "romanization": "gao-ee", "english": "Chair", "example": "เก้าอี้นั่ง"},
+        {"thai": "เตียง", "romanization": "tiang", "english": "Bed", "example": "เตียงนอน"},
+        {"thai": "หมอน", "romanization": "morn", "english": "Pillow", "example": "หมอนนุ่ม"},
+        {"thai": "ผ้าห่ม", "romanization": "phaa hom", "english": "Blanket", "example": "ผ้าห่มอุ่น"},
+        {"thai": "ตู้", "romanization": "tuu", "english": "Cabinet/Closet", "example": "ตู้เสื้อผ้า"},
+        {"thai": "ตู้เย็น", "romanization": "tuu yen", "english": "Refrigerator", "example": "เปิดตู้เย็น"},
+        {"thai": "เตาไฟ", "romanization": "tao fai", "english": "Stove", "example": "เตาไฟฟ้า"},
+        {"thai": "ทีวี", "romanization": "TV", "english": "Television", "example": "ดูทีวี"},
+        {"thai": "พัดลม", "romanization": "phat-lom", "english": "Fan", "example": "เปิดพัดลม"},
+        {"thai": "แอร์", "romanization": "air", "english": "Air conditioner", "example": "เปิดแอร์"},
+        {"thai": "โคมไฟ", "romanization": "khom-fai", "english": "Lamp", "example": "เปิดโคมไฟ"},
+        {"thai": "จาน", "romanization": "jaan", "english": "Plate/Dish", "example": "จานข้าว"},
+        {"thai": "ชาม", "romanization": "chaam", "english": "Bowl", "example": "ชามซุป"},
+        {"thai": "ช้อน", "romanization": "chon", "english": "Spoon", "example": "ช้อนกิน"},
+        {"thai": "ส้อม", "romanization": "som", "english": "Fork", "example": "ส้อมและมีด"},
+        {"thai": "มีด", "romanization": "meet", "english": "Knife", "example": "มีดหั่น"},
+        {"thai": "แก้ว", "romanization": "gaew", "english": "Glass/Cup", "example": "แก้วน้ำ"},
+    ]
+    
+    # Clothing
+    clothing_data = [
+        {"thai": "เสื้อผ้า", "romanization": "suea-phaa", "english": "Clothes", "example": "เสื้อผ้าสะอาด"},
+        {"thai": "เสื้อ", "romanization": "suea", "english": "Shirt/Top", "example": "เสื้อสวย"},
+        {"thai": "กางเกง", "romanization": "gaang-geng", "english": "Pants/Trousers", "example": "กางเกงยีน"},
+        {"thai": "กระโปรง", "romanization": "gra-proong", "english": "Skirt", "example": "กระโปรงสั้น"},
+        {"thai": "ชุด", "romanization": "chut", "english": "Dress/Outfit", "example": "ชุดสวย"},
+        {"thai": "เสื้อโค้ท", "romanization": "suea-coat", "english": "Coat", "example": "เสื้อโค้ทหนา"},
+        {"thai": "เสื้อแจ็คเก็ต", "romanization": "suea jacket", "english": "Jacket", "example": "แจ็คเก็ตหนัง"},
+        {"thai": "รองเท้า", "romanization": "rong-thao", "english": "Shoes", "example": "รองเท้าคู่ใหม่"},
+        {"thai": "ถุงเท้า", "romanization": "thung-thao", "english": "Socks", "example": "ถุงเท้าคู่หนึ่ง"},
+        {"thai": "หมวก", "romanization": "muak", "english": "Hat/Cap", "example": "หมวกกันแดด"},
+        {"thai": "เข็มขัด", "romanization": "khem-khat", "english": "Belt", "example": "เข็มขัดหนัง"},
+        {"thai": "กระเป๋า", "romanization": "gra-pao", "english": "Bag", "example": "กระเป๋าถือ"},
+        {"thai": "ผ้าพันคอ", "romanization": "phaa-phan-khor", "english": "Scarf", "example": "ผ้าพันคออุ่น"},
+        {"thai": "แว่นตา", "romanization": "waen-taa", "english": "Glasses", "example": "แว่นตาสายตา"},
+        {"thai": "ชุดชั้นใน", "romanization": "chut-chan-nai", "english": "Underwear", "example": "ชุดชั้นในสะอาด"},
+    ]
+    
+    # Emotions and Feelings
+    emotions_data = [
+        {"thai": "ความรู้สึก", "romanization": "khwaam-ruu-suek", "english": "Feeling/Emotion", "example": "ความรู้สึกดี"},
+        {"thai": "มีความสุข", "romanization": "mii khwaam-suk", "english": "Happy", "example": "ฉันมีความสุข"},
+        {"thai": "เศร้า", "romanization": "sao", "english": "Sad", "example": "รู้สึกเศร้า"},
+        {"thai": "โกรธ", "romanization": "groht", "english": "Angry", "example": "โกรธมาก"},
+        {"thai": "กลัว", "romanization": "glua", "english": "Scared/Afraid", "example": "กลัวผี"},
+        {"thai": "ตื่นเต้น", "romanization": "teun-ten", "english": "Excited", "example": "ตื่นเต้นมาก"},
+        {"thai": "เบื่อ", "romanization": "buea", "english": "Bored", "example": "เบื่อมาก"},
+        {"thai": "รัก", "romanization": "rak", "english": "Love", "example": "รักเธอ"},
+        {"thai": "เกลียด", "romanization": "gliiat", "english": "Hate", "example": "เกลียดแมลงสาบ"},
+        {"thai": "ประหลาดใจ", "romanization": "pra-laat-jai", "english": "Surprised", "example": "ประหลาดใจมาก"},
+        {"thai": "เหนื่อย", "romanization": "nuay", "english": "Tired", "example": "เหนื่อยมาก"},
+        {"thai": "เครียด", "romanization": "kriiat", "english": "Stressed", "example": "รู้สึกเครียด"},
+        {"thai": "ผ่อนคลาย", "romanization": "phon-khlaai", "english": "Relaxed", "example": "รู้สึกผ่อนคลาย"},
+        {"thai": "เหงา", "romanization": "ngao", "english": "Lonely", "example": "รู้สึกเหงา"},
+        {"thai": "ภูมิใจ", "romanization": "phuum-jai", "english": "Proud", "example": "ภูมิใจในตัวเอง"},
+        {"thai": "อิจฉา", "romanization": "it-chaa", "english": "Jealous", "example": "อิจฉาเธอ"},
+        {"thai": "กังวล", "romanization": "gang-won", "english": "Worried/Anxious", "example": "กังวลเรื่องนี้"},
+        {"thai": "สับสน", "romanization": "sap-son", "english": "Confused", "example": "รู้สึกสับสน"},
+    ]
+    
+    # Male/Female Polite Particles
+    polite_particles_data = [
+        {"thai": "ครับ", "romanization": "khrap", "english": "Polite particle (male)", "example": "สวัสดีครับ (Hello - male)"},
+        {"thai": "ค่ะ", "romanization": "kha", "english": "Polite particle (female)", "example": "สวัสดีค่ะ (Hello - female)"},
+        {"thai": "ครับผม", "romanization": "khrap phom", "english": "Very polite (male)", "example": "ขอบคุณครับผม"},
+        {"thai": "คะ", "romanization": "kha", "english": "Question ending (female)", "example": "อะไรคะ (What? - female)"},
+        {"thai": "นะครับ", "romanization": "na khrap", "english": "Softening particle (male)", "example": "ไปนะครับ"},
+        {"thai": "นะคะ", "romanization": "na kha", "english": "Softening particle (female)", "example": "ไปนะคะ"},
+        {"thai": "ครับ/ค่ะ", "romanization": "khrap/kha", "english": "Yes (polite)", "example": "ได้ครับ/ค่ะ (Yes)"},
+        {"thai": "ผม", "romanization": "phom", "english": "I (male, formal)", "example": "ผมชื่อจอห์น"},
+        {"thai": "ดิฉัน", "romanization": "di-chan", "english": "I (female, formal)", "example": "ดิฉันชื่อแมรี่"},
+        {"thai": "ฉัน", "romanization": "chan", "english": "I (neutral/informal)", "example": "ฉันชอบกินส้ม"},
     ]
     
     # Days of the Week
