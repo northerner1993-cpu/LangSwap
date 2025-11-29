@@ -52,6 +52,7 @@ class Lesson(BaseModel):
     description: str
     items: List[LessonItem]
     order: int = 0
+    language_mode: str = "learn-thai"  # "learn-thai" or "learn-english"
 
     class Config:
         populate_by_name = True
