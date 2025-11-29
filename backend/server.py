@@ -821,6 +821,20 @@ async def initialize_data(force: bool = False):
         {"thai": "นอนหลับฝันดี", "romanization": "norn-lap fan-dii", "english": "Sleep well, sweet dreams", "example": "Goodnight"},
     ]
     
+    # Colors Song
+    colors_song_data = [
+        {"thai": "สีแดง สีแดง เหมือนแอปเปิ้ล", "romanization": "sii-daeng sii-daeng muean apple", "english": "Red, red, like an apple", "example": "Red color verse"},
+        {"thai": "สีน้ำเงิน ท้องฟ้าสวย", "romanization": "sii-naam-ngern thong-faa suay", "english": "Blue, beautiful sky", "example": "Blue color verse"},
+        {"thai": "สีเขียว สีเขียว ต้นไม้เขียว", "romanization": "sii-khiaw sii-khiaw ton-mai khiaw", "english": "Green, green, green trees", "example": "Green color verse"},
+        {"thai": "สีเหลือง สดใส", "romanization": "sii-lueang sot-sai", "english": "Yellow, bright and cheerful", "example": "Yellow color verse"},
+        {"thai": "รุ้งกินน้ำ เจ็ดสี", "romanization": "rung-gin-naam jet-sii", "english": "Rainbow has seven colors", "example": "Chorus about rainbow"},
+        {"thai": "สวยงามมาก", "romanization": "suay-ngaam maak", "english": "Very beautiful", "example": "Appreciation"},
+        {"thai": "สีส้ม สีส้ม หวานๆ", "romanization": "sii-som sii-som waan-waan", "english": "Orange, orange, sweet", "example": "Orange color"},
+        {"thai": "สีม่วง สวยหรู", "romanization": "sii-muang suay-ruu", "english": "Purple, elegant", "example": "Purple color"},
+        {"thai": "สีชมพู น่ารัก", "romanization": "sii-chom-puu naa-rak", "english": "Pink, cute", "example": "Pink color"},
+        {"thai": "สีขาว สีดำ", "romanization": "sii-khao sii-dam", "english": "White and black", "example": "Final colors"},
+    ]
+    
     lessons = [
         {
             "title": "Thai Consonants",
