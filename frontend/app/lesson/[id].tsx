@@ -32,6 +32,7 @@ interface Lesson {
   subcategory: string;
   description: string;
   items: LessonItem[];
+  language_mode?: string;
 }
 
 export default function LessonScreen() {
