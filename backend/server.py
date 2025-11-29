@@ -431,6 +431,163 @@ async def initialize_data(force: bool = False):
         {"thai": "แท็กซี่", "romanization": "taxi", "english": "Taxi", "example": "เรียกแท็กซี่หน่อย"},
     ]
     
+    # Colors (Intermediate Vocabulary)
+    colors_data = [
+        {"thai": "สี", "romanization": "sii", "english": "Color", "example": "สีอะไร (What color?)"},
+        {"thai": "สีแดง", "romanization": "sii daeng", "english": "Red", "example": "เสื้อสีแดง"},
+        {"thai": "สีน้ำเงิน", "romanization": "sii naam-ngern", "english": "Blue", "example": "ท้องฟ้าสีน้ำเงิน"},
+        {"thai": "สีเขียว", "romanization": "sii khiaw", "english": "Green", "example": "ต้นไม้สีเขียว"},
+        {"thai": "สีเหลือง", "romanization": "sii lueang", "english": "Yellow", "example": "กล้วยสีเหลือง"},
+        {"thai": "สีส้ม", "romanization": "sii som", "english": "Orange", "example": "ส้มสีส้ม"},
+        {"thai": "สีม่วง", "romanization": "sii muang", "english": "Purple", "example": "ดอกไม้สีม่วง"},
+        {"thai": "สีชมพู", "romanization": "sii chom-puu", "english": "Pink", "example": "สีชมพูสวย"},
+        {"thai": "สีดำ", "romanization": "sii dam", "english": "Black", "example": "รองเท้าสีดำ"},
+        {"thai": "สีขาว", "romanization": "sii khao", "english": "White", "example": "เสื้อสีขาว"},
+        {"thai": "สีเทา", "romanization": "sii thao", "english": "Gray", "example": "ฟ้าสีเทา"},
+        {"thai": "สีน้ำตาล", "romanization": "sii naam-taan", "english": "Brown", "example": "หมาสีน้ำตาล"},
+    ]
+    
+    # Family Members
+    family_data = [
+        {"thai": "ครอบครัว", "romanization": "khrop-khrua", "english": "Family", "example": "ครอบครัวของฉัน"},
+        {"thai": "พ่อ", "romanization": "phor", "english": "Father", "example": "พ่อของฉัน"},
+        {"thai": "แม่", "romanization": "mae", "english": "Mother", "example": "แม่ของฉัน"},
+        {"thai": "พี่ชาย", "romanization": "phii chaai", "english": "Older brother", "example": "พี่ชายคนโต"},
+        {"thai": "พี่สาว", "romanization": "phii sao", "english": "Older sister", "example": "พี่สาวสวย"},
+        {"thai": "น้องชาย", "romanization": "nong chaai", "english": "Younger brother", "example": "น้องชายตัวเล็ก"},
+        {"thai": "น้องสาว", "romanization": "nong sao", "english": "Younger sister", "example": "น้องสาวน่ารัก"},
+        {"thai": "ปู่", "romanization": "puu", "english": "Grandfather (paternal)", "example": "ปู่อายุมาก"},
+        {"thai": "ย่า", "romanization": "yaa", "english": "Grandmother (paternal)", "example": "ย่าอายุ 80"},
+        {"thai": "ตา", "romanization": "taa", "english": "Grandfather (maternal)", "example": "ตาของฉัน"},
+        {"thai": "ยาย", "romanization": "yaai", "english": "Grandmother (maternal)", "example": "ยายอยู่บ้าน"},
+        {"thai": "ลูก", "romanization": "luuk", "english": "Child", "example": "ลูกชาย, ลูกสาว"},
+    ]
+    
+    # Animals
+    animals_data = [
+        {"thai": "สัตว์", "romanization": "sat", "english": "Animal", "example": "สัตว์เลี้ยง (pet)"},
+        {"thai": "หมา", "romanization": "maa", "english": "Dog", "example": "หมาน่ารัก"},
+        {"thai": "แมว", "romanization": "maew", "english": "Cat", "example": "แมวขาว"},
+        {"thai": "นก", "romanization": "nok", "english": "Bird", "example": "นกบิน"},
+        {"thai": "ปลา", "romanization": "plaa", "english": "Fish", "example": "ปลาว่าย"},
+        {"thai": "ช้าง", "romanization": "chaang", "english": "Elephant", "example": "ช้างไทย"},
+        {"thai": "ม้า", "romanization": "maa", "english": "Horse", "example": "ม้าวิ่ง"},
+        {"thai": "วัว", "romanization": "wua", "english": "Cow", "example": "วัวกินหญ้า"},
+        {"thai": "หมู", "romanization": "muu", "english": "Pig", "example": "หมูอ้วน"},
+        {"thai": "ไก่", "romanization": "gai", "english": "Chicken", "example": "ไก่ขัน"},
+        {"thai": "เป็ด", "romanization": "pet", "english": "Duck", "example": "เป็ดว่ายน้ำ"},
+        {"thai": "ลิง", "romanization": "ling", "english": "Monkey", "example": "ลิงกินกล้วย"},
+    ]
+    
+    # Days of the Week
+    days_data = [
+        {"thai": "วัน", "romanization": "wan", "english": "Day", "example": "วันนี้ (today)"},
+        {"thai": "วันจันทร์", "romanization": "wan jan", "english": "Monday", "example": "วันจันทร์ทำงาน"},
+        {"thai": "วันอังคาร", "romanization": "wan ang-khaan", "english": "Tuesday", "example": "วันอังคารหน้า"},
+        {"thai": "วันพุธ", "romanization": "wan phut", "english": "Wednesday", "example": "วันพุธนี้"},
+        {"thai": "วันพฤหัสบดี", "romanization": "wan pha-rueh-hat", "english": "Thursday", "example": "ทุกวันพฤหัสบดี"},
+        {"thai": "วันศุกร์", "romanization": "wan suk", "english": "Friday", "example": "วันศุกร์สนุก"},
+        {"thai": "วันเสาร์", "romanization": "wan sao", "english": "Saturday", "example": "วันเสาร์พักผ่อน"},
+        {"thai": "วันอาทิตย์", "romanization": "wan aa-thit", "english": "Sunday", "example": "วันอาทิตย์ไปวัด"},
+        {"thai": "วันนี้", "romanization": "wan nii", "english": "Today", "example": "วันนี้อากาศดี"},
+        {"thai": "เมื่อวาน", "romanization": "muea waan", "english": "Yesterday", "example": "เมื่อวานฉันไป"},
+        {"thai": "พรุ่งนี้", "romanization": "phrung-nii", "english": "Tomorrow", "example": "พรุ่งนี้เจอกัน"},
+    ]
+    
+    # Time Expressions
+    time_data = [
+        {"thai": "เวลา", "romanization": "wee-laa", "english": "Time", "example": "เวลาเท่าไหร่"},
+        {"thai": "ตอนเช้า", "romanization": "torn chao", "english": "Morning", "example": "ตอนเช้าสดชื่น"},
+        {"thai": "ตอนกลางวัน", "romanization": "torn glaang wan", "english": "Noon/Afternoon", "example": "ตอนกลางวันร้อน"},
+        {"thai": "ตอนเย็น", "romanization": "torn yen", "english": "Evening", "example": "ตอนเย็นเย็นสบาย"},
+        {"thai": "ตอนกลางคืน", "romanization": "torn glaang kheun", "english": "Night", "example": "ตอนกลางคืนหลับ"},
+        {"thai": "นาที", "romanization": "naa-thii", "english": "Minute", "example": "สิบนาที (10 minutes)"},
+        {"thai": "ชั่วโมง", "romanization": "chua-moong", "english": "Hour", "example": "สองชั่วโมง"},
+        {"thai": "วินาที", "romanization": "wi-naa-thii", "english": "Second", "example": "ห้าวินาที"},
+        {"thai": "เดี๋ยวนี้", "romanization": "diaw-nii", "english": "Now/Right now", "example": "ไปเดี๋ยวนี้"},
+        {"thai": "เร็วๆ นี้", "romanization": "rew rew nii", "english": "Soon", "example": "เจอกันเร็วๆ นี้"},
+        {"thai": "ทีหลัง", "romanization": "thii-lang", "english": "Later", "example": "คุยกันทีหลัง"},
+    ]
+    
+    # Question Words (Essential for intermediate)
+    questions_data = [
+        {"thai": "อะไร", "romanization": "arai", "english": "What", "example": "นี่คืออะไร (What is this?)"},
+        {"thai": "ที่ไหน", "romanization": "thii-nai", "english": "Where", "example": "คุณอยู่ที่ไหน"},
+        {"thai": "เมื่อไหร่", "romanization": "muea-rai", "english": "When", "example": "ไปเมื่อไหร่"},
+        {"thai": "ทำไม", "romanization": "tham-mai", "english": "Why", "example": "ทำไมถึงไป"},
+        {"thai": "อย่างไร", "romanization": "yaang-rai", "english": "How", "example": "ทำอย่างไร"},
+        {"thai": "ใคร", "romanization": "khrai", "english": "Who", "example": "คนนี้ใคร"},
+        {"thai": "เท่าไหร่", "romanization": "thao-rai", "english": "How much/many", "example": "ราคาเท่าไหร่"},
+        {"thai": "กี่", "romanization": "gii", "english": "How many", "example": "กี่คน (How many people?)"},
+        {"thai": "ไหน", "romanization": "nai", "english": "Which", "example": "อันไหน (Which one?)"},
+    ]
+    
+    # Shopping & Money
+    shopping_data = [
+        {"thai": "ซื้อ", "romanization": "sue", "english": "Buy", "example": "ซื้อของ"},
+        {"thai": "ขาย", "romanization": "khaai", "english": "Sell", "example": "ขายอะไร"},
+        {"thai": "เงิน", "romanization": "ngern", "english": "Money", "example": "มีเงินไหม"},
+        {"thai": "บาท", "romanization": "baat", "english": "Baht (currency)", "example": "สิบบาท"},
+        {"thai": "แพง", "romanization": "phaeng", "english": "Expensive", "example": "แพงมาก"},
+        {"thai": "ถูก", "romanization": "thuuk", "english": "Cheap", "example": "ถูกดี"},
+        {"thai": "ลด", "romanization": "lot", "english": "Discount", "example": "ลดราคา"},
+        {"thai": "ตลาด", "romanization": "ta-laat", "english": "Market", "example": "ไปตลาด"},
+        {"thai": "ร้าน", "romanization": "raan", "english": "Shop/Store", "example": "ร้านอาหาร"},
+        {"thai": "จ่าย", "romanization": "jaai", "english": "Pay", "example": "จ่ายเงิน"},
+        {"thai": "ทอน", "romanization": "thon", "english": "Change (money)", "example": "เงินทอน"},
+    ]
+    
+    # Emergency & Health
+    emergency_data = [
+        {"thai": "ฉุกเฉิน", "romanization": "chuk-chern", "english": "Emergency", "example": "สถานการณ์ฉุกเฉิน"},
+        {"thai": "ช่วยด้วย", "romanization": "chuay duay", "english": "Help!", "example": "ช่วยด้วยครับ"},
+        {"thai": "โรงพยาบาล", "romanization": "roong-pha-yaa-baan", "english": "Hospital", "example": "ไปโรงพยาบาล"},
+        {"thai": "หมอ", "romanization": "mor", "english": "Doctor", "example": "เรียกหมอ"},
+        {"thai": "ปวด", "romanization": "puat", "english": "Pain/Hurt", "example": "ปวดหัว (headache)"},
+        {"thai": "เจ็บ", "romanization": "jep", "english": "Sick/Injured", "example": "เจ็บป่วย"},
+        {"thai": "ยา", "romanization": "yaa", "english": "Medicine", "example": "กินยา"},
+        {"thai": "ตำรวจ", "romanization": "tam-ruat", "english": "Police", "example": "เรียกตำรวจ"},
+        {"thai": "อันตราย", "romanization": "an-ta-raai", "english": "Dangerous", "example": "อันตรายมาก"},
+        {"thai": "ไฟไหม้", "romanization": "fai mai", "english": "Fire", "example": "เกิดไฟไหม้"},
+    ]
+    
+    # Common Adjectives
+    adjectives_data = [
+        {"thai": "ดี", "romanization": "dii", "english": "Good", "example": "อากาศดี"},
+        {"thai": "ไม่ดี", "romanization": "mai dii", "english": "Bad/Not good", "example": "อารมณ์ไม่ดี"},
+        {"thai": "ใหญ่", "romanization": "yai", "english": "Big/Large", "example": "บ้านใหญ่"},
+        {"thai": "เล็ก", "romanization": "lek", "english": "Small", "example": "รถเล็ก"},
+        {"thai": "สูง", "romanization": "suung", "english": "Tall/High", "example": "ตึกสูง"},
+        {"thai": "เตี้ย", "romanization": "tiia", "english": "Short (height)", "example": "คนเตี้ย"},
+        {"thai": "ยาว", "romanization": "yaao", "english": "Long", "example": "ผมยาว"},
+        {"thai": "สั้น", "romanization": "san", "english": "Short (length)", "example": "กระโปรงสั้น"},
+        {"thai": "สวย", "romanization": "suay", "english": "Beautiful/Pretty", "example": "ผู้หญิงสวย"},
+        {"thai": "หล่อ", "romanization": "lor", "english": "Handsome", "example": "ผู้ชายหล่อ"},
+        {"thai": "น่ารัก", "romanization": "naa-rak", "english": "Cute", "example": "เด็กน่ารัก"},
+        {"thai": "ร้อน", "romanization": "ron", "english": "Hot", "example": "อากาศร้อน"},
+        {"thai": "หนาว", "romanization": "nao", "english": "Cold", "example": "อากาศหนาว"},
+        {"thai": "เร็ว", "romanization": "rew", "english": "Fast", "example": "วิ่งเร็ว"},
+        {"thai": "ช้า", "romanization": "chaa", "english": "Slow", "example": "เดินช้า"},
+    ]
+    
+    # Basic Verbs
+    verbs_data = [
+        {"thai": "ไป", "romanization": "pai", "english": "Go", "example": "ไปทำงาน"},
+        {"thai": "มา", "romanization": "maa", "english": "Come", "example": "มาที่นี่"},
+        {"thai": "กิน", "romanization": "gin", "english": "Eat", "example": "กินข้าว"},
+        {"thai": "ดื่ม", "romanization": "duem", "english": "Drink", "example": "ดื่มน้ำ"},
+        {"thai": "นอน", "romanization": "norn", "english": "Sleep", "example": "นอนหลับ"},
+        {"thai": "ตื่น", "romanization": "teun", "english": "Wake up", "example": "ตื่นนอน"},
+        {"thai": "ทำ", "romanization": "tham", "english": "Do/Make", "example": "ทำงาน"},
+        {"thai": "อ่าน", "romanization": "aan", "english": "Read", "example": "อ่านหนังสือ"},
+        {"thai": "เขียน", "romanization": "khian", "english": "Write", "example": "เขียนจดหมาย"},
+        {"thai": "พูด", "romanization": "phuut", "english": "Speak", "example": "พูดภาษาไทย"},
+        {"thai": "ฟัง", "romanization": "fang", "english": "Listen", "example": "ฟังเพลง"},
+        {"thai": "ดู", "romanization": "duu", "english": "Look/Watch", "example": "ดูทีวี"},
+        {"thai": "รัก", "romanization": "rak", "english": "Love", "example": "รักเธอ"},
+        {"thai": "ชอบ", "romanization": "chorp", "english": "Like", "example": "ชอบกินส้ม"},
+    ]
+    
     lessons = [
         {
             "title": "Thai Consonants",
