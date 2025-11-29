@@ -198,7 +198,7 @@ export default function LessonScreen() {
   useEffect(() => {
     if (showAnswer && lesson) {
       const currentItem = lesson.items[currentIndex];
-      speakThai(currentItem.thai);
+      speak(currentItem.thai);
     }
   }, [showAnswer, currentIndex]);
 
