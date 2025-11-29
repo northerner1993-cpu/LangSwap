@@ -792,6 +792,20 @@ async def initialize_data(force: bool = False):
         {"thai": "เก่งมากเลย!", "romanization": "geng maak loey!", "english": "Very smart!", "example": "Ending - Encouragement"},
     ]
     
+    # Number Counting Songs
+    number_songs_data = [
+        {"thai": "หนึ่ง สอง สาม", "romanization": "neung song saam", "english": "One, Two, Three", "example": "Count 1-3 (Easy)"},
+        {"thai": "สี่ ห้า หก", "romanization": "sii haa hok", "english": "Four, Five, Six", "example": "Count 4-6 (Easy)"},
+        {"thai": "เจ็ด แปด เก้า", "romanization": "jet bpaet gao", "english": "Seven, Eight, Nine", "example": "Count 7-9 (Easy)"},
+        {"thai": "สิบ! เยี่ยมมาก!", "romanization": "sip! yiiam maak!", "english": "Ten! Excellent!", "example": "Reach 10 - Celebration"},
+        {"thai": "นับไปเรื่อยๆ ไม่มีสิ้นสุด", "romanization": "nap pai rueay-rueay mai-mii sin-sut", "english": "Keep counting, never ending", "example": "Chorus"},
+        {"thai": "สิบเอ็ด สิบสอง", "romanization": "sip-et sip-song", "english": "Eleven, Twelve", "example": "Continue to 11-12"},
+        {"thai": "สิบสาม สิบสี่ สิบห้า", "romanization": "sip-saam sip-sii sip-haa", "english": "Thirteen, Fourteen, Fifteen", "example": "Count 13-15"},
+        {"thai": "ยี่สิบ! ครึ่งทางแล้ว", "romanization": "yii-sip! khrueng-thaang laew", "english": "Twenty! Halfway there", "example": "Milestone at 20"},
+        {"thai": "ห้าสิบ หกสิบ เจ็ดสิบ", "romanization": "haa-sip hok-sip jet-sip", "english": "Fifty, Sixty, Seventy", "example": "Big numbers"},
+        {"thai": "แปดสิบ เก้าสิบ หนึ่งร้อย!", "romanization": "bpaet-sip gao-sip neung-roi!", "english": "Eighty, Ninety, One Hundred!", "example": "Reach 100 - Victory!"},
+    ]
+    
     lessons = [
         {
             "title": "Thai Consonants",
