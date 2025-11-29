@@ -88,10 +88,12 @@ async def root():
     return {"message": "Thai Language Learning API"}
 
 @api_router.get("/lessons", response_model=List[Lesson])
-async def get_all_lessons(category: Optional[str] = None):
+async def get_all_lessons(category: Optional[str] = None, language_mode: Optional[str] = None):
     query = {}
     if category:
         query["category"] = category
+    if language_mode:
+        query["language_mode"] = language_mode
     
     lessons = await db.lessons.find(query).sort("order", 1).to_list(1000)
     for lesson in lessons:
