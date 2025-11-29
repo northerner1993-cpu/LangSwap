@@ -187,6 +187,14 @@ export default function LessonScreen() {
     }
   };
 
+  // Auto-play TTS when revealing answer
+  useEffect(() => {
+    if (showAnswer && lesson) {
+      const currentItem = lesson.items[currentIndex];
+      speakThai(currentItem.thai);
+    }
+  }, [showAnswer, currentIndex]);
+
   const handlePrevious = () => {
     if (currentIndex > 0) {
       setCurrentIndex(currentIndex - 1);
