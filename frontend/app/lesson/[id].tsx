@@ -102,20 +102,42 @@ export default function LessonScreen() {
     }
   };
 
+  const [isSpeaking, setIsSpeaking] = useState(false);
+
   const speakThai = async (text: string) => {
     try {
+      // Check if speech is available
+      const available = await Speech.isSpeakingAsync();
+      
       // Stop any ongoing speech
-      await Speech.stop();
+      if (available) {
+        await Speech.stop();
+      }
+      
+      setIsSpeaking(true);
       
       // Speak the Thai text with Thai language settings
       Speech.speak(text, {
         language: 'th-TH', // Thai language
         pitch: 1.0,
         rate: 0.75, // Slightly slower for learning
+        onDone: () => setIsSpeaking(false),
+        onStopped: () => setIsSpeaking(false),
+        onError: () => {
+          setIsSpeaking(false);
+          Alert.alert(
+            'Audio Not Available', 
+            'Text-to-speech works on mobile devices. On web, Thai audio is not supported by browsers. Please use the Expo Go app on your phone for full audio features.'
+          );
+        },
       });
     } catch (error) {
       console.error('Error speaking:', error);
-      Alert.alert('Error', 'Text-to-speech is not available');
+      setIsSpeaking(false);
+      Alert.alert(
+        'Audio Feature', 
+        'For best experience with Thai pronunciation, please use the mobile app (Expo Go). Web browsers have limited Thai TTS support.'
+      );
     }
   };
 
