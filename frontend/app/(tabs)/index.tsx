@@ -164,14 +164,38 @@ export default function HomeScreen() {
           <Text style={styles.subtitle}>Choose a category to start learning</Text>
         </View>
 
-        {/* Categories */}
+        {/* Featured Categories Grid */}
+        <View style={styles.featuredGrid}>
+          {categories.slice(0, 4).map((category) => {
+            const categoryLessons = getLessonsByCategory(category.key);
+            return (
+              <TouchableOpacity
+                key={category.key}
+                style={[styles.featuredCard, { backgroundColor: category.color + '15' }]}
+                onPress={() => handleCategoryPress(category.key)}
+                activeOpacity={0.8}
+              >
+                <View style={[styles.featuredIconCircle, { backgroundColor: category.color }]}>
+                  <Ionicons name={category.icon as any} size={28} color="#FFFFFF" />
+                </View>
+                <Text style={styles.featuredTitle}>{category.title}</Text>
+                <Text style={styles.featuredCount}>
+                  {categoryLessons.length} {categoryLessons.length === 1 ? 'lesson' : 'lessons'}
+                </Text>
+              </TouchableOpacity>
+            );
+          })}
+        </View>
+
+        {/* All Categories */}
         <View style={styles.categoriesContainer}>
+          <Text style={styles.sectionTitle}>All Categories</Text>
           {categories.map((category) => {
             const categoryLessons = getLessonsByCategory(category.key);
             return (
               <TouchableOpacity
                 key={category.key}
-                style={[styles.categoryCard, { borderLeftColor: category.color }]}
+                style={styles.categoryCard}
                 onPress={() => handleCategoryPress(category.key)}
                 activeOpacity={0.7}
               >
