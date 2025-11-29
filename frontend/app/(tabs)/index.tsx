@@ -136,6 +136,64 @@ export default function HomeScreen() {
     return lessons.filter((lesson) => lesson.category === category);
   };
 
+  const getCategoryInfo = (category: string, subcategory?: string) => {
+    // Map icons based on category and subcategory
+    const iconMap: { [key: string]: { icon: string; color: string } } = {
+      // Alphabet
+      'alphabet-consonants': { icon: 'text', color: '#8B5CF6' },
+      'alphabet-vowels': { icon: 'chatbox-ellipses', color: '#A78BFA' },
+      
+      // Numbers
+      'numbers-basic': { icon: 'calculator', color: '#10B981' },
+      'numbers-large': { icon: 'stats-chart', color: '#059669' },
+      
+      // Conversations
+      'conversations-greetings': { icon: 'hand-left', color: '#F59E0B' },
+      'conversations-common': { icon: 'chatbubbles', color: '#FBBF24' },
+      'conversations-dining': { icon: 'restaurant', color: '#FB923C' },
+      'conversations-travel': { icon: 'airplane', color: '#F97316' },
+      
+      // Vocabulary
+      'vocabulary-colors': { icon: 'color-palette', color: '#EC4899' },
+      'vocabulary-family': { icon: 'people', color: '#F472B6' },
+      'vocabulary-animals': { icon: 'paw', color: '#E879F9' },
+      'vocabulary-insects': { icon: 'bug', color: '#D946EF' },
+      'vocabulary-plants': { icon: 'leaf', color: '#A855F7' },
+      'vocabulary-automotive': { icon: 'car', color: '#C026D3' },
+      'vocabulary-anatomy': { icon: 'body', color: '#9333EA' },
+      'vocabulary-household': { icon: 'home', color: '#7C3AED' },
+      'vocabulary-clothing': { icon: 'shirt', color: '#6366F1' },
+      'vocabulary-emotions': { icon: 'happy', color: '#EC4899' },
+      'vocabulary-adjectives': { icon: 'sparkles', color: '#F472B6' },
+      'vocabulary-verbs': { icon: 'flash', color: '#E879F9' },
+      
+      // Time
+      'time-days': { icon: 'calendar', color: '#06B6D4' },
+      'time-expressions': { icon: 'time', color: '#0891B2' },
+      
+      // Grammar
+      'grammar-questions': { icon: 'help-circle', color: '#8B5CF6' },
+      'grammar-politeness': { icon: 'ribbon', color: '#A78BFA' },
+      
+      // Intermediate
+      'intermediate-shopping': { icon: 'cart', color: '#EF4444' },
+      'intermediate-emergency': { icon: 'medkit', color: '#DC2626' },
+      
+      // Songs
+      'songs-alphabet': { icon: 'musical-note', color: '#F472B6' },
+      'songs-numbers': { icon: 'musical-notes', color: '#EC4899' },
+      'songs-daily': { icon: 'sunny', color: '#E879F9' },
+      'songs-vocabulary': { icon: 'color-fill', color: '#D946EF' },
+      'songs-animals': { icon: 'nutrition', color: '#C026D3' },
+      'songs-family': { icon: 'heart', color: '#A855F7' },
+      'songs-time': { icon: 'alarm', color: '#9333EA' },
+      'songs-anatomy': { icon: 'fitness', color: '#7C3AED' },
+    };
+
+    const key = subcategory ? `${category}-${subcategory}` : category;
+    return iconMap[key] || { icon: 'book', color: '#6B7280' };
+  };
+
   const handleCategoryPress = (category: string) => {
     const categoryLessons = getLessonsByCategory(category);
     if (categoryLessons.length === 1) {
