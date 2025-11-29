@@ -441,12 +441,20 @@ async def initialize_data():
             "order": 2
         },
         {
-            "title": "Numbers",
+            "title": "Numbers 0-100",
             "category": "numbers",
             "subcategory": "basic",
             "description": "Learn Thai numbers from 0 to 100",
-            "items": numbers_data,
+            "items": numbers_basic,
             "order": 3
+        },
+        {
+            "title": "Large Numbers",
+            "category": "numbers",
+            "subcategory": "large",
+            "description": "Learn large Thai numbers: hundreds, thousands, up to 1 million",
+            "items": numbers_large,
+            "order": 4
         },
         {
             "title": "Greetings",
