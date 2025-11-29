@@ -982,6 +982,70 @@ async def initialize_data(force: bool = False):
             "description": "Gender-specific polite particles and pronouns",
             "items": polite_particles_data,
             "order": 23
+        },
+        {
+            "title": "Alphabet Song",
+            "category": "songs",
+            "subcategory": "alphabet",
+            "description": "Learn Thai consonants through song",
+            "items": alphabet_song_data,
+            "order": 24
+        },
+        {
+            "title": "Number Counting Songs",
+            "category": "songs",
+            "subcategory": "numbers",
+            "description": "Fun counting songs from 1 to 100",
+            "items": number_songs_data,
+            "order": 25
+        },
+        {
+            "title": "Daily Routine Song",
+            "category": "songs",
+            "subcategory": "daily",
+            "description": "Learn daily activities through song",
+            "items": daily_routine_song_data,
+            "order": 26
+        },
+        {
+            "title": "Colors & Shapes Song",
+            "category": "songs",
+            "subcategory": "vocabulary",
+            "description": "Sing along to learn colors and shapes",
+            "items": colors_song_data,
+            "order": 27
+        },
+        {
+            "title": "Animal Sounds Song",
+            "category": "songs",
+            "subcategory": "animals",
+            "description": "Learn animals and their sounds",
+            "items": animals_song_data,
+            "order": 28
+        },
+        {
+            "title": "Family Song",
+            "category": "songs",
+            "subcategory": "family",
+            "description": "Learn family members through melody",
+            "items": family_song_data,
+            "order": 29
+        },
+        {
+            "title": "Days of the Week Song",
+            "category": "songs",
+            "subcategory": "time",
+            "description": "Memorize Thai days through song",
+            "items": days_song_data,
+            "order": 30
+        },
+        {
+            "title": "Body Parts Song",
+            "category": "songs",
+            "subcategory": "anatomy",
+            "description": "Learn body parts with catchy tune",
+            "items": body_song_data,
+            "order": 31
         }
     ]
     
