@@ -102,6 +102,23 @@ export default function LessonScreen() {
     }
   };
 
+  const speakThai = async (text: string) => {
+    try {
+      // Stop any ongoing speech
+      await Speech.stop();
+      
+      // Speak the Thai text with Thai language settings
+      Speech.speak(text, {
+        language: 'th-TH', // Thai language
+        pitch: 1.0,
+        rate: 0.75, // Slightly slower for learning
+      });
+    } catch (error) {
+      console.error('Error speaking:', error);
+      Alert.alert('Error', 'Text-to-speech is not available');
+    }
+  };
+
   const toggleFavorite = async () => {
     if (!lesson) return;
     
