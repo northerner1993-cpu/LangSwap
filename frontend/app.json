@@ -8,6 +8,9 @@
     "scheme": "frontend",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
+    "owner": "Jake Adamson",
+    "description": "LangSwap - Bidirectional Language Learning App for Thai and English. Created and developed by Jake Adamson.",
+    "copyright": "© 2025 Jake Adamson. All Rights Reserved.",
     "ios": {
       "supportsTablet": true
     },
