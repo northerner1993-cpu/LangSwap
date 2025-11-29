@@ -40,6 +40,8 @@ export default function HomeScreen() {
   const [loading, setLoading] = useState(true);
   const [initialized, setInitialized] = useState(false);
   const router = useRouter();
+  const { colors } = useTheme();
+  const { languageMode } = useLanguageMode();
 
   const categories: Category[] = [
     {
