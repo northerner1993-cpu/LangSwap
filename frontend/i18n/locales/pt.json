@@ -1,0 +1,82 @@
+{
+  "app": {
+    "name": "LangSwap",
+    "tagline": "Sua jornada bilíngue começa aqui"
+  },
+  "languageSelection": {
+    "title": "Escolha seu caminho de aprendizado",
+    "learnEnglish": "Aprender Inglês",
+    "learnThai": "Aprender Tailandês",
+    "perfectEnglish": "Aprimore seu inglês britânico",
+    "masterThai": "Domine o idioma tailandês",
+    "withThaiSupport": "com suporte ao idioma tailandês",
+    "withEnglishSupport": "com suporte ao idioma inglês",
+    "items": "Itens de aprendizado",
+    "songs": "Músicas de aprendizado",
+    "conversations": "Conversas reais",
+    "switchAnytime": "Você pode trocar de idioma a qualquer momento nas Configurações"
+  },
+  "tabs": {
+    "learn": "Aprender",
+    "allLessons": "Todas as lições",
+    "favorites": "Favoritos",
+    "settings": "Configurações",
+    "progress": "Progresso"
+  },
+  "home": {
+    "title": "Aprender",
+    "subtitle": "Escolha uma categoria para começar a aprender",
+    "allLessons": "Todas as lições",
+    "songsCatalogue": "Catálogo de músicas",
+    "learnThroughMusic": "Aprenda através da música"
+  },
+  "categories": {
+    "alphabet": "Alfabeto",
+    "numbers": "Números",
+    "conversations": "Conversas",
+    "vocabulary": "Vocabulário",
+    "time": "Tempo e dias",
+    "grammar": "Gramática",
+    "intermediate": "Intermediário",
+    "songs": "Músicas de aprendizado"
+  },
+  "settings": {
+    "learningMode": "Modo de aprendizado",
+    "learningEnglish": "Aprendendo inglês",
+    "learningThai": "Aprendendo tailandês",
+    "tapToSwitch": "Toque para trocar de idioma",
+    "appearance": "Aparência",
+    "darkMode": "Modo escuro",
+    "lightMode": "Modo claro",
+    "appLanguage": "Idioma do aplicativo",
+    "changeLanguage": "Alterar idioma de exibição",
+    "aboutApp": "Sobre este aplicativo",
+    "appDescription": "Um aplicativo abrangente de aprendizado de idiomas bidirecional com mais de 575 itens de aprendizado, suportando alunos de tailandês e inglês.",
+    "developer": "Desenvolvedor",
+    "support": "Suporte e contato",
+    "emailSupport": "Suporte por e-mail",
+    "visitWebsite": "Visitar site",
+    "version": "Versão",
+    "bilingualLearning": "Aprendizado bidirecional",
+    "copyright": "Todos os direitos reservados",
+    "madeWithLove": "Feito com ❤️ para estudantes de idiomas"
+  },
+  "lessons": {
+    "loading": "Carregando lições...",
+    "items": "itens",
+    "lesson": "lição",
+    "lessons": "lições",
+    "all": "Todos",
+    "browseAll": "Navegar por todo o conteúdo de aprendizado"
+  },
+  "common": {
+    "close": "Fechar",
+    "back": "Voltar",
+    "next": "Próximo",
+    "previous": "Anterior",
+    "save": "Salvar",
+    "cancel": "Cancelar",
+    "continue": "Continuar",
+    "selectLanguage": "Selecionar idioma"
+  }
+}

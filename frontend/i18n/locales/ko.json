@@ -1,0 +1,82 @@
+{
+  "app": {
+    "name": "LangSwap",
+    "tagline": "여러분의 이중 언어 여정은 여기서 시작됩니다"
+  },
+  "languageSelection": {
+    "title": "학습 경로 선택",
+    "learnEnglish": "영어 학습",
+    "learnThai": "태국어 학습",
+    "perfectEnglish": "영국식 영어 완벽하게",
+    "masterThai": "태국어 마스터",
+    "withThaiSupport": "태국어 지원 포함",
+    "withEnglishSupport": "영어 지원 포함",
+    "items": "학습 항목",
+    "songs": "학습 노래",
+    "conversations": "실제 대화",
+    "switchAnytime": "설정에서 언제든지 언어를 전환할 수 있습니다"
+  },
+  "tabs": {
+    "learn": "학습",
+    "allLessons": "모든 수업",
+    "favorites": "즐겨찾기",
+    "settings": "설정",
+    "progress": "진행 상황"
+  },
+  "home": {
+    "title": "학습",
+    "subtitle": "학습을 시작할 카테고리를 선택하세요",
+    "allLessons": "모든 수업",
+    "songsCatalogue": "노래 카탈로그",
+    "learnThroughMusic": "음악을 통한 학습"
+  },
+  "categories": {
+    "alphabet": "알파벳",
+    "numbers": "숫자",
+    "conversations": "대화",
+    "vocabulary": "어휘",
+    "time": "시간과 요일",
+    "grammar": "문법",
+    "intermediate": "중급",
+    "songs": "학습 노래"
+  },
+  "settings": {
+    "learningMode": "학습 모드",
+    "learningEnglish": "영어 학습 중",
+    "learningThai": "태국어 학습 중",
+    "tapToSwitch": "언어 전환을 탭하세요",
+    "appearance": "외관",
+    "darkMode": "다크 모드",
+    "lightMode": "라이트 모드",
+    "appLanguage": "앱 언어",
+    "changeLanguage": "표시 언어 변경",
+    "aboutApp": "이 앱에 대해",
+    "appDescription": "575개 이상의 학습 항목을 포함한 포괄적인 양방향 언어 학습 애플리케이션으로, 태국어 및 영어 학습자를 지원합니다.",
+    "developer": "개발자",
+    "support": "지원 및 연락",
+    "emailSupport": "이메일 지원",
+    "visitWebsite": "웹사이트 방문",
+    "version": "버전",
+    "bilingualLearning": "양방향 학습",
+    "copyright": "모든 권리 보유",
+    "madeWithLove": "언어 학습자를 위해 ❤️로 제작"
+  },
+  "lessons": {
+    "loading": "수업을 로드하는 중...",
+    "items": "항목",
+    "lesson": "수업",
+    "lessons": "수업",
+    "all": "모두",
+    "browseAll": "모든 학습 콘텐츠 탐색"
+  },
+  "common": {
+    "close": "닫기",
+    "back": "뒤로",
+    "next": "다음",
+    "previous": "이전",
+    "save": "저장",
+    "cancel": "취소",
+    "continue": "계속",
+    "selectLanguage": "언어 선택"
+  }
+}

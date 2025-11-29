@@ -1,0 +1,82 @@
+{
+  "app": {
+    "name": "LangSwap",
+    "tagline": "Tu viaje bilingüe comienza aquí"
+  },
+  "languageSelection": {
+    "title": "Elige tu camino de aprendizaje",
+    "learnEnglish": "Aprender Inglés",
+    "learnThai": "Aprender Tailandés",
+    "perfectEnglish": "Perfecciona tu inglés británico",
+    "masterThai": "Domina el idioma tailandés",
+    "withThaiSupport": "con soporte en idioma tailandés",
+    "withEnglishSupport": "con soporte en idioma inglés",
+    "items": "Elementos de aprendizaje",
+    "songs": "Canciones de aprendizaje",
+    "conversations": "Conversaciones reales",
+    "switchAnytime": "Puedes cambiar de idioma en cualquier momento en Configuración"
+  },
+  "tabs": {
+    "learn": "Aprender",
+    "allLessons": "Todas las lecciones",
+    "favorites": "Favoritos",
+    "settings": "Configuración",
+    "progress": "Progreso"
+  },
+  "home": {
+    "title": "Aprender",
+    "subtitle": "Elige una categoría para comenzar a aprender",
+    "allLessons": "Todas las lecciones",
+    "songsCatalogue": "Catálogo de canciones",
+    "learnThroughMusic": "Aprende a través de la música"
+  },
+  "categories": {
+    "alphabet": "Alfabeto",
+    "numbers": "Números",
+    "conversations": "Conversaciones",
+    "vocabulary": "Vocabulario",
+    "time": "Tiempo y días",
+    "grammar": "Gramática",
+    "intermediate": "Intermedio",
+    "songs": "Canciones de aprendizaje"
+  },
+  "settings": {
+    "learningMode": "Modo de aprendizaje",
+    "learningEnglish": "Aprendiendo inglés",
+    "learningThai": "Aprendiendo tailandés",
+    "tapToSwitch": "Toca para cambiar de idioma",
+    "appearance": "Apariencia",
+    "darkMode": "Modo oscuro",
+    "lightMode": "Modo claro",
+    "appLanguage": "Idioma de la aplicación",
+    "changeLanguage": "Cambiar idioma de visualización",
+    "aboutApp": "Acerca de esta aplicación",
+    "appDescription": "Una aplicación integral de aprendizaje de idiomas bidireccional con más de 575 elementos de aprendizaje, compatible con estudiantes de tailandés e inglés.",
+    "developer": "Desarrollador",
+    "support": "Soporte y contacto",
+    "emailSupport": "Soporte por correo",
+    "visitWebsite": "Visitar sitio web",
+    "version": "Versión",
+    "bilingualLearning": "Aprendizaje bidireccional",
+    "copyright": "Todos los derechos reservados",
+    "madeWithLove": "Hecho con ❤️ para estudiantes de idiomas"
+  },
+  "lessons": {
+    "loading": "Cargando lecciones...",
+    "items": "elementos",
+    "lesson": "lección",
+    "lessons": "lecciones",
+    "all": "Todos",
+    "browseAll": "Explorar todo el contenido de aprendizaje"
+  },
+  "common": {
+    "close": "Cerrar",
+    "back": "Atrás",
+    "next": "Siguiente",
+    "previous": "Anterior",
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "continue": "Continuar",
+    "selectLanguage": "Seleccionar idioma"
+  }
+}

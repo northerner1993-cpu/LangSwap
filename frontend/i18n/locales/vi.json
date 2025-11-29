@@ -1,0 +1,82 @@
+{
+  "app": {
+    "name": "LangSwap",
+    "tagline": "Hành trình song ngữ của bạn bắt đầu từ đây"
+  },
+  "languageSelection": {
+    "title": "Chọn con đường học tập của bạn",
+    "learnEnglish": "Học tiếng Anh",
+    "learnThai": "Học tiếng Thái",
+    "perfectEnglish": "Hoàn thiện tiếng Anh Anh",
+    "masterThai": "Thành thạo tiếng Thái",
+    "withThaiSupport": "với hỗ trợ tiếng Thái",
+    "withEnglishSupport": "với hỗ trợ tiếng Anh",
+    "items": "Mục học tập",
+    "songs": "Bài hát học tập",
+    "conversations": "Hội thoại thực tế",
+    "switchAnytime": "Bạn có thể chuyển ngôn ngữ bất cứ lúc nào trong Cài đặt"
+  },
+  "tabs": {
+    "learn": "Học",
+    "allLessons": "Tất cả bài học",
+    "favorites": "Yêu thích",
+    "settings": "Cài đặt",
+    "progress": "Tiến trình"
+  },
+  "home": {
+    "title": "Học",
+    "subtitle": "Chọn một danh mục để bắt đầu học",
+    "allLessons": "Tất cả bài học",
+    "songsCatalogue": "Danh mục bài hát",
+    "learnThroughMusic": "Học qua âm nhạc"
+  },
+  "categories": {
+    "alphabet": "Bảng chữ cái",
+    "numbers": "Số",
+    "conversations": "Hội thoại",
+    "vocabulary": "Từ vựng",
+    "time": "Thời gian & Ngày",
+    "grammar": "Ngữ pháp",
+    "intermediate": "Trung cấp",
+    "songs": "Bài hát học tập"
+  },
+  "settings": {
+    "learningMode": "Chế độ học",
+    "learningEnglish": "Đang học tiếng Anh",
+    "learningThai": "Đang học tiếng Thái",
+    "tapToSwitch": "Chạm để chuyển ngôn ngữ",
+    "appearance": "Giao diện",
+    "darkMode": "Chế độ tối",
+    "lightMode": "Chế độ sáng",
+    "appLanguage": "Ngôn ngữ ứng dụng",
+    "changeLanguage": "Thay đổi ngôn ngữ hiển thị",
+    "aboutApp": "Về ứng dụng này",
+    "appDescription": "Một ứng dụng học ngôn ngữ hai chiều toàn diện với hơn 575 mục học tập, hỗ trợ người học tiếng Thái và tiếng Anh.",
+    "developer": "Nhà phát triển",
+    "support": "Hỗ trợ & Liên hệ",
+    "emailSupport": "Hỗ trợ qua email",
+    "visitWebsite": "Truy cập trang web",
+    "version": "Phiên bản",
+    "bilingualLearning": "Học hai chiều",
+    "copyright": "Đã đăng ký bản quyền",
+    "madeWithLove": "Được tạo với ❤️ cho người học ngôn ngữ"
+  },
+  "lessons": {
+    "loading": "Đang tải bài học...",
+    "items": "mục",
+    "lesson": "bài học",
+    "lessons": "bài học",
+    "all": "Tất cả",
+    "browseAll": "Duyệt tất cả nội dung học tập"
+  },
+  "common": {
+    "close": "Đóng",
+    "back": "Quay lại",
+    "next": "Tiếp theo",
+    "previous": "Trước",
+    "save": "Lưu",
+    "cancel": "Hủy",
+    "continue": "Tiếp tục",
+    "selectLanguage": "Chọn ngôn ngữ"
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "app": {
+    "name": "LangSwap",
+    "tagline": "Ihre zweisprachige Reise beginnt hier"
+  },
+  "languageSelection": {
+    "title": "Wählen Sie Ihren Lernpfad",
+    "learnEnglish": "Englisch lernen",
+    "learnThai": "Thai lernen",
+    "perfectEnglish": "Perfektionieren Sie Ihr britisches Englisch",
+    "masterThai": "Meistern Sie die thailändische Sprache",
+    "withThaiSupport": "mit thailändischer Sprachunterstützung",
+    "withEnglishSupport": "mit englischer Sprachunterstützung",
+    "items": "Lernelemente",
+    "songs": "Lernlieder",
+    "conversations": "Echte Gespräche",
+    "switchAnytime": "Sie können die Sprache jederzeit in den Einstellungen wechseln"
+  },
+  "tabs": {
+    "learn": "Lernen",
+    "allLessons": "Alle Lektionen",
+    "favorites": "Favoriten",
+    "settings": "Einstellungen",
+    "progress": "Fortschritt"
+  },
+  "home": {
+    "title": "Lernen",
+    "subtitle": "Wählen Sie eine Kategorie, um mit dem Lernen zu beginnen",
+    "allLessons": "Alle Lektionen",
+    "songsCatalogue": "Liederkatalog",
+    "learnThroughMusic": "Lernen durch Musik"
+  },
+  "categories": {
+    "alphabet": "Alphabet",
+    "numbers": "Zahlen",
+    "conversations": "Gespräche",
+    "vocabulary": "Wortschatz",
+    "time": "Zeit & Tage",
+    "grammar": "Grammatik",
+    "intermediate": "Mittelstufe",
+    "songs": "Lernlieder"
+  },
+  "settings": {
+    "learningMode": "Lernmodus",
+    "learningEnglish": "Englisch lernen",
+    "learningThai": "Thai lernen",
+    "tapToSwitch": "Tippen Sie, um die Sprache zu wechseln",
+    "appearance": "Erscheinungsbild",
+    "darkMode": "Dunkler Modus",
+    "lightMode": "Heller Modus",
+    "appLanguage": "App-Sprache",
+    "changeLanguage": "Anzeigesprache ändern",
+    "aboutApp": "Über diese App",
+    "appDescription": "Eine umfassende bidirektionale Sprachlern-App mit über 575 Lernelementen, die sowohl Thai- als auch Englischlernende unterstützt.",
+    "developer": "Entwickler",
+    "support": "Support & Kontakt",
+    "emailSupport": "E-Mail-Support",
+    "visitWebsite": "Website besuchen",
+    "version": "Version",
+    "bilingualLearning": "Bidirektionales Lernen",
+    "copyright": "Alle Rechte vorbehalten",
+    "madeWithLove": "Mit ❤️ für Sprachlernende gemacht"
+  },
+  "lessons": {
+    "loading": "Lektionen werden geladen...",
+    "items": "Elemente",
+    "lesson": "Lektion",
+    "lessons": "Lektionen",
+    "all": "Alle",
+    "browseAll": "Alle Lerninhalte durchsuchen"
+  },
+  "common": {
+    "close": "Schließen",
+    "back": "Zurück",
+    "next": "Weiter",
+    "previous": "Vorherige",
+    "save": "Speichern",
+    "cancel": "Abbrechen",
+    "continue": "Fortfahren",
+    "selectLanguage": "Sprache auswählen"
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "app": {
+    "name": "LangSwap",
+    "tagline": "Votre voyage bilingue commence ici"
+  },
+  "languageSelection": {
+    "title": "Choisissez votre parcours d'apprentissage",
+    "learnEnglish": "Apprendre l'anglais",
+    "learnThai": "Apprendre le thaï",
+    "perfectEnglish": "Perfectionnez votre anglais britannique",
+    "masterThai": "Maîtrisez la langue thaïe",
+    "withThaiSupport": "avec support en langue thaïe",
+    "withEnglishSupport": "avec support en langue anglaise",
+    "items": "Éléments d'apprentissage",
+    "songs": "Chansons d'apprentissage",
+    "conversations": "Vraies conversations",
+    "switchAnytime": "Vous pouvez changer de langue à tout moment dans Paramètres"
+  },
+  "tabs": {
+    "learn": "Apprendre",
+    "allLessons": "Toutes les leçons",
+    "favorites": "Favoris",
+    "settings": "Paramètres",
+    "progress": "Progrès"
+  },
+  "home": {
+    "title": "Apprendre",
+    "subtitle": "Choisissez une catégorie pour commencer l'apprentissage",
+    "allLessons": "Toutes les leçons",
+    "songsCatalogue": "Catalogue de chansons",
+    "learnThroughMusic": "Apprendre par la musique"
+  },
+  "categories": {
+    "alphabet": "Alphabet",
+    "numbers": "Nombres",
+    "conversations": "Conversations",
+    "vocabulary": "Vocabulaire",
+    "time": "Temps et jours",
+    "grammar": "Grammaire",
+    "intermediate": "Intermédiaire",
+    "songs": "Chansons d'apprentissage"
+  },
+  "settings": {
+    "learningMode": "Mode d'apprentissage",
+    "learningEnglish": "Apprentissage de l'anglais",
+    "learningThai": "Apprentissage du thaï",
+    "tapToSwitch": "Appuyez pour changer de langue",
+    "appearance": "Apparence",
+    "darkMode": "Mode sombre",
+    "lightMode": "Mode clair",
+    "appLanguage": "Langue de l'application",
+    "changeLanguage": "Changer la langue d'affichage",
+    "aboutApp": "À propos de cette application",
+    "appDescription": "Une application complète d'apprentissage des langues bidirectionnelle avec plus de 575 éléments d'apprentissage, prenant en charge les apprenants de thaï et d'anglais.",
+    "developer": "Développeur",
+    "support": "Support et contact",
+    "emailSupport": "Support par e-mail",
+    "visitWebsite": "Visiter le site web",
+    "version": "Version",
+    "bilingualLearning": "Apprentissage bidirectionnel",
+    "copyright": "Tous droits réservés",
+    "madeWithLove": "Fait avec ❤️ pour les apprenants de langues"
+  },
+  "lessons": {
+    "loading": "Chargement des leçons...",
+    "items": "éléments",
+    "lesson": "leçon",
+    "lessons": "leçons",
+    "all": "Tous",
+    "browseAll": "Parcourir tout le contenu d'apprentissage"
+  },
+  "common": {
+    "close": "Fermer",
+    "back": "Retour",
+    "next": "Suivant",
+    "previous": "Précédent",
+    "save": "Enregistrer",
+    "cancel": "Annuler",
+    "continue": "Continuer",
+    "selectLanguage": "Sélectionner la langue"
+  }
+}

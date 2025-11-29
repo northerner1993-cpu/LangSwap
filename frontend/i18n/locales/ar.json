@@ -1,0 +1,82 @@
+{
+  "app": {
+    "name": "LangSwap",
+    "tagline": "رحلتك ثنائية اللغة تبدأ هنا"
+  },
+  "languageSelection": {
+    "title": "اختر مسار التعلم الخاص بك",
+    "learnEnglish": "تعلم الإنجليزية",
+    "learnThai": "تعلم التايلاندية",
+    "perfectEnglish": "أتقن الإنجليزية البريطانية",
+    "masterThai": "أتقن اللغة التايلاندية",
+    "withThaiSupport": "مع دعم اللغة التايلاندية",
+    "withEnglishSupport": "مع دعم اللغة الإنجليزية",
+    "items": "عناصر التعلم",
+    "songs": "أغاني التعلم",
+    "conversations": "محادثات حقيقية",
+    "switchAnytime": "يمكنك تبديل اللغات في أي وقت في الإعدادات"
+  },
+  "tabs": {
+    "learn": "تعلم",
+    "allLessons": "جميع الدروس",
+    "favorites": "المفضلة",
+    "settings": "الإعدادات",
+    "progress": "التقدم"
+  },
+  "home": {
+    "title": "تعلم",
+    "subtitle": "اختر فئة لبدء التعلم",
+    "allLessons": "جميع الدروس",
+    "songsCatalogue": "كتالوج الأغاني",
+    "learnThroughMusic": "تعلم من خلال الموسيقى"
+  },
+  "categories": {
+    "alphabet": "الأبجدية",
+    "numbers": "الأرقام",
+    "conversations": "المحادثات",
+    "vocabulary": "المفردات",
+    "time": "الوقت والأيام",
+    "grammar": "القواعد",
+    "intermediate": "متوسط",
+    "songs": "أغاني التعلم"
+  },
+  "settings": {
+    "learningMode": "وضع التعلم",
+    "learningEnglish": "تعلم الإنجليزية",
+    "learningThai": "تعلم التايلاندية",
+    "tapToSwitch": "اضغط لتبديل اللغة",
+    "appearance": "المظهر",
+    "darkMode": "الوضع الداكن",
+    "lightMode": "الوضع الفاتح",
+    "appLanguage": "لغة التطبيق",
+    "changeLanguage": "تغيير لغة العرض",
+    "aboutApp": "حول هذا التطبيق",
+    "appDescription": "تطبيق شامل لتعلم اللغة ثنائي الاتجاه يحتوي على أكثر من 575 عنصر تعليمي، ويدعم متعلمي التايلاندية والإنجليزية.",
+    "developer": "المطور",
+    "support": "الدعم والاتصال",
+    "emailSupport": "دعم البريد الإلكتروني",
+    "visitWebsite": "زيارة الموقع",
+    "version": "الإصدار",
+    "bilingualLearning": "التعلم ثنائي الاتجاه",
+    "copyright": "جميع الحقوق محفوظة",
+    "madeWithLove": "صُنع بـ ❤️ لمتعلمي اللغات"
+  },
+  "lessons": {
+    "loading": "جارٍ تحميل الدروس...",
+    "items": "عناصر",
+    "lesson": "درس",
+    "lessons": "دروس",
+    "all": "الكل",
+    "browseAll": "تصفح جميع محتويات التعلم"
+  },
+  "common": {
+    "close": "إغلاق",
+    "back": "رجوع",
+    "next": "التالي",
+    "previous": "السابق",
+    "save": "حفظ",
+    "cancel": "إلغاء",
+    "continue": "متابعة",
+    "selectLanguage": "اختر اللغة"
+  }
+}

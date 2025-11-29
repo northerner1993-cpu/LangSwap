@@ -1,0 +1,82 @@
+{
+  "app": {
+    "name": "LangSwap",
+    "tagline": "आपकी द्विभाषी यात्रा यहां से शुरू होती है"
+  },
+  "languageSelection": {
+    "title": "अपना सीखने का मार्ग चुनें",
+    "learnEnglish": "अंग्रेजी सीखें",
+    "learnThai": "थाई सीखें",
+    "perfectEnglish": "अपनी ब्रिटिश अंग्रेजी को परिपूर्ण बनाएं",
+    "masterThai": "थाई भाषा में महारत हासिल करें",
+    "withThaiSupport": "थाई भाषा समर्थन के साथ",
+    "withEnglishSupport": "अंग्रेजी भाषा समर्थन के साथ",
+    "items": "सीखने के आइटम",
+    "songs": "सीखने के गीत",
+    "conversations": "वास्तविक बातचीत",
+    "switchAnytime": "आप सेटिंग्स में कभी भी भाषा बदल सकते हैं"
+  },
+  "tabs": {
+    "learn": "सीखें",
+    "allLessons": "सभी पाठ",
+    "favorites": "पसंदीदा",
+    "settings": "सेटिंग्स",
+    "progress": "प्रगति"
+  },
+  "home": {
+    "title": "सीखें",
+    "subtitle": "सीखना शुरू करने के लिए एक श्रेणी चुनें",
+    "allLessons": "सभी पाठ",
+    "songsCatalogue": "गीत कैटलॉग",
+    "learnThroughMusic": "संगीत के माध्यम से सीखें"
+  },
+  "categories": {
+    "alphabet": "वर्णमाला",
+    "numbers": "संख्याएं",
+    "conversations": "बातचीत",
+    "vocabulary": "शब्दावली",
+    "time": "समय और दिन",
+    "grammar": "व्याकरण",
+    "intermediate": "मध्यवर्ती",
+    "songs": "सीखने के गीत"
+  },
+  "settings": {
+    "learningMode": "सीखने का तरीका",
+    "learningEnglish": "अंग्रेजी सीख रहे हैं",
+    "learningThai": "थाई सीख रहे हैं",
+    "tapToSwitch": "भाषा बदलने के लिए टैप करें",
+    "appearance": "दिखावट",
+    "darkMode": "डार्क मोड",
+    "lightMode": "लाइट मोड",
+    "appLanguage": "ऐप की भाषा",
+    "changeLanguage": "प्रदर्शन भाषा बदलें",
+    "aboutApp": "इस ऐप के बारे में",
+    "appDescription": "575+ सीखने के आइटम के साथ एक व्यापक द्विदिशात्मक भाषा सीखने का एप्लिकेशन, जो थाई और अंग्रेजी सीखने वालों का समर्थन करता है।",
+    "developer": "डेवलपर",
+    "support": "समर्थन और संपर्क",
+    "emailSupport": "ईमेल समर्थन",
+    "visitWebsite": "वेबसाइट पर जाएं",
+    "version": "संस्करण",
+    "bilingualLearning": "द्विदिशात्मक सीखना",
+    "copyright": "सर्वाधिकार सुरक्षित",
+    "madeWithLove": "भाषा सीखने वालों के लिए ❤️ से बनाया गया"
+  },
+  "lessons": {
+    "loading": "पाठ लोड हो रहे हैं...",
+    "items": "आइटम",
+    "lesson": "पाठ",
+    "lessons": "पाठ",
+    "all": "सभी",
+    "browseAll": "सभी सीखने की सामग्री ब्राउज़ करें"
+  },
+  "common": {
+    "close": "बंद करें",
+    "back": "वापस",
+    "next": "अगला",
+    "previous": "पिछला",
+    "save": "सहेजें",
+    "cancel": "रद्द करें",
+    "continue": "जारी रखें",
+    "selectLanguage": "भाषा चुनें"
+  }
+}

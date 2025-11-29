@@ -1,0 +1,82 @@
+{
+  "app": {
+    "name": "LangSwap",
+    "tagline": "Your Bilingual Journey Starts Here"
+  },
+  "languageSelection": {
+    "title": "Choose Your Learning Path",
+    "learnEnglish": "Learn English",
+    "learnThai": "Learn Thai",
+    "perfectEnglish": "Perfect Your British English",
+    "masterThai": "Master Thai Language",
+    "withThaiSupport": "with Thai language support",
+    "withEnglishSupport": "with English language support",
+    "items": "Learning Items",
+    "songs": "Learning Songs",
+    "conversations": "Real Conversations",
+    "switchAnytime": "You can switch languages anytime in Settings"
+  },
+  "tabs": {
+    "learn": "Learn",
+    "allLessons": "All Lessons",
+    "favorites": "Favorites",
+    "settings": "Settings",
+    "progress": "Progress"
+  },
+  "home": {
+    "title": "Learn",
+    "subtitle": "Choose a category to start learning",
+    "allLessons": "All Lessons",
+    "songsCatalogue": "Songs Catalogue",
+    "learnThroughMusic": "Learn through music"
+  },
+  "categories": {
+    "alphabet": "Alphabet",
+    "numbers": "Numbers",
+    "conversations": "Conversations",
+    "vocabulary": "Vocabulary",
+    "time": "Time & Days",
+    "grammar": "Grammar",
+    "intermediate": "Intermediate",
+    "songs": "Learning Songs"
+  },
+  "settings": {
+    "learningMode": "Learning Mode",
+    "learningEnglish": "Learning English",
+    "learningThai": "Learning Thai",
+    "tapToSwitch": "Tap to switch language",
+    "appearance": "Appearance",
+    "darkMode": "Dark Mode",
+    "lightMode": "Light Mode",
+    "appLanguage": "App Language",
+    "changeLanguage": "Change app display language",
+    "aboutApp": "About This App",
+    "appDescription": "A comprehensive bidirectional language learning application with 575+ learning items, supporting both Thai and English learners.",
+    "developer": "Developer",
+    "support": "Support & Contact",
+    "emailSupport": "Email Support",
+    "visitWebsite": "Visit Website",
+    "version": "Version",
+    "bilingualLearning": "Bidirectional Learning",
+    "copyright": "All Rights Reserved",
+    "madeWithLove": "Made with ❤️ for Language Learners"
+  },
+  "lessons": {
+    "loading": "Loading lessons...",
+    "items": "items",
+    "lesson": "lesson",
+    "lessons": "lessons",
+    "all": "All",
+    "browseAll": "Browse all available learning content"
+  },
+  "common": {
+    "close": "Close",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "save": "Save",
+    "cancel": "Cancel",
+    "continue": "Continue",
+    "selectLanguage": "Select Language"
+  }
+}

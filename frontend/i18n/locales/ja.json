@@ -1,0 +1,82 @@
+{
+  "app": {
+    "name": "LangSwap",
+    "tagline": "バイリンガルの旅はここから始まります"
+  },
+  "languageSelection": {
+    "title": "学習パスを選択",
+    "learnEnglish": "英語を学ぶ",
+    "learnThai": "タイ語を学ぶ",
+    "perfectEnglish": "イギリス英語を完璧に",
+    "masterThai": "タイ語をマスター",
+    "withThaiSupport": "タイ語サポート付き",
+    "withEnglishSupport": "英語サポート付き",
+    "items": "学習項目",
+    "songs": "学習ソング",
+    "conversations": "リアルな会話",
+    "switchAnytime": "設定でいつでも言語を切り替えられます"
+  },
+  "tabs": {
+    "learn": "学習",
+    "allLessons": "すべてのレッスン",
+    "favorites": "お気に入り",
+    "settings": "設定",
+    "progress": "進捗"
+  },
+  "home": {
+    "title": "学習",
+    "subtitle": "カテゴリーを選んで学習を始めましょう",
+    "allLessons": "すべてのレッスン",
+    "songsCatalogue": "ソングカタログ",
+    "learnThroughMusic": "音楽を通じて学ぶ"
+  },
+  "categories": {
+    "alphabet": "アルファベット",
+    "numbers": "数字",
+    "conversations": "会話",
+    "vocabulary": "語彙",
+    "time": "時間と曜日",
+    "grammar": "文法",
+    "intermediate": "中級",
+    "songs": "学習ソング"
+  },
+  "settings": {
+    "learningMode": "学習モード",
+    "learningEnglish": "英語を学習中",
+    "learningThai": "タイ語を学習中",
+    "tapToSwitch": "タップして言語を切り替え",
+    "appearance": "外観",
+    "darkMode": "ダークモード",
+    "lightMode": "ライトモード",
+    "appLanguage": "アプリの言語",
+    "changeLanguage": "表示言語を変更",
+    "aboutApp": "このアプリについて",
+    "appDescription": "575以上の学習項目を持つ包括的な双方向言語学習アプリケーション。タイ語と英語の学習者をサポートします。",
+    "developer": "開発者",
+    "support": "サポート＆お問い合わせ",
+    "emailSupport": "メールサポート",
+    "visitWebsite": "ウェブサイトを訪問",
+    "version": "バージョン",
+    "bilingualLearning": "双方向学習",
+    "copyright": "すべての権利を保有",
+    "madeWithLove": "言語学習者のために❤️で作成"
+  },
+  "lessons": {
+    "loading": "レッスンを読み込んでいます...",
+    "items": "項目",
+    "lesson": "レッスン",
+    "lessons": "レッスン",
+    "all": "すべて",
+    "browseAll": "すべての学習コンテンツを閲覧"
+  },
+  "common": {
+    "close": "閉じる",
+    "back": "戻る",
+    "next": "次へ",
+    "previous": "前へ",
+    "save": "保存",
+    "cancel": "キャンセル",
+    "continue": "続ける",
+    "selectLanguage": "言語を選択"
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "app": {
+    "name": "LangSwap",
+    "tagline": "您的双语之旅从这里开始"
+  },
+  "languageSelection": {
+    "title": "选择您的学习路径",
+    "learnEnglish": "学习英语",
+    "learnThai": "学习泰语",
+    "perfectEnglish": "完善您的英式英语",
+    "masterThai": "掌握泰语",
+    "withThaiSupport": "泰语语言支持",
+    "withEnglishSupport": "英语语言支持",
+    "items": "学习项目",
+    "songs": "学习歌曲",
+    "conversations": "真实对话",
+    "switchAnytime": "您可以随时在设置中切换语言"
+  },
+  "tabs": {
+    "learn": "学习",
+    "allLessons": "所有课程",
+    "favorites": "收藏",
+    "settings": "设置",
+    "progress": "进度"
+  },
+  "home": {
+    "title": "学习",
+    "subtitle": "选择一个类别开始学习",
+    "allLessons": "所有课程",
+    "songsCatalogue": "歌曲目录",
+    "learnThroughMusic": "通过音乐学习"
+  },
+  "categories": {
+    "alphabet": "字母",
+    "numbers": "数字",
+    "conversations": "对话",
+    "vocabulary": "词汇",
+    "time": "时间与日期",
+    "grammar": "语法",
+    "intermediate": "中级",
+    "songs": "学习歌曲"
+  },
+  "settings": {
+    "learningMode": "学习模式",
+    "learningEnglish": "正在学习英语",
+    "learningThai": "正在学习泰语",
+    "tapToSwitch": "点击切换语言",
+    "appearance": "外观",
+    "darkMode": "深色模式",
+    "lightMode": "浅色模式",
+    "appLanguage": "应用语言",
+    "changeLanguage": "更改显示语言",
+    "aboutApp": "关于此应用",
+    "appDescription": "一款全面的双向语言学习应用程序，拥有超过575个学习项目，支持泰语和英语学习者。",
+    "developer": "开发者",
+    "support": "支持与联系",
+    "emailSupport": "电子邮件支持",
+    "visitWebsite": "访问网站",
+    "version": "版本",
+    "bilingualLearning": "双向学习",
+    "copyright": "保留所有权利",
+    "madeWithLove": "为语言学习者用❤️制作"
+  },
+  "lessons": {
+    "loading": "正在加载课程...",
+    "items": "项目",
+    "lesson": "课程",
+    "lessons": "课程",
+    "all": "全部",
+    "browseAll": "浏览所有学习内容"
+  },
+  "common": {
+    "close": "关闭",
+    "back": "返回",
+    "next": "下一个",
+    "previous": "上一个",
+    "save": "保存",
+    "cancel": "取消",
+    "continue": "继续",
+    "selectLanguage": "选择语言"
+  }
+}

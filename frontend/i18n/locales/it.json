@@ -1,0 +1,82 @@
+{
+  "app": {
+    "name": "LangSwap",
+    "tagline": "Il tuo viaggio bilingue inizia qui"
+  },
+  "languageSelection": {
+    "title": "Scegli il tuo percorso di apprendimento",
+    "learnEnglish": "Impara l'inglese",
+    "learnThai": "Impara il tailandese",
+    "perfectEnglish": "Perfeziona il tuo inglese britannico",
+    "masterThai": "Padroneggia la lingua tailandese",
+    "withThaiSupport": "con supporto in lingua tailandese",
+    "withEnglishSupport": "con supporto in lingua inglese",
+    "items": "Elementi di apprendimento",
+    "songs": "Canzoni di apprendimento",
+    "conversations": "Conversazioni reali",
+    "switchAnytime": "Puoi cambiare lingua in qualsiasi momento nelle Impostazioni"
+  },
+  "tabs": {
+    "learn": "Impara",
+    "allLessons": "Tutte le lezioni",
+    "favorites": "Preferiti",
+    "settings": "Impostazioni",
+    "progress": "Progresso"
+  },
+  "home": {
+    "title": "Impara",
+    "subtitle": "Scegli una categoria per iniziare ad imparare",
+    "allLessons": "Tutte le lezioni",
+    "songsCatalogue": "Catalogo canzoni",
+    "learnThroughMusic": "Impara attraverso la musica"
+  },
+  "categories": {
+    "alphabet": "Alfabeto",
+    "numbers": "Numeri",
+    "conversations": "Conversazioni",
+    "vocabulary": "Vocabolario",
+    "time": "Tempo e giorni",
+    "grammar": "Grammatica",
+    "intermediate": "Intermedio",
+    "songs": "Canzoni di apprendimento"
+  },
+  "settings": {
+    "learningMode": "Modalità di apprendimento",
+    "learningEnglish": "Imparare l'inglese",
+    "learningThai": "Imparare il tailandese",
+    "tapToSwitch": "Tocca per cambiare lingua",
+    "appearance": "Aspetto",
+    "darkMode": "Modalità scura",
+    "lightMode": "Modalità chiara",
+    "appLanguage": "Lingua dell'app",
+    "changeLanguage": "Cambia lingua di visualizzazione",
+    "aboutApp": "Informazioni su questa app",
+    "appDescription": "Un'applicazione completa per l'apprendimento delle lingue bidirezionale con oltre 575 elementi di apprendimento, a supporto degli studenti di tailandese e inglese.",
+    "developer": "Sviluppatore",
+    "support": "Supporto e contatti",
+    "emailSupport": "Supporto via email",
+    "visitWebsite": "Visita il sito web",
+    "version": "Versione",
+    "bilingualLearning": "Apprendimento bidirezionale",
+    "copyright": "Tutti i diritti riservati",
+    "madeWithLove": "Fatto con ❤️ per gli studenti di lingue"
+  },
+  "lessons": {
+    "loading": "Caricamento lezioni...",
+    "items": "elementi",
+    "lesson": "lezione",
+    "lessons": "lezioni",
+    "all": "Tutti",
+    "browseAll": "Sfoglia tutti i contenuti di apprendimento"
+  },
+  "common": {
+    "close": "Chiudi",
+    "back": "Indietro",
+    "next": "Avanti",
+    "previous": "Precedente",
+    "save": "Salva",
+    "cancel": "Annulla",
+    "continue": "Continua",
+    "selectLanguage": "Seleziona lingua"
+  }
+}

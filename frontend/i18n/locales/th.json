@@ -1,0 +1,82 @@
+{
+  "app": {
+    "name": "LangSwap",
+    "tagline": "การเดินทางสองภาษาของคุณเริ่มต้นที่นี่"
+  },
+  "languageSelection": {
+    "title": "เลือกเส้นทางการเรียนรู้ของคุณ",
+    "learnEnglish": "เรียนภาษาอังกฤษ",
+    "learnThai": "เรียนภาษาไทย",
+    "perfectEnglish": "พัฒนาภาษาอังกฤษแบบบริติช",
+    "masterThai": "เชี่ยวชาญภาษาไทย",
+    "withThaiSupport": "พร้อมการสนับสนุนภาษาไทย",
+    "withEnglishSupport": "พร้อมการสนับสนุนภาษาอังกฤษ",
+    "items": "รายการเรียนรู้",
+    "songs": "เพลงเพื่อการเรียนรู้",
+    "conversations": "บทสนทนาจริง",
+    "switchAnytime": "คุณสามารถเปลี่ยนภาษาได้ตลอดเวลาในการตั้งค่า"
+  },
+  "tabs": {
+    "learn": "เรียน",
+    "allLessons": "บทเรียนทั้งหมด",
+    "favorites": "รายการโปรด",
+    "settings": "การตั้งค่า",
+    "progress": "ความคืบหน้า"
+  },
+  "home": {
+    "title": "เรียน",
+    "subtitle": "เลือกหมวดหมู่เพื่อเริ่มเรียนรู้",
+    "allLessons": "บทเรียนทั้งหมด",
+    "songsCatalogue": "คลังเพลง",
+    "learnThroughMusic": "เรียนรู้ผ่านดนตรี"
+  },
+  "categories": {
+    "alphabet": "ตัวอักษร",
+    "numbers": "ตัวเลข",
+    "conversations": "บทสนทนา",
+    "vocabulary": "คำศัพท์",
+    "time": "เวลาและวัน",
+    "grammar": "ไวยากรณ์",
+    "intermediate": "ระดับกลาง",
+    "songs": "เพลงเพื่อการเรียนรู้"
+  },
+  "settings": {
+    "learningMode": "โหมดการเรียนรู้",
+    "learningEnglish": "กำลังเรียนภาษาอังกฤษ",
+    "learningThai": "กำลังเรียนภาษาไทย",
+    "tapToSwitch": "แตะเพื่อเปลี่ยนภาษา",
+    "appearance": "การแสดงผล",
+    "darkMode": "โหมดมืด",
+    "lightMode": "โหมดสว่าง",
+    "appLanguage": "ภาษาของแอป",
+    "changeLanguage": "เปลี่ยนภาษาที่แสดงในแอป",
+    "aboutApp": "เกี่ยวกับแอป",
+    "appDescription": "แอปพลิเคชันการเรียนรู้ภาษาสองทิศทางที่ครอบคลุม พร้อมรายการเรียนรู้มากกว่า 575 รายการ รองรับทั้งผู้เรียนภาษาไทยและภาษาอังกฤษ",
+    "developer": "ผู้พัฒนา",
+    "support": "สนับสนุนและติดต่อ",
+    "emailSupport": "สนับสนุนทางอีเมล",
+    "visitWebsite": "เยี่ยมชมเว็บไซต์",
+    "version": "เวอร์ชัน",
+    "bilingualLearning": "การเรียนรู้สองทิศทาง",
+    "copyright": "สงวนลิขสิทธิ์",
+    "madeWithLove": "สร้างด้วย ❤️ สำหรับผู้เรียนภาษา"
+  },
+  "lessons": {
+    "loading": "กำลังโหลดบทเรียน...",
+    "items": "รายการ",
+    "lesson": "บทเรียน",
+    "lessons": "บทเรียน",
+    "all": "ทั้งหมด",
+    "browseAll": "เรียกดูเนื้อหาการเรียนรู้ทั้งหมด"
+  },
+  "common": {
+    "close": "ปิด",
+    "back": "กลับ",
+    "next": "ถัดไป",
+    "previous": "ก่อนหน้า",
+    "save": "บันทึก",
+    "cancel": "ยกเลิก",
+    "continue": "ดำเนินการต่อ",
+    "selectLanguage": "เลือกภาษา"
+  }
+}
