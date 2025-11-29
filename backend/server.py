@@ -806,6 +806,21 @@ async def initialize_data(force: bool = False):
         {"thai": "แปดสิบ เก้าสิบ หนึ่งร้อย!", "romanization": "bpaet-sip gao-sip neung-roi!", "english": "Eighty, Ninety, One Hundred!", "example": "Reach 100 - Victory!"},
     ]
     
+    # Daily Routine Song
+    daily_routine_song_data = [
+        {"thai": "ตอนเช้าตื่นนอน", "romanization": "torn-chao teun-norn", "english": "In the morning, wake up", "example": "Morning routine starts"},
+        {"thai": "แปรงฟันล้างหน้า", "romanization": "bpraeng-fan laang-naa", "english": "Brush teeth, wash face", "example": "Hygiene routine"},
+        {"thai": "กินข้าวเช้าอร่อย", "romanization": "gin-khao-chao aroi", "english": "Eat delicious breakfast", "example": "Breakfast time"},
+        {"thai": "ไปโรงเรียน", "romanization": "pai roong-riian", "english": "Go to school", "example": "Morning activity"},
+        {"thai": "เรียนหนังสือตั้งใจ", "romanization": "riian nang-sue tang-jai", "english": "Study books diligently", "example": "School time"},
+        {"thai": "กลับบ้านตอนเย็น", "romanization": "glap-baan torn-yen", "english": "Return home in the evening", "example": "After school"},
+        {"thai": "ทำการบ้านเสร็จ", "romanization": "tham gaan-baan set", "english": "Finish homework", "example": "Evening routine"},
+        {"thai": "เล่นกับเพื่อน", "romanization": "len gap phuean", "english": "Play with friends", "example": "Recreation time"},
+        {"thai": "กินข้าวเย็นกับครอบครัว", "romanization": "gin khao-yen gap khrop-khrua", "english": "Eat dinner with family", "example": "Family time"},
+        {"thai": "อาบน้ำก่อนนอน", "romanization": "aap-naam gorn-norn", "english": "Take a bath before bed", "example": "Bedtime prep"},
+        {"thai": "นอนหลับฝันดี", "romanization": "norn-lap fan-dii", "english": "Sleep well, sweet dreams", "example": "Goodnight"},
+    ]
+    
     lessons = [
         {
             "title": "Thai Consonants",
