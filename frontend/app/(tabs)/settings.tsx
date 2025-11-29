@@ -44,10 +44,10 @@ export default function SettingsScreen() {
             <Ionicons name="language" size={48} color={colors.primary} />
           </View>
           <Text style={[styles.appTitle, { color: colors.text }]}>
-            Thai Language Learning
+            LangSwap
           </Text>
           <Text style={[styles.appVersion, { color: colors.textSecondary }]}>
-            Version 1.0.0
+            Version 1.0.0 • Bidirectional Learning
           </Text>
         </View>
 
