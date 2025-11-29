@@ -14,6 +14,7 @@ import { useRouter } from 'expo-router';
 import Constants from 'expo-constants';
 import { useTheme } from '../../contexts/ThemeContext';
 import { useLanguageMode } from '../../contexts/LanguageModeContext';
+import LanguageSwapFAB from '../../components/LanguageSwapFAB';
 
 const API_URL = Constants.expoConfig?.extra?.EXPO_PUBLIC_BACKEND_URL || process.env.EXPO_PUBLIC_BACKEND_URL;
 
