@@ -382,17 +382,18 @@ const styles = StyleSheet.create({
   headerRight: {
     flexDirection: 'row',
     alignItems: 'center',
+    gap: 8,
   },
-  speakerButton: {
-    padding: 8,
-    marginRight: 4,
+  iconButton: {
+    padding: 10,
+    borderRadius: 12,
+    justifyContent: 'center',
+    alignItems: 'center',
+    minWidth: 44,
+    minHeight: 44,
   },
-  speakerButtonActive: {
+  iconButtonActive: {
     backgroundColor: '#DCFCE7',
-    borderRadius: 8,
-  },
-  favoriteButton: {
-    padding: 8,
   },
   progressContainer: {
     height: 4,
