@@ -375,18 +375,30 @@ async def initialize_data(force: bool = False):
         {"thai": "หนึ่งล้าน", "romanization": "neung-laan", "english": "1,000,000", "example": "one million"}
     ]
     
-    # Greetings
+    # Greetings (Expanded - Easy to Intermediate)
     greetings_data = [
+        # Easy Level
         {"thai": "สวัสดี", "romanization": "sawatdee", "english": "Hello / Goodbye", "example": "สวัสดีครับ (male) / สวัสดีค่ะ (female)"},
         {"thai": "สบายดีไหม", "romanization": "sabai dee mai", "english": "How are you?", "example": "คุณสบายดีไหม"},
         {"thai": "สบายดี", "romanization": "sabai dee", "english": "I'm fine", "example": "สบายดีครับ"},
-        {"thai": "ขอบคุณ", "romanization": "khob khun", "english": "Thank you", "example": "ขอบคุณมากครับ (thank you very much)"},
+        {"thai": "ขอบคุณ", "romanization": "khob khun", "english": "Thank you", "example": "ขอบคุณมากครับ"},
+        {"thai": "ขอบคุณมาก", "romanization": "khob khun maak", "english": "Thank you very much", "example": "ขอบคุณมากค่ะ"},
         {"thai": "ขอโทษ", "romanization": "khor thot", "english": "Sorry / Excuse me", "example": "ขอโทษครับ"},
         {"thai": "ไม่เป็นไร", "romanization": "mai pen rai", "english": "You're welcome / No problem", "example": "ไม่เป็นไรค่ะ"},
-        {"thai": "ยินดีที่ได้รู้จัก", "romanization": "yin dee tii dai ruu jak", "english": "Nice to meet you", "example": "ยินดีที่ได้รู้จักครับ"},
         {"thai": "ลาก่อน", "romanization": "laa gorn", "english": "Goodbye", "example": "ลาก่อนค่ะ"},
+        {"thai": "แล้วพบกันใหม่", "romanization": "laew phob gan mai", "english": "See you again", "example": "แล้วพบกันใหม่นะ"},
         {"thai": "ราตรีสวัสดิ์", "romanization": "raat-rii sawat", "english": "Good night", "example": "ราตรีสวัสดิ์ครับ"},
+        # Intermediate Level
+        {"thai": "ยินดีที่ได้รู้จัก", "romanization": "yin dee tii dai ruu jak", "english": "Nice to meet you", "example": "ยินดีที่ได้รู้จักครับ"},
+        {"thai": "ยินดีต้อนรับ", "romanization": "yin dee torn rap", "english": "Welcome", "example": "ยินดีต้อนรับสู่ประเทศไทย"},
         {"thai": "ฉันชื่อ...", "romanization": "chan chuu...", "english": "My name is...", "example": "ฉันชื่อจอห์น"},
+        {"thai": "คุณชื่ออะไร", "romanization": "khun chuu arai", "english": "What is your name?", "example": "คุณชื่ออะไรครับ"},
+        {"thai": "คุณมาจากไหน", "romanization": "khun maa jaak nai", "english": "Where are you from?", "example": "คุณมาจากประเทศอะไร"},
+        {"thai": "ฉันมาจาก...", "romanization": "chan maa jaak...", "english": "I'm from...", "example": "ฉันมาจากอเมริกา"},
+        {"thai": "ยินดีที่ได้พบคุณ", "romanization": "yin dee tii dai phob khun", "english": "Pleased to meet you", "example": "ยินดีที่ได้พบคุณมาก"},
+        {"thai": "เป็นอย่างไรบ้าง", "romanization": "pen yaang rai baang", "english": "How is everything?", "example": "วันนี้เป็นอย่างไรบ้าง"},
+        {"thai": "ดีใจที่เจอกัน", "romanization": "dee jai tii jer gan", "english": "Happy to see you", "example": "ดีใจที่เจอกันอีกครั้ง"},
+        {"thai": "คิดถึง", "romanization": "khit thueng", "english": "Miss you", "example": "คิดถึงมากเลย"},
     ]
     
     # Common Phrases
