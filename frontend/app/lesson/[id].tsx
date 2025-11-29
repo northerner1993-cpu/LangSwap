@@ -229,19 +229,36 @@ export default function LessonScreen() {
         <View style={styles.headerRight}>
           <TouchableOpacity
             onPress={() => speakThai(currentItem.thai)}
-            style={[styles.speakerButton, isSpeaking && styles.speakerButtonActive]}
+            style={[
+              styles.iconButton, 
+              isSpeaking && styles.iconButtonActive,
+              { backgroundColor: colors.inputBackground }
+            ]}
           >
             <Ionicons 
               name={isSpeaking ? "volume-high" : "volume-medium"} 
-              size={24} 
-              color={isSpeaking ? "#10B981" : "#4F46E5"} 
+              size={22} 
+              color={isSpeaking ? colors.success : colors.primary} 
             />
           </TouchableOpacity>
-          <TouchableOpacity onPress={toggleFavorite} style={styles.favoriteButton}>
+          <TouchableOpacity
+            onPress={toggleTheme}
+            style={[styles.iconButton, { backgroundColor: colors.inputBackground }]}
+          >
+            <Ionicons 
+              name={theme === 'dark' ? 'sunny' : 'moon'} 
+              size={22} 
+              color={colors.warning} 
+            />
+          </TouchableOpacity>
+          <TouchableOpacity 
+            onPress={toggleFavorite} 
+            style={[styles.iconButton, { backgroundColor: colors.inputBackground }]}
+          >
             <Ionicons
               name={favorites.has(currentIndex) ? 'heart' : 'heart-outline'}
-              size={24}
-              color={favorites.has(currentIndex) ? '#EF4444' : '#9CA3AF'}
+              size={22}
+              color={favorites.has(currentIndex) ? colors.error : colors.textSecondary}
             />
           </TouchableOpacity>
         </View>
