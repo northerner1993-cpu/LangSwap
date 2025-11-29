@@ -48,11 +48,12 @@ export default function AllLessonsScreen() {
 
   useEffect(() => {
     loadLessons();
-  }, []);
+  }, [languageMode]);
 
   const loadLessons = async () => {
     try {
-      const response = await fetch(`${API_URL}/api/lessons`);
+      const modeParam = languageMode ? `?language_mode=${languageMode}` : '';
+      const response = await fetch(`${API_URL}/api/lessons${modeParam}`);
       const data = await response.json();
       setLessons(data);
     } catch (error) {
