@@ -37,12 +37,14 @@ interface Lesson {
 export default function LessonScreen() {
   const { id } = useLocalSearchParams();
   const router = useRouter();
+  const { theme, toggleTheme, colors } = useTheme();
   const [lesson, setLesson] = useState<Lesson | null>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showAnswer, setShowAnswer] = useState(false);
   const [favorites, setFavorites] = useState<Set<number>>(new Set());
   const [completedItems, setCompletedItems] = useState<Set<number>>(new Set());
   const [loading, setLoading] = useState(true);
+  const [isSpeaking, setIsSpeaking] = useState(false);
 
   useEffect(() => {
     loadLesson();
