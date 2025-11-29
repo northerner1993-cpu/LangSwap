@@ -106,7 +106,7 @@ export default function LessonScreen() {
     }
   };
 
-  const speakThai = async (text: string) => {
+  const speak = async (text: string) => {
     try {
       // Check if speech is available
       const available = await Speech.isSpeakingAsync();
@@ -118,9 +118,14 @@ export default function LessonScreen() {
       
       setIsSpeaking(true);
       
-      // Speak the Thai text with Thai language settings
+      // Determine language based on lesson's language_mode
+      const isEnglishLesson = lesson?.language_mode === 'learn-english';
+      const languageCode = isEnglishLesson ? 'en-GB' : 'th-TH'; // British English or Thai
+      const languageName = isEnglishLesson ? 'English' : 'Thai';
+      
+      // Speak the text with appropriate language settings
       Speech.speak(text, {
-        language: 'th-TH', // Thai language
+        language: languageCode,
         pitch: 1.0,
         rate: 0.75, // Slightly slower for learning
         onDone: () => setIsSpeaking(false),
@@ -129,16 +134,17 @@ export default function LessonScreen() {
           setIsSpeaking(false);
           Alert.alert(
             'Audio Not Available', 
-            'Text-to-speech works on mobile devices. On web, Thai audio is not supported by browsers. Please use the Expo Go app on your phone for full audio features.'
+            `Text-to-speech works on mobile devices. On web, ${languageName} audio is not supported by browsers. Please use the Expo Go app on your phone for full audio features.`
           );
         },
       });
     } catch (error) {
       console.error('Error speaking:', error);
       setIsSpeaking(false);
+      const languageName = lesson?.language_mode === 'learn-english' ? 'English' : 'Thai';
       Alert.alert(
         'Audio Feature', 
-        'For best experience with Thai pronunciation, please use the mobile app (Expo Go). Web browsers have limited Thai TTS support.'
+        `For best experience with ${languageName} pronunciation, please use the mobile app (Expo Go). Web browsers have limited TTS support.`
       );
     }
   };
