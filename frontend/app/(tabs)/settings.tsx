@@ -223,16 +223,53 @@ export default function SettingsScreen() {
           </TouchableOpacity>
         </View>
 
-        {/* Copyright */}
+        {/* Legal & Copyright Information */}
+        <View style={[styles.legalCard, { backgroundColor: colors.card, borderColor: colors.border }]}>
+          <View style={styles.legalHeader}>
+            <Ionicons name="shield-checkmark" size={24} color={colors.primary} />
+            <Text style={[styles.legalTitle, { color: colors.text }]}>Legal Information</Text>
+          </View>
+          
+          <View style={styles.legalContent}>
+            <Text style={[styles.copyrightText, { color: colors.text }]}>
+              © 2025 Jake Adamson
+            </Text>
+            <Text style={[styles.copyrightSubtext, { color: colors.textSecondary }]}>
+              All Rights Reserved Worldwide
+            </Text>
+            
+            <View style={styles.divider} />
+            
+            <Text style={[styles.legalNotice, { color: colors.textSecondary }]}>
+              LangSwap™ is a registered trademark of Jake Adamson. This application, including all content, features, and functionality, is protected by international copyright, trademark, and other intellectual property laws.
+            </Text>
+            
+            <Text style={[styles.legalNotice, { color: colors.textSecondary }]}>
+              Created, Developed, and Owned by Jake Adamson.
+            </Text>
+            
+            <View style={styles.divider} />
+            
+            <View style={styles.protectionBadges}>
+              <View style={[styles.badge, { backgroundColor: colors.success + '15' }]}>
+                <Ionicons name="shield-checkmark" size={14} color={colors.success} />
+                <Text style={[styles.badgeText, { color: colors.success }]}>Copyright Protected</Text>
+              </View>
+              <View style={[styles.badge, { backgroundColor: colors.primary + '15' }]}>
+                <Ionicons name="globe" size={14} color={colors.primary} />
+                <Text style={[styles.badgeText, { color: colors.primary }]}>Global Rights</Text>
+              </View>
+            </View>
+          </View>
+        </View>
+
+        {/* Footer Love Message */}
         <View style={styles.footer}>
-          <Text style={[styles.copyrightText, { color: colors.textSecondary }]}>
-            © 2025 Jake Adamson
-          </Text>
-          <Text style={[styles.copyrightText, { color: colors.textSecondary }]}>
-            All Rights Reserved
-          </Text>
           <Text style={[styles.loveText, { color: colors.textSecondary }]}>
-            Made with ❤️ for Thai Language Learners
+            Made with ❤️ for Language Learners Worldwide
+          </Text>
+          <Text style={[styles.smallText, { color: colors.textSecondary }]}>
+            Empowering communication across cultures
           </Text>
         </View>
 
