@@ -307,6 +307,9 @@ const styles = StyleSheet.create({
     fontSize: 13,
     marginTop: 2,
   },
+  flagLarge: {
+    fontSize: 32,
+  },
   iconCircle: {
     width: 40,
     height: 40,
