@@ -87,22 +87,30 @@ export default function FavoritesScreen() {
 
         {favorites.length === 0 ? (
           <View style={styles.emptyContainer}>
-            <Ionicons name="heart-outline" size={64} color="#D1D5DB" />
+            <View style={styles.emptyIconCircle}>
+              <Ionicons name="heart-outline" size={48} color="#EF4444" />
+            </View>
             <Text style={styles.emptyTitle}>No favorites yet</Text>
             <Text style={styles.emptyText}>
-              Tap the heart icon while learning to save your favorite phrases
+              Tap the ❤️ icon while learning to save your favorite Thai words and phrases here
             </Text>
           </View>
         ) : (
           <View style={styles.favoritesContainer}>
             {favorites.map((favorite) => (
               <View key={favorite._id} style={styles.favoriteCard}>
+                <View style={styles.favoriteIconBadge}>
+                  <Ionicons name="heart" size={16} color="#FFFFFF" />
+                </View>
                 <View style={styles.favoriteContent}>
                   <Text style={styles.thaiText}>{favorite.item_data.thai}</Text>
                   <Text style={styles.romanText}>{favorite.item_data.romanization}</Text>
                   <Text style={styles.englishText}>{favorite.item_data.english}</Text>
                   {favorite.item_data.example && (
-                    <Text style={styles.exampleText}>{favorite.item_data.example}</Text>
+                    <View style={styles.exampleContainer}>
+                      <Ionicons name="bulb-outline" size={14} color="#F59E0B" />
+                      <Text style={styles.exampleText}>{favorite.item_data.example}</Text>
+                    </View>
                   )}
                 </View>
                 <TouchableOpacity
@@ -110,7 +118,7 @@ export default function FavoritesScreen() {
                   style={styles.heartButton}
                   activeOpacity={0.7}
                 >
-                  <Ionicons name="heart" size={24} color="#EF4444" />
+                  <Ionicons name="heart-dislike" size={22} color="#9CA3AF" />
                 </TouchableOpacity>
               </View>
             ))}
