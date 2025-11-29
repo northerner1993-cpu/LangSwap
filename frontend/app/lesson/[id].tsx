@@ -105,8 +105,6 @@ export default function LessonScreen() {
     }
   };
 
-  const [isSpeaking, setIsSpeaking] = useState(false);
-
   const speakThai = async (text: string) => {
     try {
       // Check if speech is available
