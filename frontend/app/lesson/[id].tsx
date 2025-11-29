@@ -301,14 +301,30 @@ export default function LessonScreen() {
               </>
             ) : (
               <>
-                <Text style={styles.thaiTextSmall}>{currentItem.thai}</Text>
-                <Text style={styles.romanText}>{currentItem.romanization}</Text>
-                <Text style={styles.englishText}>{currentItem.english}</Text>
-                {currentItem.example && (
-                  <View style={styles.exampleContainer}>
-                    <Text style={styles.exampleLabel}>Example:</Text>
-                    <Text style={styles.exampleText}>{currentItem.example}</Text>
-                  </View>
+                {lesson.language_mode === 'learn-english' ? (
+                  <>
+                    <Text style={styles.thaiTextSmall}>{currentItem.english}</Text>
+                    <Text style={styles.romanText}>{currentItem.romanization}</Text>
+                    <Text style={styles.englishText}>{currentItem.thai}</Text>
+                    {currentItem.example && (
+                      <View style={styles.exampleContainer}>
+                        <Text style={styles.exampleLabel}>Example:</Text>
+                        <Text style={styles.exampleText}>{currentItem.example}</Text>
+                      </View>
+                    )}
+                  </>
+                ) : (
+                  <>
+                    <Text style={styles.thaiTextSmall}>{currentItem.thai}</Text>
+                    <Text style={styles.romanText}>{currentItem.romanization}</Text>
+                    <Text style={styles.englishText}>{currentItem.english}</Text>
+                    {currentItem.example && (
+                      <View style={styles.exampleContainer}>
+                        <Text style={styles.exampleLabel}>Example:</Text>
+                        <Text style={styles.exampleText}>{currentItem.example}</Text>
+                      </View>
+                    )}
+                  </>
                 )}
               </>
             )}
