@@ -156,12 +156,20 @@ async def get_favorites(user_id: str = "default_user"):
         f["_id"] = str(f["_id"])
     return favorites
 
+@api_router.post("/clear-data")
+async def clear_data():
+    """Clear all lessons data"""
+    await db.lessons.delete_many({})
+    await db.progress.delete_many({})
+    await db.favorites.delete_many({})
+    return {"message": "All data cleared"}
+
 @api_router.post("/init-data")
-async def initialize_data():
+async def initialize_data(force: bool = False):
     """Initialize database with Thai learning content"""
     # Check if data already exists
     count = await db.lessons.count_documents({})
-    if count > 0:
+    if count > 0 and not force:
         return {"message": "Data already initialized", "count": count}
     
     # Thai Consonants
