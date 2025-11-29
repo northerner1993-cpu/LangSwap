@@ -1360,6 +1360,33 @@ async def initialize_data(force: bool = False):
             "items": english_animals,
             "order": 5,
             "language_mode": "learn-english"
+        },
+        {
+            "title": "ABC Song",
+            "category": "songs",
+            "subcategory": "alphabet",
+            "description": "Learn English alphabet through the classic ABC song",
+            "items": english_alphabet_song,
+            "order": 6,
+            "language_mode": "learn-english"
+        },
+        {
+            "title": "Numbers Song (1-12)",
+            "category": "songs",
+            "subcategory": "numbers",
+            "description": "Fun English counting song with rhymes",
+            "items": english_numbers_song,
+            "order": 7,
+            "language_mode": "learn-english"
+        },
+        {
+            "title": "Colors Song (Rainbow)",
+            "category": "songs",
+            "subcategory": "colors",
+            "description": "Learn colors in English through the Rainbow song",
+            "items": english_colors_song,
+            "order": 8,
+            "language_mode": "learn-english"
         }
     ]
     
