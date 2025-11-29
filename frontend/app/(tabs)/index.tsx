@@ -89,6 +89,13 @@ export default function HomeScreen() {
       color: '#EF4444',
       description: 'Shopping, emergencies & more',
     },
+    {
+      key: 'songs',
+      title: 'Learning Songs',
+      icon: 'musical-notes',
+      color: '#F472B6',
+      description: 'Fun songs to learn Thai',
+    },
   ];
 
   useEffect(() => {
