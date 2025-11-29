@@ -229,6 +229,26 @@ export default function HomeScreen() {
           <Text style={styles.subtitle}>Choose a category to start learning</Text>
         </View>
 
+        {/* Songs Catalogue Banner */}
+        <TouchableOpacity
+          style={styles.songsBanner}
+          onPress={() => router.push('/songs-catalogue' as any)}
+          activeOpacity={0.8}
+        >
+          <View style={styles.songsBannerLeft}>
+            <View style={styles.songsBannerIcon}>
+              <Ionicons name="musical-notes" size={32} color="#FFFFFF" />
+            </View>
+            <View style={styles.songsBannerContent}>
+              <Text style={styles.songsBannerTitle}>🎵 Songs Catalogue</Text>
+              <Text style={styles.songsBannerText}>
+                8 learning songs • Learn through music
+              </Text>
+            </View>
+          </View>
+          <Ionicons name="chevron-forward" size={24} color="#FFFFFF" />
+        </TouchableOpacity>
+
         {/* Featured Categories Grid */}
         <View style={styles.featuredGrid}>
           {categories.slice(0, 4).map((category) => {
