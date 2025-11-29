@@ -651,7 +651,87 @@ async def initialize_data(force: bool = False):
             "subcategory": "travel",
             "description": "Essential phrases for getting around Thailand",
             "items": travel_data,
+            "order": 5
+        },
+        {
+            "title": "Colors",
+            "category": "vocabulary",
+            "subcategory": "colors",
+            "description": "Learn Thai colors with examples",
+            "items": colors_data,
+            "order": 6
+        },
+        {
+            "title": "Family Members",
+            "category": "vocabulary",
+            "subcategory": "family",
+            "description": "Thai words for family relationships",
+            "items": family_data,
             "order": 7
+        },
+        {
+            "title": "Animals",
+            "category": "vocabulary",
+            "subcategory": "animals",
+            "description": "Common animals in Thai language",
+            "items": animals_data,
+            "order": 8
+        },
+        {
+            "title": "Days of the Week",
+            "category": "time",
+            "subcategory": "days",
+            "description": "Learn Thai days and time expressions",
+            "items": days_data,
+            "order": 9
+        },
+        {
+            "title": "Time Expressions",
+            "category": "time",
+            "subcategory": "expressions",
+            "description": "Essential time-related vocabulary",
+            "items": time_data,
+            "order": 10
+        },
+        {
+            "title": "Question Words",
+            "category": "grammar",
+            "subcategory": "questions",
+            "description": "Essential question words for conversations",
+            "items": questions_data,
+            "order": 11
+        },
+        {
+            "title": "Shopping & Money",
+            "category": "intermediate",
+            "subcategory": "shopping",
+            "description": "Vocabulary for shopping and handling money",
+            "items": shopping_data,
+            "order": 12
+        },
+        {
+            "title": "Emergency & Health",
+            "category": "intermediate",
+            "subcategory": "emergency",
+            "description": "Essential phrases for emergencies and health",
+            "items": emergency_data,
+            "order": 13
+        },
+        {
+            "title": "Common Adjectives",
+            "category": "vocabulary",
+            "subcategory": "adjectives",
+            "description": "Descriptive words you'll use every day",
+            "items": adjectives_data,
+            "order": 14
+        },
+        {
+            "title": "Basic Verbs",
+            "category": "vocabulary",
+            "subcategory": "verbs",
+            "description": "Essential action words for daily use",
+            "items": verbs_data,
+            "order": 15
         }
     ]
     
