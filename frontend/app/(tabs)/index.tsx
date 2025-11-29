@@ -224,27 +224,57 @@ export default function HomeScreen() {
 
         {/* All Lessons */}
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}>All Lessons</Text>
-          {lessons.map((lesson) => (
-            <TouchableOpacity
-              key={lesson._id}
-              style={styles.lessonCard}
-              onPress={() => handleLessonPress(lesson._id)}
-              activeOpacity={0.7}
-            >
-              <View style={styles.lessonContent}>
-                <Text style={styles.lessonTitle}>{lesson.title}</Text>
-                <Text style={styles.lessonDescription}>{lesson.description}</Text>
-                <View style={styles.lessonFooter}>
-                  <View style={styles.badge}>
-                    <Text style={styles.badgeText}>{lesson.category}</Text>
-                  </View>
-                  <Text style={styles.itemCount}>{lesson.items.length} items</Text>
+          <View style={styles.sectionHeader}>
+            <Text style={styles.sectionTitle}>All Lessons</Text>
+            <View style={styles.lessonCountBadge}>
+              <Text style={styles.lessonCountText}>{lessons.length}</Text>
+            </View>
+          </View>
+          {lessons.map((lesson) => {
+            const categoryInfo = getCategoryInfo(lesson.category, lesson.subcategory);
+            return (
+              <TouchableOpacity
+                key={lesson._id}
+                style={[
+                  styles.lessonCard,
+                  { borderLeftColor: categoryInfo.color, borderLeftWidth: 4 }
+                ]}
+                onPress={() => handleLessonPress(lesson._id)}
+                activeOpacity={0.7}
+              >
+                <View style={[
+                  styles.lessonIconContainer,
+                  { backgroundColor: categoryInfo.color + '20' }
+                ]}>
+                  <Ionicons 
+                    name={categoryInfo.icon as any} 
+                    size={24} 
+                    color={categoryInfo.color} 
+                  />
                 </View>
-              </View>
-              <Ionicons name="arrow-forward" size={20} color="#4F46E5" />
-            </TouchableOpacity>
-          ))}
+                <View style={styles.lessonContent}>
+                  <Text style={styles.lessonTitle}>{lesson.title}</Text>
+                  <Text style={styles.lessonDescription} numberOfLines={2}>
+                    {lesson.description}
+                  </Text>
+                  <View style={styles.lessonFooter}>
+                    <View style={[styles.badge, { backgroundColor: categoryInfo.color + '15' }]}>
+                      <Text style={[styles.badgeText, { color: categoryInfo.color }]}>
+                        {lesson.category}
+                      </Text>
+                    </View>
+                    <View style={styles.itemCountContainer}>
+                      <Ionicons name="layers" size={14} color="#9CA3AF" />
+                      <Text style={styles.itemCount}>{lesson.items.length} items</Text>
+                    </View>
+                  </View>
+                </View>
+                <View style={styles.arrowContainer}>
+                  <Ionicons name="chevron-forward" size={20} color="#9CA3AF" />
+                </View>
+              </TouchableOpacity>
+            );
+          })}
         </View>
 
         <View style={styles.bottomPadding} />
