@@ -228,9 +228,13 @@ export default function LessonScreen() {
         <View style={styles.headerRight}>
           <TouchableOpacity
             onPress={() => speakThai(currentItem.thai)}
-            style={styles.speakerButton}
+            style={[styles.speakerButton, isSpeaking && styles.speakerButtonActive]}
           >
-            <Ionicons name="volume-high" size={24} color="#4F46E5" />
+            <Ionicons 
+              name={isSpeaking ? "volume-high" : "volume-medium"} 
+              size={24} 
+              color={isSpeaking ? "#10B981" : "#4F46E5"} 
+            />
           </TouchableOpacity>
           <TouchableOpacity onPress={toggleFavorite} style={styles.favoriteButton}>
             <Ionicons
