@@ -835,6 +835,58 @@ async def initialize_data(force: bool = False):
         {"thai": "สีขาว สีดำ", "romanization": "sii-khao sii-dam", "english": "White and black", "example": "Final colors"},
     ]
     
+    # Animal Sounds Song
+    animals_song_data = [
+        {"thai": "หมาเห่า โฮ่ง โฮ่ง", "romanization": "maa hao hong hong", "english": "Dog barks: woof woof", "example": "Dog sound"},
+        {"thai": "แมวร้อง เหมียว เหมียว", "romanization": "maew rong miaw miaw", "english": "Cat meows: meow meow", "example": "Cat sound"},
+        {"thai": "วัวร้อง มอ มอ", "romanization": "wua rong mor mor", "english": "Cow moos: moo moo", "example": "Cow sound"},
+        {"thai": "เป็ดร้อง แว๊บ แว๊บ", "romanization": "pet rong waep waep", "english": "Duck quacks: quack quack", "example": "Duck sound"},
+        {"thai": "สัตว์ต่างๆ เสียงสนุก", "romanization": "sat-taang-taang siang-sanuk", "english": "Different animals, fun sounds", "example": "Chorus"},
+        {"thai": "ไก่ขัน กุ๊ก กุ๊ก อีแก", "romanization": "gai khan gook gook ii-gae", "english": "Rooster crows: cock-a-doodle-doo", "example": "Rooster sound"},
+        {"thai": "หมูร้อง อู้ด อู้ด", "romanization": "muu rong oot oot", "english": "Pig oinks: oink oink", "example": "Pig sound"},
+        {"thai": "นกร้อง จิ๊บ จิ๊บ", "romanization": "nok rong jip jip", "english": "Bird chirps: chirp chirp", "example": "Bird sound"},
+        {"thai": "ช้างร้อง ปาว ปาว", "romanization": "chaang rong paao paao", "english": "Elephant trumpets", "example": "Elephant sound"},
+        {"thai": "เรียนรู้เสียงสัตว์กันเถอะ", "romanization": "riian-ruu siang-sat gan ther", "english": "Let's learn animal sounds", "example": "Ending encouragement"},
+    ]
+    
+    # Family Song
+    family_song_data = [
+        {"thai": "พ่อของฉันดีมาก", "romanization": "phor khong chan dii-maak", "english": "My father is very good", "example": "About father"},
+        {"thai": "แม่ของฉันใจดี", "romanization": "mae khong chan jai-dii", "english": "My mother is kind-hearted", "example": "About mother"},
+        {"thai": "ครอบครัวของฉัน", "romanization": "khrop-khrua khong chan", "english": "My family", "example": "Chorus about family"},
+        {"thai": "รักกันมาก", "romanization": "rak-gan-maak", "english": "Love each other very much", "example": "Family love"},
+        {"thai": "พี่ชายของฉันสูง", "romanization": "phii-chaai khong chan suung", "english": "My older brother is tall", "example": "About brother"},
+        {"thai": "พี่สาวของฉันสวย", "romanization": "phii-sao khong chan suay", "english": "My older sister is beautiful", "example": "About sister"},
+        {"thai": "น้องน้อยน่ารัก", "romanization": "nong-noi naa-rak", "english": "Little sibling is cute", "example": "About younger sibling"},
+        {"thai": "ปู่ย่าตายาย", "romanization": "puu yaa taa yaai", "english": "Grandparents", "example": "About grandparents"},
+        {"thai": "ทุกคนรักกัน", "romanization": "thuk-khon rak-gan", "english": "Everyone loves each other", "example": "Final message"},
+    ]
+    
+    # Days Song
+    days_song_data = [
+        {"thai": "วันจันทร์ วันจันทร์", "romanization": "wan-jan wan-jan", "english": "Monday, Monday", "example": "Monday verse"},
+        {"thai": "วันอังคาร ทำงาน", "romanization": "wan-ang-khaan tham-ngaan", "english": "Tuesday, work day", "example": "Tuesday verse"},
+        {"thai": "วันพุธ กลางสัปดาห์", "romanization": "wan-phut glaang-sap-daa", "english": "Wednesday, middle of week", "example": "Wednesday verse"},
+        {"thai": "วันพฤหัสบดี มีความสุข", "romanization": "wan-pha-rueh-hat mii-khwaam-suk", "english": "Thursday, happy day", "example": "Thursday verse"},
+        {"thai": "เจ็ดวัน เจ็ดวัน", "romanization": "jet-wan jet-wan", "english": "Seven days, seven days", "example": "Chorus - week has 7 days"},
+        {"thai": "วันศุกร์ เย้! ใกล้หยุด", "romanization": "wan-suk yay! glai-yut", "english": "Friday, yay! Almost weekend", "example": "Friday excitement"},
+        {"thai": "วันเสาร์ เล่นสนุก", "romanization": "wan-sao len-sanuk", "english": "Saturday, play and have fun", "example": "Saturday fun"},
+        {"thai": "วันอาทิตย์ พักผ่อน", "romanization": "wan-aa-thit phak-phon", "english": "Sunday, rest and relax", "example": "Sunday rest"},
+        {"thai": "สัปดาห์ใหม่เริ่มอีกครั้ง", "romanization": "sap-daa-mai ruem iik-khrang", "english": "New week starts again", "example": "Week cycle"},
+    ]
+    
+    # Body Parts Song  
+    body_song_data = [
+        {"thai": "หัวเข่าไหล่ เท้า", "romanization": "hua khao lai thao", "english": "Head, knees, shoulders, feet", "example": "Body parts rhythm"},
+        {"thai": "เท้า เท้า", "romanization": "thao thao", "english": "Feet, feet", "example": "Repeat feet"},
+        {"thai": "ตา หู ปาก จมูก", "romanization": "taa huu paak ja-muuk", "english": "Eyes, ears, mouth, nose", "example": "Face parts"},
+        {"thai": "แขน มือ นิ้ว", "romanization": "khaen mue niw", "english": "Arms, hands, fingers", "example": "Upper body"},
+        {"thai": "ขยับ ขยับ", "romanization": "kha-yap kha-yap", "english": "Move, move", "example": "Action - moving"},
+        {"thai": "โบกมือ โบกมือ", "romanization": "boke-mue boke-mue", "english": "Wave hand, wave hand", "example": "Hand action"},
+        {"thai": "กระโดด กระโดด", "romanization": "gra-doht gra-doht", "english": "Jump, jump", "example": "Jumping action"},
+        {"thai": "ร่างกายแข็งแรง", "romanization": "raang-gaai khaeng-raeng", "english": "Strong body", "example": "Health message"},
+    ]
+    
     lessons = [
         {
             "title": "Thai Consonants",
