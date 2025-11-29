@@ -51,6 +51,34 @@ export default function SettingsScreen() {
           </Text>
         </View>
 
+        {/* Language Mode Card */}
+        <View style={[styles.card, { backgroundColor: colors.card, borderColor: colors.border }]}>
+          <View style={styles.cardHeader}>
+            <Ionicons name="globe" size={24} color={colors.primary} />
+            <Text style={[styles.cardTitle, { color: colors.text }]}>Learning Mode</Text>
+          </View>
+          <TouchableOpacity
+            style={[styles.optionRow, { borderTopColor: colors.border }]}
+            onPress={() => router.push('/language-selection' as any)}
+            activeOpacity={0.7}
+          >
+            <View style={styles.optionLeft}>
+              <Text style={styles.flagLarge}>
+                {languageMode === 'learn-english' ? '🇬🇧' : '🇹🇭'}
+              </Text>
+              <View style={styles.optionTextContainer}>
+                <Text style={[styles.optionText, { color: colors.text }]}>
+                  {languageMode === 'learn-english' ? 'Learning English' : 'Learning Thai'}
+                </Text>
+                <Text style={[styles.optionSubtext, { color: colors.textSecondary }]}>
+                  Tap to switch language
+                </Text>
+              </View>
+            </View>
+            <Ionicons name="chevron-forward" size={20} color={colors.textSecondary} />
+          </TouchableOpacity>
+        </View>
+
         {/* Theme Toggle Card */}
         <View style={[styles.card, { backgroundColor: colors.card, borderColor: colors.border }]}>
           <View style={styles.cardHeader}>
