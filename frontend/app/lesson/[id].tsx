@@ -203,13 +203,21 @@ export default function LessonScreen() {
             {currentIndex + 1} / {lesson.items.length}
           </Text>
         </View>
-        <TouchableOpacity onPress={toggleFavorite} style={styles.favoriteButton}>
-          <Ionicons
-            name={favorites.has(currentIndex) ? 'heart' : 'heart-outline'}
-            size={24}
-            color={favorites.has(currentIndex) ? '#EF4444' : '#9CA3AF'}
-          />
-        </TouchableOpacity>
+        <View style={styles.headerRight}>
+          <TouchableOpacity
+            onPress={() => speakThai(currentItem.thai)}
+            style={styles.speakerButton}
+          >
+            <Ionicons name="volume-high" size={24} color="#4F46E5" />
+          </TouchableOpacity>
+          <TouchableOpacity onPress={toggleFavorite} style={styles.favoriteButton}>
+            <Ionicons
+              name={favorites.has(currentIndex) ? 'heart' : 'heart-outline'}
+              size={24}
+              color={favorites.has(currentIndex) ? '#EF4444' : '#9CA3AF'}
+            />
+          </TouchableOpacity>
+        </View>
       </View>
 
       {/* Progress Bar */}
