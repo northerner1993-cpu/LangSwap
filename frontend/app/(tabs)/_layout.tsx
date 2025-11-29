@@ -1,6 +1,5 @@
 import React from 'react';
-import { Text, TouchableOpacity, View, StyleSheet } from 'react-native';
-import { Tabs, useRouter } from 'expo-router';
+import { Tabs } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { useLanguageMode } from '../../contexts/LanguageModeContext';
 import { useTheme } from '../../contexts/ThemeContext';
@@ -8,16 +7,11 @@ import { useTheme } from '../../contexts/ThemeContext';
 export default function TabLayout() {
   const { languageMode } = useLanguageMode();
   const { colors, theme } = useTheme();
-  const router = useRouter();
   
   const getLearnTitle = () => {
     if (languageMode === 'learn-english') return '🇬🇧 English';
     if (languageMode === 'learn-thai') return '🇹🇭 Thai';
     return 'Learn';
-  };
-
-  const handleLanguageSwap = () => {
-    router.push('/language-selection' as any);
   };
 
   return (
@@ -30,7 +24,7 @@ export default function TabLayout() {
           backgroundColor: colors.card,
           borderTopWidth: 1,
           borderTopColor: colors.border,
-          height: 70,
+          height: 65,
           paddingBottom: 8,
           paddingTop: 8,
         },
@@ -62,7 +56,7 @@ export default function TabLayout() {
         name="progress"
         options={{
           title: 'Progress',
-          tabBarIcon: ({ color, size, focused }) => (
+          tabBarIcon: ({ color, size }) => (
             <Ionicons name="analytics" size={size} color={color} />
           ),
         }}
