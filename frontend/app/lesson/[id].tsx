@@ -335,6 +335,14 @@ const styles = StyleSheet.create({
     color: '#9CA3AF',
     marginTop: 2,
   },
+  headerRight: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  speakerButton: {
+    padding: 8,
+    marginRight: 4,
+  },
   favoriteButton: {
     padding: 8,
   },
