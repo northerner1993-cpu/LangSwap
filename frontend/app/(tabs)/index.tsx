@@ -61,6 +61,34 @@ export default function HomeScreen() {
       color: '#F59E0B',
       description: 'Common phrases and dialogues',
     },
+    {
+      key: 'vocabulary',
+      title: 'Vocabulary',
+      icon: 'book',
+      color: '#EC4899',
+      description: 'Colors, animals, family & more',
+    },
+    {
+      key: 'time',
+      title: 'Time & Days',
+      icon: 'time',
+      color: '#06B6D4',
+      description: 'Days, time expressions',
+    },
+    {
+      key: 'grammar',
+      title: 'Grammar',
+      icon: 'list',
+      color: '#8B5CF6',
+      description: 'Question words & sentence patterns',
+    },
+    {
+      key: 'intermediate',
+      title: 'Intermediate',
+      icon: 'school',
+      color: '#EF4444',
+      description: 'Shopping, emergencies & more',
+    },
   ];
 
   useEffect(() => {
