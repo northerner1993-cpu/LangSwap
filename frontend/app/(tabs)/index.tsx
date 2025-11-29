@@ -104,12 +104,26 @@ export default function HomeScreen() {
   ];
 
   useEffect(() => {
-    initializeData();
-  }, []);
+    loadLessons();
+    checkInitialization();
+  }, [languageMode]);
 
-  const initializeData = async () => {
+  const loadLessons = async () => {
     try {
-      // First try to get lessons
+      const modeParam = languageMode ? `?language_mode=${languageMode}` : '';
+      const response = await fetch(`${API_URL}/api/lessons${modeParam}`);
+      const data = await response.json();
+      setLessons(data);
+    } catch (error) {
+      console.error('Error loading lessons:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const checkInitialization = async () => {
+    try {
+      // First try to get lessons to check if data exists
       const response = await fetch(`${API_URL}/api/lessons`);
       const data = await response.json();
 
@@ -122,18 +136,12 @@ export default function HomeScreen() {
         console.log('Data initialized:', initResult);
         setInitialized(true);
         
-        // Fetch lessons again
-        const newResponse = await fetch(`${API_URL}/api/lessons`);
-        const newData = await newResponse.json();
-        setLessons(newData);
-      } else {
-        setLessons(data);
+        // Reload lessons after initialization
+        loadLessons();
       }
     } catch (error) {
-      console.error('Error fetching lessons:', error);
-      Alert.alert('Error', 'Failed to load lessons. Please check your connection.');
-    } finally {
-      setLoading(false);
+      console.error('Error checking initialization:', error);
+      Alert.alert('Error', 'Failed to initialize data. Please check your connection.');
     }
   };
 
