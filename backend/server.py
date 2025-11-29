@@ -918,6 +918,70 @@ async def initialize_data(force: bool = False):
             "description": "Essential action words for daily use",
             "items": verbs_data,
             "order": 15
+        },
+        {
+            "title": "Insects",
+            "category": "vocabulary",
+            "subcategory": "insects",
+            "description": "Bugs and insects in Thai",
+            "items": insects_data,
+            "order": 16
+        },
+        {
+            "title": "Plants & Trees",
+            "category": "vocabulary",
+            "subcategory": "plants",
+            "description": "Flora, flowers, and vegetation",
+            "items": plants_data,
+            "order": 17
+        },
+        {
+            "title": "Automotive Parts",
+            "category": "vocabulary",
+            "subcategory": "automotive",
+            "description": "Car and vehicle terminology",
+            "items": automotive_data,
+            "order": 18
+        },
+        {
+            "title": "Human Anatomy",
+            "category": "vocabulary",
+            "subcategory": "anatomy",
+            "description": "Body parts and organs",
+            "items": anatomy_data,
+            "order": 19
+        },
+        {
+            "title": "Household Items",
+            "category": "vocabulary",
+            "subcategory": "household",
+            "description": "Common items found at home",
+            "items": household_data,
+            "order": 20
+        },
+        {
+            "title": "Clothing",
+            "category": "vocabulary",
+            "subcategory": "clothing",
+            "description": "Clothes and accessories",
+            "items": clothing_data,
+            "order": 21
+        },
+        {
+            "title": "Emotions & Feelings",
+            "category": "vocabulary",
+            "subcategory": "emotions",
+            "description": "Express how you feel in Thai",
+            "items": emotions_data,
+            "order": 22
+        },
+        {
+            "title": "Polite Speech (Male/Female)",
+            "category": "grammar",
+            "subcategory": "politeness",
+            "description": "Gender-specific polite particles and pronouns",
+            "items": polite_particles_data,
+            "order": 23
         }
     ]
     
