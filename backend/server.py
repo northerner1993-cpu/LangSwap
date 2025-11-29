@@ -774,6 +774,24 @@ async def initialize_data(force: bool = False):
         {"thai": "ชอบ", "romanization": "chorp", "english": "Like", "example": "ชอบกินส้ม"},
     ]
     
+    # LEARNING SONGS (Copyright-Free Educational Content)
+    
+    # Alphabet Song
+    alphabet_song_data = [
+        {"thai": "ก ไก่ ข ไข่", "romanization": "gor gai, khor khai", "english": "K for Chicken, Kh for Egg", "example": "Verse 1 - Learn first 4 consonants"},
+        {"thai": "ค ควาย ง งู", "romanization": "khor khwaai, ngor nguu", "english": "Kh for Buffalo, Ng for Snake", "example": "Verse 2"},
+        {"thai": "จ จาน ฉ ฉิ่ง", "romanization": "jor jaan, chor ching", "english": "J for Plate, Ch for Cymbal", "example": "Verse 3"},
+        {"thai": "ช ช้าง ซ โซ่", "romanization": "chor chaang, sor soh", "english": "Ch for Elephant, S for Chain", "example": "Verse 4"},
+        {"thai": "ฮิป ฮิป ฮูเร สนุกจัง", "romanization": "hip hip hooray, sanuk jang", "english": "Hip hip hooray, so much fun!", "example": "Chorus - Celebration"},
+        {"thai": "เรียนรู้ภาษาไทย", "romanization": "riian-ruu phaa-saa thai", "english": "Learning Thai language", "example": "Chorus continues"},
+        {"thai": "ท ทหาร น หนู", "romanization": "thor tha-haan, nor nuu", "english": "Th for Soldier, N for Mouse", "example": "Verse 5"},
+        {"thai": "ป ปลา ผ ผึ้ง", "romanization": "por plaa, phor phueng", "english": "P for Fish, Ph for Bee", "example": "Verse 6"},
+        {"thai": "ม ม้า ย ยักษ์", "romanization": "mor maa, yor yak", "english": "M for Horse, Y for Giant", "example": "Verse 7"},
+        {"thai": "ร เรือ ล ลิง", "romanization": "ror ruea, lor ling", "english": "R for Boat, L for Monkey", "example": "Verse 8"},
+        {"thai": "ส เสือ ห หีบ", "romanization": "sor suea, hor hiip", "english": "S for Tiger, H for Chest", "example": "Final verse"},
+        {"thai": "เก่งมากเลย!", "romanization": "geng maak loey!", "english": "Very smart!", "example": "Ending - Encouragement"},
+    ]
+    
     lessons = [
         {
             "title": "Thai Consonants",
