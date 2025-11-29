@@ -294,7 +294,9 @@ export default function LessonScreen() {
           <View style={styles.cardContent}>
             {!showAnswer ? (
               <>
-                <Text style={styles.thaiText}>{currentItem.thai}</Text>
+                <Text style={styles.thaiText}>
+                  {lesson.language_mode === 'learn-english' ? currentItem.english : currentItem.thai}
+                </Text>
                 <Text style={styles.tapHint}>Tap to reveal</Text>
               </>
             ) : (
