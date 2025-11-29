@@ -198,7 +198,9 @@ export default function LessonScreen() {
   useEffect(() => {
     if (showAnswer && lesson) {
       const currentItem = lesson.items[currentIndex];
-      speak(currentItem.thai);
+      // Speak the English word for English lessons, Thai word for Thai lessons
+      const textToSpeak = lesson.language_mode === 'learn-english' ? currentItem.english : currentItem.thai;
+      speak(textToSpeak);
     }
   }, [showAnswer, currentIndex]);
 
