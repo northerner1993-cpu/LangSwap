@@ -1163,8 +1163,179 @@ async def initialize_data(force: bool = False):
         }
     ]
     
-    result = await db.lessons.insert_many(lessons)
-    return {"message": "Data initialized successfully", "count": len(result.inserted_ids)}
+    # Add language_mode to all Thai lessons
+    for lesson in lessons:
+        lesson["language_mode"] = "learn-thai"
+    
+    # ========== ENGLISH LEARNING CONTENT (Thai speakers learning English) ==========
+    
+    # English Alphabet (A-Z)
+    english_alphabet_data = [
+        {"thai": "เอ (สำหรับ แอปเปิล)", "romanization": "A (for Apple)", "english": "A", "example": "Apple - แอปเปิล"},
+        {"thai": "บี (สำหรับ บอล)", "romanization": "B (for Ball)", "english": "B", "example": "Ball - ลูกบอล"},
+        {"thai": "ซี (สำหรับ แมว)", "romanization": "C (for Cat)", "english": "C", "example": "Cat - แมว"},
+        {"thai": "ดี (สำหรับ สุนัข)", "romanization": "D (for Dog)", "english": "D", "example": "Dog - สุนัข"},
+        {"thai": "อี (สำหรับ ช้าง)", "romanization": "E (for Elephant)", "english": "E", "example": "Elephant - ช้าง"},
+        {"thai": "เอฟ (สำหรับ ปลา)", "romanization": "F (for Fish)", "english": "F", "example": "Fish - ปลา"},
+        {"thai": "จี (สำหรับ องุ่น)", "romanization": "G (for Grapes)", "english": "G", "example": "Grapes - องุ่น"},
+        {"thai": "เอช (สำหรับ บ้าน)", "romanization": "H (for House)", "english": "H", "example": "House - บ้าน"},
+        {"thai": "ไอ (สำหรับ ไอศกรีม)", "romanization": "I (for Ice Cream)", "english": "I", "example": "Ice Cream - ไอศกรีม"},
+        {"thai": "เจ (สำหรับ กระโดด)", "romanization": "J (for Jump)", "english": "J", "example": "Jump - กระโดด"},
+        {"thai": "เค (สำหรับ ว่าว)", "romanization": "K (for Kite)", "english": "K", "example": "Kite - ว่าว"},
+        {"thai": "เอล (สำหรับ สิงโต)", "romanization": "L (for Lion)", "english": "L", "example": "Lion - สิงโต"},
+        {"thai": "เอ็ม (สำหรับ ลิง)", "romanization": "M (for Monkey)", "english": "M", "example": "Monkey - ลิง"},
+        {"thai": "เอ็น (สำหรับ รัง)", "romanization": "N (for Nest)", "english": "N", "example": "Nest - รัง"},
+        {"thai": "โอ (สำหรับ ส้ม)", "romanization": "O (for Orange)", "english": "O", "example": "Orange - ส้ม"},
+        {"thai": "พี (สำหรับ นกแก้ว)", "romanization": "P (for Parrot)", "english": "P", "example": "Parrot - นกแก้ว"},
+        {"thai": "คิว (สำหรับ ราชินี)", "romanization": "Q (for Queen)", "english": "Q", "example": "Queen - ราชินี"},
+        {"thai": "อาร์ (สำหรับ กระต่าย)", "romanization": "R (for Rabbit)", "english": "R", "example": "Rabbit - กระต่าย"},
+        {"thai": "เอส (สำหรับ ดวงอาทิตย์)", "romanization": "S (for Sun)", "english": "S", "example": "Sun - ดวงอาทิตย์"},
+        {"thai": "ที (สำหรับ เสือ)", "romanization": "T (for Tiger)", "english": "T", "example": "Tiger - เสือ"},
+        {"thai": "ยู (สำหรับ ร่ม)", "romanization": "U (for Umbrella)", "english": "U", "example": "Umbrella - ร่ม"},
+        {"thai": "วี (สำหรับ รถตู้)", "romanization": "V (for Van)", "english": "V", "example": "Van - รถตู้"},
+        {"thai": "ดับเบิลยู (สำหรับ น้ำ)", "romanization": "W (for Water)", "english": "W", "example": "Water - น้ำ"},
+        {"thai": "เอ็กซ์ (สำหรับ ไซโลโฟน)", "romanization": "X (for Xylophone)", "english": "X", "example": "Xylophone - ไซโลโฟน"},
+        {"thai": "วาย (สำหรับ โยเกิร์ต)", "romanization": "Y (for Yogurt)", "english": "Y", "example": "Yogurt - โยเกิร์ต"},
+        {"thai": "แซด (สำหรับ ม้าลาย)", "romanization": "Z (for Zebra)", "english": "Z", "example": "Zebra - ม้าลาย"}
+    ]
+    
+    # English Numbers
+    english_numbers_basic = [
+        {"thai": "ศูนย์", "romanization": "Zero", "english": "0", "example": "I have zero apples - ฉันมีแอปเปิล 0 ลูก"},
+        {"thai": "หนึ่ง", "romanization": "One", "english": "1", "example": "One cat - แมว 1 ตัว"},
+        {"thai": "สอง", "romanization": "Two", "english": "2", "example": "Two dogs - สุนัข 2 ตัว"},
+        {"thai": "สาม", "romanization": "Three", "english": "3", "example": "Three birds - นก 3 ตัว"},
+        {"thai": "สี่", "romanization": "Four", "english": "4", "example": "Four books - หนังสือ 4 เล่ม"},
+        {"thai": "ห้า", "romanization": "Five", "english": "5", "example": "Five fingers - นิ้ว 5 นิ้ว"},
+        {"thai": "หก", "romanization": "Six", "english": "6", "example": "Six chairs - เก้าอี้ 6 ตัว"},
+        {"thai": "เจ็ด", "romanization": "Seven", "english": "7", "example": "Seven days - 7 วัน"},
+        {"thai": "แปด", "romanization": "Eight", "english": "8", "example": "Eight legs - ขา 8 ข้าง"},
+        {"thai": "เก้า", "romanization": "Nine", "english": "9", "example": "Nine students - นักเรียน 9 คน"},
+        {"thai": "สิบ", "romanization": "Ten", "english": "10", "example": "Ten pens - ปากกา 10 ด้าม"},
+        {"thai": "สิบเอ็ด", "romanization": "Eleven", "english": "11", "example": "Eleven players - ผู้เล่น 11 คน"},
+        {"thai": "สิบสอง", "romanization": "Twelve", "english": "12", "example": "Twelve months - 12 เดือน"},
+        {"thai": "สิบสาม", "romanization": "Thirteen", "english": "13", "example": "Thirteen cookies - คุกกี้ 13 ชิ้น"},
+        {"thai": "สิบสี่", "romanization": "Fourteen", "english": "14", "example": "Fourteen days - 14 วัน"},
+        {"thai": "สิบห้า", "romanization": "Fifteen", "english": "15", "example": "Fifteen minutes - 15 นาที"},
+        {"thai": "สิบหก", "romanization": "Sixteen", "english": "16", "example": "Sixteen years old - อายุ 16 ปี"},
+        {"thai": "สิบเจ็ด", "romanization": "Seventeen", "english": "17", "example": "Seventeen apples - แอปเปิล 17 ลูก"},
+        {"thai": "สิบแปด", "romanization": "Eighteen", "english": "18", "example": "Eighteen hours - 18 ชั่วโมง"},
+        {"thai": "สิบเก้า", "romanization": "Nineteen", "english": "19", "example": "Nineteen people - 19 คน"},
+        {"thai": "ยี่สิบ", "romanization": "Twenty", "english": "20", "example": "Twenty dollars - 20 ดอลลาร์"},
+        {"thai": "สามสิบ", "romanization": "Thirty", "english": "30", "example": "Thirty minutes - 30 นาที"},
+        {"thai": "สี่สิบ", "romanization": "Forty", "english": "40", "example": "Forty students - นักเรียน 40 คน"},
+        {"thai": "ห้าสิบ", "romanization": "Fifty", "english": "50", "example": "Fifty pounds - 50 ปอนด์"},
+        {"thai": "หกสิบ", "romanization": "Sixty", "english": "60", "example": "Sixty seconds - 60 วินาที"},
+        {"thai": "เจ็ดสิบ", "romanization": "Seventy", "english": "70", "example": "Seventy percent - 70 เปอร์เซ็นต์"},
+        {"thai": "แปดสิบ", "romanization": "Eighty", "english": "80", "example": "Eighty pages - 80 หน้า"},
+        {"thai": "เก้าสิบ", "romanization": "Ninety", "english": "90", "example": "Ninety degrees - 90 องศา"},
+        {"thai": "หนึ่งร้อย", "romanization": "One Hundred", "english": "100", "example": "One hundred meters - 100 เมตร"}
+    ]
+    
+    # English Greetings
+    english_greetings = [
+        {"thai": "สวัสดี", "romanization": "Hello", "english": "Hello", "example": "Hello, how are you? - สวัสดี คุณสบายดีไหม"},
+        {"thai": "สวัสดีตอนเช้า", "romanization": "Good morning", "english": "Good morning", "example": "Good morning, teacher! - สวัสดีตอนเช้า คุณครู"},
+        {"thai": "สวัสดีตอนบ่าย", "romanization": "Good afternoon", "english": "Good afternoon", "example": "Good afternoon, everyone - สวัสดีตอนบ่าย ทุกคน"},
+        {"thai": "สวัสดีตอนเย็น", "romanization": "Good evening", "english": "Good evening", "example": "Good evening, sir - สวัสดีตอนเย็น คุณผู้ชาย"},
+        {"thai": "ราตรีสวัสดิ์", "romanization": "Good night", "english": "Good night", "example": "Good night, sleep well - ราตรีสวัสดิ์ นอนหลับฝันดี"},
+        {"thai": "ลาก่อน", "romanization": "Goodbye", "english": "Goodbye", "example": "Goodbye, see you tomorrow - ลาก่อน พรุ่งนี้เจอกัน"},
+        {"thai": "แล้วเจอกันใหม่", "romanization": "See you later", "english": "See you later", "example": "See you later! - แล้วเจอกันใหม่!"},
+        {"thai": "ยินดีที่ได้พบคุณ", "romanization": "Nice to meet you", "english": "Nice to meet you", "example": "Nice to meet you, I'm John - ยินดีที่ได้พบคุณ ผมชื่อจอห์น"},
+        {"thai": "ขอบคุณ", "romanization": "Thank you", "english": "Thank you", "example": "Thank you very much - ขอบคุณมาก"},
+        {"thai": "ไม่เป็นไร", "romanization": "You're welcome", "english": "You're welcome", "example": "You're welcome! - ไม่เป็นไร"},
+        {"thai": "ขอโทษ", "romanization": "Sorry", "english": "Sorry", "example": "I'm sorry - ขอโทษ"},
+        {"thai": "ไม่เป็นไร", "romanization": "It's okay", "english": "It's okay", "example": "It's okay, don't worry - ไม่เป็นไร ไม่ต้องกังวล"}
+    ]
+    
+    # English Common Phrases
+    english_common_phrases = [
+        {"thai": "ฉันชื่อ...", "romanization": "My name is...", "english": "My name is...", "example": "My name is Sarah - ฉันชื่อซาราห์"},
+        {"thai": "คุณสบายดีไหม?", "romanization": "How are you?", "english": "How are you?", "example": "How are you today? - คุณสบายดีไหมวันนี้?"},
+        {"thai": "ฉันสบายดี", "romanization": "I'm fine", "english": "I'm fine", "example": "I'm fine, thank you - ฉันสบายดี ขอบคุณ"},
+        {"thai": "คุณมาจากไหน?", "romanization": "Where are you from?", "english": "Where are you from?", "example": "Where are you from? - คุณมาจากไหน?"},
+        {"thai": "ฉันมาจาก...", "romanization": "I'm from...", "english": "I'm from...", "example": "I'm from Thailand - ฉันมาจากประเทศไทย"},
+        {"thai": "คุณพูดภาษาอังกฤษได้ไหม?", "romanization": "Do you speak English?", "english": "Do you speak English?", "example": "Do you speak English? - คุณพูดภาษาอังกฤษได้ไหม?"},
+        {"thai": "ใช่ ฉันพูดได้นิดหน่อย", "romanization": "Yes, I speak a little", "english": "Yes, I speak a little", "example": "Yes, I speak a little - ใช่ ฉันพูดได้นิดหน่อย"},
+        {"thai": "คุณช่วยได้ไหม?", "romanization": "Can you help me?", "english": "Can you help me?", "example": "Can you help me, please? - คุณช่วยได้ไหม กรุณา"},
+        {"thai": "นี่ราคาเท่าไหร่?", "romanization": "How much is this?", "english": "How much is this?", "example": "How much is this shirt? - เสื้อตัวนี้ราคาเท่าไหร่?"},
+        {"thai": "ห้องน้ำอยู่ที่ไหน?", "romanization": "Where is the bathroom?", "english": "Where is the bathroom?", "example": "Excuse me, where is the bathroom? - ขอโทษ ห้องน้ำอยู่ที่ไหน?"},
+        {"thai": "ฉันไม่เข้าใจ", "romanization": "I don't understand", "english": "I don't understand", "example": "Sorry, I don't understand - ขอโทษ ฉันไม่เข้าใจ"},
+        {"thai": "พูดช้าๆ ได้ไหม?", "romanization": "Can you speak slowly?", "english": "Can you speak slowly?", "example": "Can you speak slowly, please? - พูดช้าๆ ได้ไหม กรุณา"}
+    ]
+    
+    # English Animals
+    english_animals = [
+        {"thai": "สุนัข", "romanization": "Dog", "english": "Dog", "example": "I have a dog - ฉันมีสุนัข"},
+        {"thai": "แมว", "romanization": "Cat", "english": "Cat", "example": "The cat is sleeping - แมวกำลังหลับ"},
+        {"thai": "นก", "romanization": "Bird", "english": "Bird", "example": "Birds can fly - นกบินได้"},
+        {"thai": "ปลา", "romanization": "Fish", "english": "Fish", "example": "Fish live in water - ปลาอยู่ในน้ำ"},
+        {"thai": "ช้าง", "romanization": "Elephant", "english": "Elephant", "example": "Elephants are big - ช้างตัวใหญ่"},
+        {"thai": "สิงโต", "romanization": "Lion", "english": "Lion", "example": "The lion is strong - สิงโตแข็งแรง"},
+        {"thai": "เสือ", "romanization": "Tiger", "english": "Tiger", "example": "Tigers are dangerous - เสืออันตราย"},
+        {"thai": "ลิง", "romanization": "Monkey", "english": "Monkey", "example": "Monkeys like bananas - ลิงชอบกล้วย"},
+        {"thai": "กระต่าย", "romanization": "Rabbit", "english": "Rabbit", "example": "The rabbit is fast - กระต่ายเร็ว"},
+        {"thai": "ม้า", "romanization": "Horse", "english": "Horse", "example": "I can ride a horse - ฉันขี่ม้าได้"},
+        {"thai": "วัว", "romanization": "Cow", "english": "Cow", "example": "Cows give us milk - วัวให้นมเรา"},
+        {"thai": "หมู", "romanization": "Pig", "english": "Pig", "example": "Pigs are pink - หมูสีชมพู"},
+        {"thai": "ไก่", "romanization": "Chicken", "english": "Chicken", "example": "Chickens lay eggs - ไก่วางไข่"},
+        {"thai": "เป็ด", "romanization": "Duck", "english": "Duck", "example": "Ducks swim well - เป็ดว่ายน้ำเก่ง"},
+        {"thai": "หมี", "romanization": "Bear", "english": "Bear", "example": "Bears are big - หมีตัวใหญ่"}
+    ]
+    
+    english_lessons = [
+        {
+            "title": "English Alphabet (A-Z)",
+            "category": "alphabet",
+            "subcategory": "letters",
+            "description": "Learn all 26 English letters with Thai pronunciation",
+            "items": english_alphabet_data,
+            "order": 1,
+            "language_mode": "learn-english"
+        },
+        {
+            "title": "English Numbers (0-100)",
+            "category": "numbers",
+            "subcategory": "basic",
+            "description": "Count from 0 to 100 in English",
+            "items": english_numbers_basic,
+            "order": 2,
+            "language_mode": "learn-english"
+        },
+        {
+            "title": "English Greetings",
+            "category": "conversations",
+            "subcategory": "greetings",
+            "description": "Basic English greeting phrases",
+            "items": english_greetings,
+            "order": 3,
+            "language_mode": "learn-english"
+        },
+        {
+            "title": "Common English Phrases",
+            "category": "conversations",
+            "subcategory": "common",
+            "description": "Essential everyday English phrases",
+            "items": english_common_phrases,
+            "order": 4,
+            "language_mode": "learn-english"
+        },
+        {
+            "title": "English Animals",
+            "category": "vocabulary",
+            "subcategory": "animals",
+            "description": "Learn animal names in English",
+            "items": english_animals,
+            "order": 5,
+            "language_mode": "learn-english"
+        }
+    ]
+    
+    # Combine Thai and English lessons
+    all_lessons = lessons + english_lessons
+    
+    result = await db.lessons.insert_many(all_lessons)
+    return {"message": "Data initialized successfully (Thai + English)", "count": len(result.inserted_ids)}
 
 app.include_router(api_router)
 
