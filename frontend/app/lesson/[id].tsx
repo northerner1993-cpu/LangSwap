@@ -243,7 +243,7 @@ export default function LessonScreen() {
         </View>
         <View style={styles.headerRight}>
           <TouchableOpacity
-            onPress={() => speakThai(currentItem.thai)}
+            onPress={() => speak(currentItem.thai)}
             style={[
               styles.iconButton, 
               isSpeaking && styles.iconButtonActive,
