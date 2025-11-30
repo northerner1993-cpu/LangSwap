@@ -243,6 +243,15 @@ export default function HomeScreen() {
           <Text style={styles.subtitle}>Choose a category to start learning</Text>
         </View>
 
+        {/* Speech-to-Translate Feature */}
+        <View style={styles.translateSection}>
+          <View style={styles.translateHeader}>
+            <Ionicons name="language" size={24} color="#4F46E5" />
+            <Text style={styles.translateTitle}>Instant Translator</Text>
+          </View>
+          <SpeechToTranslate />
+        </View>
+
         {/* Songs Catalogue Banner */}
         <TouchableOpacity
           style={styles.songsBanner}
