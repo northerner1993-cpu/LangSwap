@@ -381,9 +381,6 @@ export default function HomeScreen() {
 
         <View style={styles.bottomPadding} />
       </ScrollView>
-      
-      {/* Language Swap FAB */}
-      <LanguageSwapFAB />
     </SafeAreaView>
   );
 }
