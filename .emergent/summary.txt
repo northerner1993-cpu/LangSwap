@@ -1,102 +1,92 @@
 <analysis>
-The user wants me to act as an expert software engineer taking over a project from a previous AI engineer. My task is to analyze the entire development trajectory of a Thai language learning app and create a detailed summary. This summary will serve as a handover document for future development.
+My analysis of the trajectory reveals an iterative and highly responsive development process, transforming a simple Thai language app into a feature-rich, bidirectional learning platform named LangSwap. The project's scope expanded dramatically based on the user's continuous feedback.
 
-The trajectory shows an iterative development process driven by the user's continuous, expanding requests. The project started as a simple language app and evolved into a feature-rich, commercially-oriented product.
+Initially, the app was a basic ThaiTeach application. The key pivot occurred when the user requested a bidirectional learning mode, allowing Thai speakers to learn English and vice-versa. This architectural change required significant backend data modeling and frontend logic adjustments, including creating a  and dynamically updating UI elements like tab icons with country flags.
 
-My analysis process involves chronologically reviewing each interaction to understand the user's intent, the AI's implementation, and the key technical decisions made. I've tracked the addition of features like a massive content library (alphabet, numbers, conversations, songs), Text-to-Speech (TTS), dark/light mode, a stylish UI, and finally, requests for complex features like premium subscriptions, user authentication, and internationalization.
+Subsequent requests added layers of complexity: a global dark/light theme, extensive internationalization (i18n) for the UI with 14 languages, a developer profile with a custom image, and legal copyright notices. The AI engineer addressed these by creating a , setting up  with numerous language files, and modifying the settings screen.
 
-The final summary will be structured into the specific XML tags requested: , , , , , and . This ensures the next engineer has a clear, organized, and comprehensive overview of the project's history, current state, and future direction. The user's primary language is English, so all future communication should be in English.
+The latest phase of development focused on monetization and advanced features. The user requested premium paywalls, Google AdMob integration, a mute button for Text-to-Speech (TTS), speech-to-text for pronunciation practice, and a major content expansion. The engineer identified and fixed a critical data duplication bug in the backend and was in the process of mirroring all Thai lessons into English and designing a new speak-to-translate feature for the home page when the work was passed on.
+
+The user's primary language is English, and all future communication should be in English.
 </analysis>
 
 <product_requirements>
-The project is to build a comprehensive, commercial-ready mobile application named ThaiTeach for both iOS and Android, aimed at teaching the Thai language to users of all levels.
+The project is to build LangSwap, a comprehensive, commercial-ready mobile application for iOS and Android. It functions as a bidirectional language learning tool, initially supporting Thai-for-English-speakers and English-for-Thai-speakers.
 
-**Core Learning Content:**
-The app must contain a vast library of over 575 learning items, including:
-- Thai alphabet and numbers (1-1,000,000).
-- Extensive vocabulary categories: animals, human anatomy, clothing, emotions, household items, etc.
-- Basic to intermediate conversational phrases.
-- Grammar, sentence patterns, pronouns, and verbs.
-- Copyright-free educational songs with lyrics.
+**Core Features Implemented:**
+-   **Dual Learning Modes:** A language selection screen allows users to choose between Learn Thai 🇹🇭 and Learn English 🇬🇧.
+-   **Interactive Content:** A flashcard-style interface with tap to reveal, Text-to-Speech (TTS) for both Thai and English, and improved lesson descriptions.
+-   **Extensive Content:** Over 42 unique lessons, including alphabets, numbers, vocabulary, phrases, and songs for both learning modes.
+-   **UI/UX:** A modern UI with a global dark/light mode, a tab bar with dynamic flag icons, an enhanced progress screen, and a floating action button for quick language swapping.
+-   **Personalization & Branding:** A Settings screen includes a developer profile with a picture, copyright information credited to Jake Adamson, a theme toggle, and a UI language switcher.
+-   **Internationalization (i18n):** The UI supports 14 languages, including English, Thai, Spanish, French, Japanese, and Chinese.
 
-**Key Features:**
-- **Interactive Learning:** A flashcard-style interface with a tap to reveal function.
-- **Audio Pronunciation:** Text-to-Speech (TTS) for all Thai words, which triggers automatically when a card's answer is revealed.
-- **UI/UX:** A modern, stylish, and professional user interface featuring icons, gradients, and custom-styled tabs. Includes a global dark/light mode.
-- **Personalization:** Users can favorite items and track their progress.
-- **Authentication:** Secure user registration and login (including social sign-in with Google/Facebook) with two-factor authentication and an automated account recovery process.
-- **Monetization:** A freemium model with a premium subscription (£5.99/month) unlocking advanced content, managed via Google Play Store.
-- **Internationalization (i18n):** Multi-language support with translations for a global audience.
-- **Branding:** A dedicated About section with credits to Jake Adamson and a support email.
+**Pending High-Priority Features:**
+-   **Monetization:** A freemium model with a £5.99/month premium subscription via Google Pay, supplemented by Google AdMob ads in the basic version.
+-   **Advanced Interactivity:** A speak-to-translate function on the home page and speech-to-text pronunciation practice within lessons.
+-   **Content Parity & Organization:** All 34 Thai lessons must be mirrored to English. All songs should be moved to a dedicated Songs tab.
 </product_requirements>
 
 <key_technical_concepts>
 - **Frontend:** React Native with Expo,  for file-based navigation.
 - **Backend:** Python with FastAPI framework.
-- **Database:** MongoDB for storing lesson data.
-- **State Management:** React Context API () for managing the UI theme (dark/light mode).
-- **Audio:**  for native Text-to-Speech functionality.
-- **Internationalization:**  and  for handling multiple languages.
+- **State Management:** React Context API for theme (), learning direction (), and UI language ().
+- **Audio:**  for Text-to-Speech (TTS) and planned Speech-to-Text (STT).
+- **Internationalization:**  and  for UI translations.
+- **UI:**  for styling, custom components, and dynamic icons.
 </key_technical_concepts>
 
 <code_architecture>
-The application follows a full-stack architecture with a clear separation between the frontend (Expo/React Native) and the backend (FastAPI).
+The application uses a full-stack architecture with an Expo frontend and a FastAPI backend.
 
 **Directory Structure:**
 
 
-**Key Files:**
+**Key File Analysis:**
+-   ****:
+    -   **Importance**: The entire backend logic resides here. It defines the data models and API endpoints to serve lesson content.
+    -   **Changes**: Evolved significantly to support bidirectional learning. A  field was added to the data models. The  endpoint was fixed to prevent massive data duplication by clearing the database before insertion. It now contains data for 34 Thai lessons and 8 English lessons (including songs). The  endpoint was updated to filter content based on the selected .
 
-- ****
-  - **Importance:** This single file serves as the entire backend. It uses FastAPI to define API endpoints for fetching all lesson content.
-  - **Changes:** The file grew substantially to hardcode a massive amount of learning data (over 575 items) across dozens of categories, from basic alphabet to complex vocabulary and songs. Endpoints like , , , and  were created to manage and serve this data to the frontend.
+-   ****:
+    -   **Importance**: Defines the main bottom tab navigator.
+    -   **Changes**: Updated to dynamically display country flag icons (🇹🇭/🇬🇧) based on the . The number of tabs was refined, and a Progress tab with a new icon was added. It also includes a floating action button for quick language swapping.
 
-- ****
-  - **Importance:** Defines the main bottom tab navigator for the app using .
-  - **Changes:** Modified to include four main tabs: Home, All Lessons, Favorites, and a new Settings tab. Icons and styling were added to make the navigation bar more professional.
+-   ****:
+    -   **Importance**: The core interactive learning screen.
+    -   **Changes**: Heavily modified to support bidirectional learning. It now conditionally renders the front of the flashcard (e.g., English for Learn English mode). The TTS function () was updated to use the correct language ( or ) based on the learning mode. Planning for a Mute TTS button and speech-to-text functionality began here.
 
-- ****
-  - **Importance:** This is the core interactive flashcard screen where users learn. It's a dynamic route that displays a specific lesson.
-  - **Changes:** Heavily modified to include:
-    - Text-to-Speech () triggered by a speaker icon and automatically on card reveal.
-    - A dark/light mode toggle button, using a custom .
-    - Visual feedback for active buttons (e.g., when the speaker is active).
-    - Themed styling for all UI elements to adapt to dark/light mode.
+-   ****:
+    -   **Importance**: The central hub for user configuration and app information.
+    -   **Changes**: Transformed into a multi-functional screen. It now includes a dark/light mode toggle, a UI language switcher, a developer profile section with an image, and a detailed copyright/legal notice section for Jake Adamson.
 
-- ****
-  - **Importance:** A new screen created to fulfill user requirements for credits and support.
-  - **Changes:** Created from scratch to display app credits for Jake Adamson and provide a support email contact, styled to match the app's aesthetic.
+-   ****:
+    -   **Importance**: These files manage the global state of the application.
+    -   **Changes**:  was created for dark/light mode.  was added to manage the learning direction (Thai→English vs. English→Thai).  was created to handle the app's display language for the i18n system.
 
-- ****
-  - **Importance:** Encapsulates the logic for the dark/light mode feature.
-  - **Changes:** A new file created to implement a React Context for providing and controlling the application's theme globally.
-
-- ** & **
-  - **Importance:** These files form the foundation of the multi-language support system.
-  - **Changes:** Newly created to set up the  library.  contains the configuration, and  holds the initial English translation strings.
+-   ****:
+    -   **Importance**: The root layout of the entire application.
+    -   **Changes**: Wrapped the application with all the necessary context providers (, , ) to make the global state available to all components. It also contains the initial routing logic to direct new users to the  screen.
 </code_architecture>
 
 <pending_tasks>
-- **Implement User Authentication:** Create a full registration/login system with social logins (Google, Facebook), 2-step verification, and password recovery.
-- **Implement Premium Paywall:** Integrate a £5.99/month subscription using Google Play Store to unlock premium content.
-- **Complete Internationalization:** Translate all UI strings into multiple languages and implement a language switcher.
-- **Implement Difficulty Filters:** Add UI controls to filter lessons by Easy, Medium, Hard, and Intermediate.
-- **Create Custom Branding:** Design a custom logo for ThaiTeach.
-- **Enhance Security:** Encrypt user data to comply with global data protection laws.
+- **Implement Full Content Parity:** Create English versions for all remaining Thai lessons.
+- **Monetization:** Implement the Google Paywall (£5.99/month), premium feature pop-ups, and Google AdMob ads.
+- **Speech-to-Translate:** Build the new speech translation interface on the home page with global language support.
+- **UI/UX Refinements:** Create a dedicated Songs tab, add a mute button to lessons, and enable swipe navigation on flashcards.
+- **Backend Content:** Add 100+ new Household Items to both Thai and English courses.
 </pending_tasks>
 
 <current_work>
-The most recent work focused on laying the groundwork for a major internationalization feature and acknowledging a request for a complete user authentication and monetization system.
+The most recent work was focused on a major feature expansion requested by the user, aiming to significantly enhance the app's functionality and content. The previous engineer had just completed a critical backend bug fix, resolving a massive data duplication issue by ensuring the  endpoint correctly clears the database before adding new lessons. This stabilized the content at 42 unique lessons (34 Thai, 8 English).
 
-**Actions Taken:**
-1.  **Installed i18n Libraries:** The packages  and  were added to the frontend project via yarn add v1.22.22
-info Visit https://yarnpkg.com/en/docs/cli/add for documentation about this command..
-2.  **Created i18n Configuration:** The file  was created to configure and initialize the  instance.
-3.  **Created Translation File:** A base translation file  was created to hold the English strings for the UI.
+Immediately after, work began on the user's latest multi-part request:
+1.  **Mirror ALL Thai lessons to English:** The plan was to expand the English content to match the Thai content fully.
+2.  **Create a separate Songs tab:** This required reorganizing the navigation structure.
+3.  **Build a Speech-to-Translate feature:** This is a new, complex feature intended for the home page, involving a new UI for text and voice input/output.
 
-Immediately following this, the user submitted a large, multi-part request (Message 231) detailing requirements for a comprehensive registration system, a premium feature pop-up, detailed user data collection (name, address, phone number), automated account recovery with 2-step authentication, and further UI refinements. The previous engineer acknowledged the request and was preparing to plan its implementation, positioning this as the immediate next major task.
+The last concrete action was outlining a plan to tackle these items, starting with the creation of the user interface for the speech-to-translate feature, followed by the significant backend work required to create and add all the mirrored English lesson data. The engineer was preparing to write the code for the new translation component.
 </current_work>
 
 <optional_next_step>
-Begin implementing the user registration and authentication flow, starting with the UI for the registration screen and the backend endpoints needed to create and manage user accounts, as this is a prerequisite for all subsequent premium features.
+Create the UI component for the Speech-to-Translate feature on the home page, and then proceed to update the backend  file to mirror all remaining Thai lessons into their English equivalents.
 </optional_next_step>
