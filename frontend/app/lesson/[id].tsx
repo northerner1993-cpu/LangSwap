@@ -592,6 +592,25 @@ const styles = StyleSheet.create({
   iconButtonActive: {
     backgroundColor: '#DCFCE7',
   },
+  playAllButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    borderRadius: 20,
+    gap: 6,
+    marginRight: 8,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 4,
+    elevation: 3,
+  },
+  playAllText: {
+    color: '#FFFFFF',
+    fontSize: 13,
+    fontWeight: '700',
+  },
   progressContainer: {
     height: 4,
     backgroundColor: '#E5E7EB',
