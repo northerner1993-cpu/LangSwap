@@ -35,10 +35,24 @@ export default function SpeechToTranslate() {
   const [translatedText, setTranslatedText] = useState('');
   const [isTranslating, setIsTranslating] = useState(false);
   const [isSpeaking, setIsSpeaking] = useState(false);
+  const [isRecording, setIsRecording] = useState(false);
+  const [recording, setRecording] = useState<Audio.Recording | null>(null);
   const [history, setHistory] = useState<TranslationHistory[]>([]);
 
   const sourceLang = languageMode === 'learn-thai' ? 'en' : 'th';
   const targetLang = languageMode === 'learn-thai' ? 'th' : 'en';
+
+  React.useEffect(() => {
+    // Request audio permissions on mount
+    (async () => {
+      if (Platform.OS !== 'web') {
+        const { status } = await Audio.requestPermissionsAsync();
+        if (status !== 'granted') {
+          Alert.alert('Permission Required', 'Microphone access is needed for voice input');
+        }
+      }
+    })();
+  }, []);
 
   const handleTranslate = async () => {
     if (!inputText.trim()) {
