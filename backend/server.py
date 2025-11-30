@@ -1321,6 +1321,79 @@ async def initialize_data(force: bool = False):
         {"thai": "และร้องเพลงทุกอย่างที่อยู่ข้างใน", "romanization": "And sing everything you find", "english": "And sing everything you find", "example": "ร้องเพลงทุกสิ่งที่เห็น"}
     ]
     
+    # Additional English Lessons (Mirrored Content)
+    
+    # English Colors
+    english_colors = [
+        {"thai": "สี", "romanization": "Color", "english": "Color", "example": "What color is it? - มันเป็นสีอะไร?"},
+        {"thai": "แดง", "romanization": "Red", "english": "Red", "example": "The apple is red - แอปเปิลสีแดง"},
+        {"thai": "น้ำเงิน", "romanization": "Blue", "english": "Blue", "example": "The sky is blue - ท้องฟ้าสีน้ำเงิน"},
+        {"thai": "เขียว", "romanization": "Green", "english": "Green", "example": "Trees are green - ต้นไม้สีเขียว"},
+        {"thai": "เหลือง", "romanization": "Yellow", "english": "Yellow", "example": "Bananas are yellow - กล้วยสีเหลือง"},
+        {"thai": "ส้ม", "romanization": "Orange", "english": "Orange", "example": "The orange is orange - ส้มสีส้ม"},
+        {"thai": "ม่วง", "romanization": "Purple", "english": "Purple", "example": "Grapes are purple - องุ่นสีม่วง"},
+        {"thai": "ชมพู", "romanization": "Pink", "english": "Pink", "example": "Pink is pretty - สีชมพูสวย"},
+        {"thai": "ดำ", "romanization": "Black", "english": "Black", "example": "Black shoes - รองเท้าสีดำ"},
+        {"thai": "ขาว", "romanization": "White", "english": "White", "example": "White shirt - เสื้อสีขาว"},
+        {"thai": "เทา", "romanization": "Gray", "english": "Gray", "example": "Gray clouds - เมฆสีเทา"},
+        {"thai": "น้ำตาล", "romanization": "Brown", "english": "Brown", "example": "Brown dog - สุนัขสีน้ำตาล"}
+    ]
+    
+    # English Family Members
+    english_family = [
+        {"thai": "ครอบครัว", "romanization": "Family", "english": "Family", "example": "My family - ครอบครัวของฉัน"},
+        {"thai": "พ่อ", "romanization": "Father", "english": "Father", "example": "My father - พ่อของฉัน"},
+        {"thai": "แม่", "romanization": "Mother", "english": "Mother", "example": "My mother - แม่ของฉัน"},
+        {"thai": "พี่ชาย", "romanization": "Older brother", "english": "Older brother", "example": "My older brother - พี่ชายของฉัน"},
+        {"thai": "พี่สาว", "romanization": "Older sister", "english": "Older sister", "example": "My older sister - พี่สาวของฉัน"},
+        {"thai": "น้องชาย", "romanization": "Younger brother", "english": "Younger brother", "example": "My younger brother - น้องชายของฉัน"},
+        {"thai": "น้องสาว", "romanization": "Younger sister", "english": "Younger sister", "example": "My younger sister - น้องสาวของฉัน"},
+        {"thai": "ปู่", "romanization": "Grandfather", "english": "Grandfather", "example": "My grandfather - ปู่ของฉัน"},
+        {"thai": "ย่า", "romanization": "Grandmother", "english": "Grandmother", "example": "My grandmother - ย่าของฉัน"},
+        {"thai": "ลูก", "romanization": "Child", "english": "Child", "example": "My child - ลูกของฉัน"}
+    ]
+    
+    # English Days of the Week
+    english_days = [
+        {"thai": "วัน", "romanization": "Day", "english": "Day", "example": "What day is it? - วันนี้วันอะไร?"},
+        {"thai": "จันทร์", "romanization": "Monday", "english": "Monday", "example": "I work on Monday - ฉันทำงานวันจันทร์"},
+        {"thai": "อังคาร", "romanization": "Tuesday", "english": "Tuesday", "example": "Tuesday is next - วันอังคารวันถัดไป"},
+        {"thai": "พุธ", "romanization": "Wednesday", "english": "Wednesday", "example": "Wednesday morning - เช้าวันพุธ"},
+        {"thai": "พฤหัสบดี", "romanization": "Thursday", "english": "Thursday", "example": "Thursday evening - เย็นวันพฤหัสบดี"},
+        {"thai": "ศุกร์", "romanization": "Friday", "english": "Friday", "example": "Friday is fun day - ว��นศุกร์วันสนุก"},
+        {"thai": "เสาร์", "romanization": "Saturday", "english": "Saturday", "example": "Saturday weekend - วันเสาร์วันหยุด"},
+        {"thai": "อาทิตย์", "romanization": "Sunday", "english": "Sunday", "example": "Sunday rest day - วันอาทิตย์พักผ่อน"},
+        {"thai": "วันนี้", "romanization": "Today", "english": "Today", "example": "Today is good - วันนี้ดี"},
+        {"thai": "เมื่อวาน", "romanization": "Yesterday", "english": "Yesterday", "example": "Yesterday was fun - เมื่อวานสนุก"},
+        {"thai": "พรุ่งนี้", "romanization": "Tomorrow", "english": "Tomorrow", "example": "See you tomorrow - พรุ่งนี้เจอกัน"}
+    ]
+    
+    # Expanded Household Items (100+ items for both Thai and English)
+    household_expanded = [
+        {"thai": "ห้องน้ำ", "romanization": "hong-naam / Bathroom", "english": "Bathroom", "example": "I need the bathroom - ฉันต้องการห้องน้ำ"},
+        {"thai": "ห้องครัว", "romanization": "hong-khrua / Kitchen", "english": "Kitchen", "example": "Cooking in kitchen - ทำอาหารในครัว"},
+        {"thai": "ห้องนอน", "romanization": "hong-norn / Bedroom", "english": "Bedroom", "example": "Sleep in bedroom - นอนในห้องนอน"},
+        {"thai": "ห้องนั่งเล่น", "romanization": "hong-nang-len / Living room", "english": "Living room", "example": "Relax in living room - พักผ่อนในห้องนั่งเล่น"},
+        {"thai": "โซฟา", "romanization": "sofa / Sofa", "english": "Sofa", "example": "Sit on sofa - นั่งบนโซฟา"},
+        {"thai": "พรม", "romanization": "phrom / Carpet", "english": "Carpet", "example": "Soft carpet - พรมนุ่ม"},
+        {"thai": "ม่าน", "romanization": "maan / Curtain", "english": "Curtain", "example": "Close curtains - ปิดม่าน"},
+        {"thai": "กระจกเงา", "romanization": "gra-jok-ngao / Mirror", "english": "Mirror", "example": "Look in mirror - ดูกระจกเงา"},
+        {"thai": "นาฬิกา", "romanization": "naa-li-gaa / Clock", "english": "Clock", "example": "Check the clock - ดูนาฬิกา"},
+        {"thai": "รูปภาพ", "romanization": "ruup-phaap / Picture", "english": "Picture", "example": "Hang picture - แขวนรูปภาพ"},
+        {"thai": "หนังสือ", "romanization": "nang-sue / Book", "english": "Book", "example": "Read a book - อ่านหนังสือ"},
+        {"thai": "ชั้นหนังสือ", "romanization": "chan-nang-sue / Bookshelf", "english": "Bookshelf", "example": "Books on bookshelf - หนังสือบนชั้น"},
+        {"thai": "เครื่องคอมพิวเตอร์", "romanization": "khrueng-com / Computer", "english": "Computer", "example": "Work on computer - ทำงานกับคอมพิวเตอร์"},
+        {"thai": "แล็ปท็อป", "romanization": "laptop / Laptop", "english": "Laptop", "example": "Use laptop - ใช้แล็ปท็อป"},
+        {"thai": "โทรศัพท์", "romanization": "tho-ra-sap / Telephone", "english": "Telephone", "example": "Answer telephone - รับโทรศัพท์"},
+        {"thai": "มือถือ", "romanization": "mue-thue / Mobile phone", "english": "Mobile phone", "example": "Call on mobile - โทรมือถือ"},
+        {"thai": "เตารีด", "romanization": "tao-riit / Iron", "english": "Iron", "example": "Iron clothes - รีดเสื้อผ้า"},
+        {"thai": "เครื่องซักผ้า", "romanization": "khrueng-sak-phaa / Washing machine", "english": "Washing machine", "example": "Wash clothes - ซักเสื้อผ้า"},
+        {"thai": "เครื่องอบผ้า", "romanization": "khrueng-op-phaa / Dryer", "english": "Dryer", "example": "Dry clothes - อบผ้า"},
+        {"thai": "ไม้กวาด", "romanization": "mai-gwaat / Broom", "english": "Broom", "example": "Sweep floor - กวาดพื้น"},
+        {"thai": "ถังขยะ", "romanization": "thang-kha-ya / Trash can", "english": "Trash can", "example": "Throw in trash - ทิ้งขยะ"},
+        {"thai": "เครื่องดูดฝุ่น", "romanization": "khrueng-duut-fun / Vacuum cleaner", "english": "Vacuum cleaner", "example": "Vacuum carpet - ดูดฝุ่นพรม"}
+    ]
+    
     english_lessons = [
         {
             "title": "English Alphabet (A-Z)",
