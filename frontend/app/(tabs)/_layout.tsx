@@ -39,8 +39,15 @@ export default function TabLayout() {
         name="index"
         options={{
           title: 'Translate',
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="language-outline" size={size} color={color} />
+          tabBarIcon: ({ color, size, focused }) => (
+            <View style={{ alignItems: 'center', justifyContent: 'center' }}>
+              <Ionicons 
+                name={focused ? "chatbubbles" : "chatbubbles-outline"} 
+                size={size} 
+                color={color} 
+              />
+              <View style={{ position: 'absolute', bottom: -2, right: -4, backgroundColor: '#10B981', borderRadius: 6, width: 10, height: 10, borderWidth: 1.5, borderColor: colors.card }} />
+            </View>
           ),
         }}
       />
