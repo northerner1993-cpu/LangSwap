@@ -372,14 +372,16 @@ export default function LessonScreen() {
         <View style={[styles.progressBar, { width: `${progress}%` }]} />
       </View>
 
-      {/* Flashcard */}
+      {/* Flashcard with Swipe Gesture */}
       <View style={styles.cardContainer}>
-        <TouchableOpacity
-          style={styles.card}
-          onPress={() => setShowAnswer(!showAnswer)}
-          activeOpacity={0.9}
-        >
-          <View style={styles.cardContent}>
+        <GestureDetector gesture={swipeGesture}>
+          <Animated.View style={[animatedStyle]}>
+            <TouchableOpacity
+              style={styles.card}
+              onPress={() => setShowAnswer(!showAnswer)}
+              activeOpacity={0.9}
+            >
+              <View style={styles.cardContent}>
             {!showAnswer ? (
               <>
                 <Text style={styles.thaiText}>
