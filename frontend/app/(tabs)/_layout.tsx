@@ -93,7 +93,6 @@ export default function TabLayout() {
         name="premium"
         options={{
           href: null,
-          tabBarButton: () => null,
         }}
       />
     </Tabs>
