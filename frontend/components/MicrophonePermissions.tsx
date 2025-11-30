@@ -195,13 +195,11 @@ export default function MicrophonePermissions({ colors }: MicrophonePermissionsP
       </View>
 
       {/* Device Info */}
-      {Device.modelName && (
-        <View style={styles.deviceInfo}>
-          <Text style={[styles.deviceInfoText, { color: colors.textSecondary }]}>
-            Device: {Device.modelName} • {Platform.OS === 'ios' ? 'iOS' : 'Android'} {Platform.Version}
-          </Text>
-        </View>
-      )}
+      <View style={styles.deviceInfo}>
+        <Text style={[styles.deviceInfoText, { color: colors.textSecondary }]}>
+          Platform: {Platform.OS === 'ios' ? 'iOS' : Platform.OS === 'android' ? 'Android' : 'Web'} {Platform.Version}
+        </Text>
+      </View>
 
       {/* Legal Compliance */}
       <View style={styles.legalSection}>
