@@ -25,6 +25,16 @@ load_dotenv(ROOT_DIR / '.env')
 
 # API Keys
 PRIVATE_API_KEY = os.getenv("PRIVATE_API_KEY")
+SERPAPI_KEY = os.getenv("SERPAPI_KEY", PRIVATE_API_KEY)
+SERPAPI_ENDPOINT = os.getenv("SERPAPI_ENDPOINT", "https://serpapi.com/search")
+
+# SerpAPI Integration
+try:
+    from serpapi import GoogleSearch
+    SERPAPI_AVAILABLE = True
+except ImportError:
+    SERPAPI_AVAILABLE = False
+    print("Warning: SerpAPI not available. Install 'google-search-results' package.")
 
 # MongoDB connection
 mongo_url = os.environ['MONGO_URL']
