@@ -175,6 +175,12 @@ async def initialize_data(force: bool = False):
     if count > 0 and not force:
         return {"message": "Data already initialized", "count": count}
     
+    # If force=true, clear all existing data first
+    if force:
+        await db.lessons.delete_many({})
+        await db.progress.delete_many({})
+        await db.favorites.delete_many({})
+    
     # Thai Consonants
     consonants_data = [
         {"thai": "ก", "romanization": "k", "english": "Kor Kai (chicken)", "example": "กา (crow)"},
