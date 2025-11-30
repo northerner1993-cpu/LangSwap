@@ -1,6 +1,7 @@
 import React from 'react';
 import { Tabs } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
+import { View } from 'react-native';
 import { useLanguageMode } from '../../contexts/LanguageModeContext';
 import { useTheme } from '../../contexts/ThemeContext';
 
