@@ -95,38 +95,51 @@ export default function SongsScreen() {
 
         {/* Songs Grid */}
         <View style={styles.songsContainer}>
-          {songs.map((song) => (
-            <TouchableOpacity
-              key={song._id}
-              style={[styles.songCard, { backgroundColor: colors.card, borderColor: colors.border }]}
-              onPress={() => handleSongPress(song._id)}
-              activeOpacity={0.7}
-            >
-              <View style={[styles.songIconContainer, { backgroundColor: '#EC489920' }]}>
-                <Ionicons name={getSongIcon(song.subcategory) as any} size={32} color="#EC4899" />
-              </View>
-              <View style={styles.songContent}>
-                <Text style={[styles.songTitle, { color: colors.text }]}>{song.title}</Text>
-                <Text style={[styles.songDescription, { color: colors.textSecondary }]} numberOfLines={2}>
-                  {song.description}
-                </Text>
-                <View style={styles.songFooter}>
-                  <View style={[styles.badge, { backgroundColor: '#EC489915' }]}>
-                    <Text style={[styles.badgeText, { color: '#EC4899' }]}>{song.subcategory}</Text>
+          {songs.map((song) => {
+            const isEnglish = song.language_mode === 'learn-english';
+            const languageFlag = isEnglish ? '🇬🇧' : '🇹🇭';
+            const languageName = isEnglish ? 'English' : 'Thai';
+            const languageColor = isEnglish ? '#10B981' : '#8B5CF6';
+            
+            return (
+              <TouchableOpacity
+                key={song._id}
+                style={[styles.songCard, { backgroundColor: colors.card, borderColor: colors.border }]}
+                onPress={() => handleSongPress(song._id)}
+                activeOpacity={0.7}
+              >
+                <View style={[styles.songIconContainer, { backgroundColor: '#EC489920' }]}>
+                  <Ionicons name={getSongIcon(song.subcategory) as any} size={32} color="#EC4899" />
+                </View>
+                <View style={styles.songContent}>
+                  <View style={styles.titleRow}>
+                    <Text style={[styles.songTitle, { color: colors.text }]}>{song.title}</Text>
+                    <View style={[styles.languageBadge, { backgroundColor: languageColor + '15' }]}>
+                      <Text style={styles.flagText}>{languageFlag}</Text>
+                      <Text style={[styles.languageText, { color: languageColor }]}>{languageName}</Text>
+                    </View>
                   </View>
-                  <View style={styles.itemCount}>
-                    <Ionicons name="musical-note" size={14} color={colors.textSecondary} />
-                    <Text style={[styles.itemCountText, { color: colors.textSecondary }]}>
-                      {song.items.length} verses
-                    </Text>
+                  <Text style={[styles.songDescription, { color: colors.textSecondary }]} numberOfLines={2}>
+                    {song.description}
+                  </Text>
+                  <View style={styles.songFooter}>
+                    <View style={[styles.badge, { backgroundColor: '#EC489915' }]}>
+                      <Text style={[styles.badgeText, { color: '#EC4899' }]}>{song.subcategory}</Text>
+                    </View>
+                    <View style={styles.itemCount}>
+                      <Ionicons name="musical-note" size={14} color={colors.textSecondary} />
+                      <Text style={[styles.itemCountText, { color: colors.textSecondary }]}>
+                        {song.items.length} verses
+                      </Text>
+                    </View>
                   </View>
                 </View>
-              </View>
-              <View style={styles.playIcon}>
-                <Ionicons name="play-circle" size={40} color="#EC4899" />
-              </View>
-            </TouchableOpacity>
-          ))}
+                <View style={styles.playIcon}>
+                  <Ionicons name="play-circle" size={40} color="#EC4899" />
+                </View>
+              </TouchableOpacity>
+            );
+          })}
         </View>
 
         <View style={styles.bottomPadding} />
