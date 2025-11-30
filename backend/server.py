@@ -23,6 +23,9 @@ security = HTTPBearer()
 ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / '.env')
 
+# API Keys
+PRIVATE_API_KEY = os.getenv("PRIVATE_API_KEY")
+
 # MongoDB connection
 mongo_url = os.environ['MONGO_URL']
 client = AsyncIOMotorClient(mongo_url)
