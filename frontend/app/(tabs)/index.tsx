@@ -239,7 +239,9 @@ export default function HomeScreen() {
       <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
         {/* Header */}
         <View style={styles.header}>
-          <Text style={styles.title}>Learn Thai</Text>
+          <Text style={styles.title}>
+            {languageMode === 'learn-thai' ? 'Learn Thai' : 'Learn English'}
+          </Text>
           <Text style={styles.subtitle}>Choose a category to start learning</Text>
         </View>
 
