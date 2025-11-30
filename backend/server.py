@@ -341,34 +341,58 @@ async def delete_staff(staff_id: str, admin_user: dict = Depends(require_admin))
 
 @api_router.post("/init-admin")
 async def initialize_admin():
-    """Initialize primary admin account with Jake's email"""
-    # Check if admin already exists
-    existing_admin = await db.users.find_one({"email": "jakemadamson2k14@gmail.com"})
-    if existing_admin:
-        return {"message": "Admin account already exists", "email": "jakemadamson2k14@gmail.com"}
+    """Initialize primary admin accounts with both owner emails"""
+    owners = [
+        {
+            "email": "jakemadamson2k14@gmail.com",
+            "username": "Jake Adamson",
+            "password": "LangSwap2024!"
+        },
+        {
+            "email": "Northerner1993@gmail.com",
+            "username": "Co-Owner",
+            "password": "LangSwap2024!"
+        }
+    ]
     
-    # Create primary admin - Jake Adamson
-    admin_password = hash_password("LangSwap2024!")  # Strong default password
-    admin_doc = {
-        "email": "jakemadamson2k14@gmail.com",
-        "username": "Jake Adamson",
-        "password": admin_password,
-        "role": "admin",
-        "permissions": ["all", "owner", "global_sales_conduct", "data_protection"],
-        "created_at": datetime.utcnow(),
-        "is_active": True,
-        "is_owner": True
-    }
+    created_accounts = []
     
-    await db.users.insert_one(admin_doc)
+    for owner_data in owners:
+        # Check if admin already exists
+        existing_admin = await db.users.find_one({"email": owner_data["email"]})
+        if existing_admin:
+            created_accounts.append({
+                "email": owner_data["email"],
+                "status": "already_exists"
+            })
+            continue
+        
+        # Create owner admin account
+        admin_password = hash_password(owner_data["password"])
+        admin_doc = {
+            "email": owner_data["email"],
+            "username": owner_data["username"],
+            "password": admin_password,
+            "role": "admin",
+            "permissions": ["all", "owner", "global_sales_conduct", "data_protection", "staff_management"],
+            "created_at": datetime.utcnow(),
+            "is_active": True,
+            "is_owner": True
+        }
+        
+        await db.users.insert_one(admin_doc)
+        created_accounts.append({
+            "email": owner_data["email"],
+            "username": owner_data["username"],
+            "role": "admin - OWNER",
+            "status": "created"
+        })
     
     return {
-        "message": "Primary admin account created",
-        "email": "jakemadamson2k14@gmail.com",
-        "username": "Jake Adamson",
-        "role": "admin - OWNER",
+        "message": "Owner accounts initialized",
+        "accounts": created_accounts,
         "default_password": "LangSwap2024!",
-        "note": "PLEASE CHANGE THE PASSWORD IMMEDIATELY AFTER FIRST LOGIN"
+        "note": "PLEASE CHANGE PASSWORDS IMMEDIATELY AFTER FIRST LOGIN"
     }
 
 # Premium Subscription & Coupon Endpoints
