@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   View,
   Text,
@@ -12,7 +12,7 @@ import {
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import * as Speech from 'expo-speech';
-import { Audio } from 'expo-av';
+import Voice from '@react-native-voice/voice';
 import Constants from 'expo-constants';
 import { useTheme } from '../contexts/ThemeContext';
 import { useLanguageMode } from '../contexts/LanguageModeContext';
