@@ -103,6 +103,19 @@ class Subscription(BaseModel):
     expires_at: Optional[datetime] = None
     coupon_used: Optional[str] = None
 
+# Staff Access Code Models
+class AccessCode(BaseModel):
+    code: str
+    generated_by: str  # admin user_id
+    generated_by_email: str
+    generated_at: datetime
+    expires_at: datetime
+    is_used: bool = False
+    used_by: Optional[str] = None
+    used_at: Optional[datetime] = None
+    staff_email: Optional[str] = None
+    permissions: List[str] = []
+
 # Lesson Models
 class LessonItem(BaseModel):
     thai: str
