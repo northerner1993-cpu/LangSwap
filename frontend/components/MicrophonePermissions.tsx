@@ -10,7 +10,6 @@ import {
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { Audio } from 'expo-av';
-import * as Device from 'expo-device';
 
 interface MicrophonePermissionsProps {
   colors: any;
