@@ -135,6 +135,7 @@ class LessonItem(BaseModel):
     romanization: str
     english: str
     example: Optional[str] = None
+    image_url: Optional[str] = None  # Support for visual learning
 
 class Lesson(BaseModel):
     id: Optional[str] = Field(default=None, alias="_id")
@@ -145,6 +146,7 @@ class Lesson(BaseModel):
     items: List[LessonItem]
     order: int = 0
     language_mode: str = "learn-thai"  # "learn-thai" or "learn-english"
+    thumbnail_url: Optional[str] = None  # Lesson thumbnail for better visual appeal
 
     class Config:
         populate_by_name = True
