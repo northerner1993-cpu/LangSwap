@@ -317,6 +317,16 @@ export default function LessonScreen() {
         </View>
         <View style={styles.headerRight}>
           <TouchableOpacity
+            onPress={toggleMute}
+            style={[styles.iconButton, { backgroundColor: colors.inputBackground }]}
+          >
+            <Ionicons 
+              name={isTTSMuted ? "volume-mute" : "volume-high"} 
+              size={22} 
+              color={isTTSMuted ? colors.textSecondary : colors.success} 
+            />
+          </TouchableOpacity>
+          <TouchableOpacity
             onPress={() => {
               const textToSpeak = lesson.language_mode === 'learn-english' ? currentItem.english : currentItem.thai;
               speak(textToSpeak);
@@ -326,11 +336,12 @@ export default function LessonScreen() {
               isSpeaking && styles.iconButtonActive,
               { backgroundColor: colors.inputBackground }
             ]}
+            disabled={isTTSMuted}
           >
             <Ionicons 
-              name={isSpeaking ? "volume-high" : "volume-medium"} 
+              name={isSpeaking ? "play-circle" : "play"} 
               size={22} 
-              color={isSpeaking ? colors.success : colors.primary} 
+              color={isTTSMuted ? colors.textSecondary : (isSpeaking ? colors.success : colors.primary)} 
             />
           </TouchableOpacity>
           <TouchableOpacity
