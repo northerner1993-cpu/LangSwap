@@ -425,7 +425,9 @@ export default function LessonScreen() {
               <Ionicons name="checkmark-circle" size={32} color="#10B981" />
             </View>
           )}
-        </TouchableOpacity>
+            </TouchableOpacity>
+          </Animated.View>
+        </GestureDetector>
       </View>
 
       {/* Navigation Buttons */}
