@@ -138,6 +138,11 @@ export default function LessonScreen() {
   };
 
   const speak = async (text: string) => {
+    // Check if muted
+    if (isTTSMuted) {
+      return;
+    }
+    
     try {
       // Check if speech is available
       const available = await Speech.isSpeakingAsync();
@@ -179,6 +184,42 @@ export default function LessonScreen() {
       );
     }
   };
+  
+  // Swipe handlers
+  const handleSwipeLeft = () => {
+    if (!lesson) return;
+    if (currentIndex < lesson.items.length - 1) {
+      setCurrentIndex(currentIndex + 1);
+      setShowAnswer(false);
+    }
+  };
+  
+  const handleSwipeRight = () => {
+    if (currentIndex > 0) {
+      setCurrentIndex(currentIndex - 1);
+      setShowAnswer(false);
+    }
+  };
+  
+  // Create swipe gesture
+  const swipeGesture = Gesture.Pan()
+    .onUpdate((event) => {
+      translateX.value = event.translationX;
+    })
+    .onEnd((event) => {
+      if (event.translationX > 100) {
+        runOnJS(handleSwipeRight)();
+      } else if (event.translationX < -100) {
+        runOnJS(handleSwipeLeft)();
+      }
+      translateX.value = withSpring(0);
+    });
+  
+  const animatedStyle = useAnimatedStyle(() => {
+    return {
+      transform: [{ translateX: translateX.value }],
+    };
+  });
 
   const toggleFavorite = async () => {
     if (!lesson) return;
