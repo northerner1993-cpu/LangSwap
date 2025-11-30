@@ -172,7 +172,7 @@ export default function LessonScreen() {
             setTimeout(() => {
               setCurrentIndex(currentIndex + 1);
               setShowAnswer(true);
-            }, 1500); // 1.5 second pause between items
+            }, 3000); // 3 second pause between items for better learning
           } else if (isAutoPlay && isAutoPlaying) {
             // Finished all items
             setIsAutoPlaying(false);
