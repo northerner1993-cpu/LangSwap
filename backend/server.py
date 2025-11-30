@@ -352,6 +352,167 @@ async def delete_staff(staff_id: str, admin_user: dict = Depends(require_admin))
         raise HTTPException(status_code=404, detail="Staff member not found")
     return {"message": "Staff member deleted successfully"}
 
+# Staff Access Code System
+@api_router.post("/access-codes/generate")
+async def generate_access_code(permissions: List[str], valid_days: int = 7, admin_user: dict = Depends(require_admin)):
+    """Generate a staff registration access code (admin only)"""
+    import random
+    import string
+    
+    # Generate unique 12-character code
+    code = ''.join(random.choices(string.ascii_uppercase + string.digits, k=12))
+    code = f"STAFF-{code[:4]}-{code[4:8]}-{code[8:]}"
+    
+    # Create access code document
+    access_code_doc = {
+        "code": code,
+        "generated_by": str(admin_user["_id"]),
+        "generated_by_email": admin_user["email"],
+        "generated_at": datetime.utcnow(),
+        "expires_at": datetime.utcnow() + timedelta(days=valid_days),
+        "is_used": False,
+        "used_by": None,
+        "used_at": None,
+        "staff_email": None,
+        "permissions": permissions
+    }
+    
+    result = await db.access_codes.insert_one(access_code_doc)
+    access_code_doc["_id"] = result.inserted_id
+    
+    # Log the generation
+    await db.access_code_logs.insert_one({
+        "action": "generated",
+        "code": code,
+        "admin_id": str(admin_user["_id"]),
+        "admin_email": admin_user["email"],
+        "permissions": permissions,
+        "timestamp": datetime.utcnow()
+    })
+    
+    return {
+        "code": code,
+        "expires_at": access_code_doc["expires_at"],
+        "permissions": permissions,
+        "valid_days": valid_days
+    }
+
+@api_router.post("/access-codes/validate/{code}")
+async def validate_access_code(code: str):
+    """Validate an access code for staff registration"""
+    access_code = await db.access_codes.find_one({"code": code.upper()})
+    
+    if not access_code:
+        raise HTTPException(status_code=404, detail="Invalid access code")
+    
+    if access_code.get("is_used"):
+        raise HTTPException(status_code=400, detail="Access code already used")
+    
+    if datetime.fromisoformat(str(access_code.get("expires_at"))) < datetime.utcnow():
+        raise HTTPException(status_code=400, detail="Access code expired")
+    
+    return {
+        "valid": True,
+        "permissions": access_code.get("permissions", []),
+        "expires_at": access_code.get("expires_at")
+    }
+
+@api_router.post("/staff/register-with-code")
+async def register_staff_with_code(email: EmailStr, username: str, password: str, access_code: str):
+    """Register as staff using an access code"""
+    # Validate access code
+    code_doc = await db.access_codes.find_one({"code": access_code.upper()})
+    
+    if not code_doc:
+        raise HTTPException(status_code=404, detail="Invalid access code")
+    
+    if code_doc.get("is_used"):
+        raise HTTPException(status_code=400, detail="Access code already used")
+    
+    if datetime.fromisoformat(str(code_doc.get("expires_at"))) < datetime.utcnow():
+        raise HTTPException(status_code=400, detail="Access code expired")
+    
+    # Check if user already exists
+    existing_user = await db.users.find_one({"email": email})
+    if existing_user:
+        raise HTTPException(status_code=400, detail="Email already registered")
+    
+    # Create staff account
+    hashed_password = hash_password(password)
+    staff_doc = {
+        "email": email,
+        "username": username,
+        "password": hashed_password,
+        "role": "staff",
+        "permissions": code_doc.get("permissions", []),
+        "created_at": datetime.utcnow(),
+        "is_active": True,
+        "registered_with_code": access_code.upper()
+    }
+    
+    result = await db.users.insert_one(staff_doc)
+    
+    # Mark code as used
+    await db.access_codes.update_one(
+        {"code": access_code.upper()},
+        {
+            "$set": {
+                "is_used": True,
+                "used_by": str(result.inserted_id),
+                "used_at": datetime.utcnow(),
+                "staff_email": email
+            }
+        }
+    )
+    
+    # Log the usage
+    await db.access_code_logs.insert_one({
+        "action": "used",
+        "code": access_code.upper(),
+        "staff_id": str(result.inserted_id),
+        "staff_email": email,
+        "timestamp": datetime.utcnow()
+    })
+    
+    # Create access token
+    access_token = create_access_token({"sub": email})
+    
+    return {
+        "message": "Staff account created successfully",
+        "access_token": access_token,
+        "user": {
+            "id": str(result.inserted_id),
+            "email": email,
+            "username": username,
+            "role": "staff",
+            "permissions": code_doc.get("permissions", [])
+        }
+    }
+
+@api_router.get("/access-codes")
+async def list_access_codes(admin_user: dict = Depends(require_admin)):
+    """List all access codes (admin only)"""
+    codes = []
+    async for code in db.access_codes.find().sort("generated_at", -1).limit(100):
+        codes.append({
+            "code": code.get("code"),
+            "generated_by": code.get("generated_by_email"),
+            "generated_at": code.get("generated_at"),
+            "expires_at": code.get("expires_at"),
+            "is_used": code.get("is_used"),
+            "used_by": code.get("staff_email"),
+            "permissions": code.get("permissions", [])
+        })
+    return codes
+
+@api_router.get("/access-codes/logs")
+async def get_access_code_logs(admin_user: dict = Depends(require_admin)):
+    """Get access code generation and usage logs (admin only)"""
+    logs = []
+    async for log in db.access_code_logs.find().sort("timestamp", -1).limit(200):
+        logs.append(log)
+    return logs
+
 @api_router.post("/init-admin")
 async def initialize_admin():
     """Initialize primary admin accounts with both owner emails"""
