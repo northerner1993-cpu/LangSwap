@@ -42,6 +42,33 @@ export default function SpeechToTranslate() {
   const targetLang = languageMode === 'learn-thai' ? 'th' : 'en';
 
   useEffect(() => {
+    // Request microphone permissions immediately on mount
+    const requestPermissions = async () => {
+      try {
+        if (Platform.OS !== 'web') {
+          // Check if permissions are available
+          const hasPermission = await Voice.isAvailable();
+          if (!hasPermission) {
+            Alert.alert(
+              'Microphone Required',
+              'LangSwap needs microphone access for voice translation. Please enable it in your device settings.',
+              [
+                { text: 'Cancel', style: 'cancel' },
+                { text: 'Open Settings', onPress: () => {
+                  // On mobile, this would open settings
+                  console.log('Open device settings for microphone');
+                }}
+              ]
+            );
+          }
+        }
+      } catch (error) {
+        console.error('Permission check error:', error);
+      }
+    };
+
+    requestPermissions();
+
     // Setup voice recognition
     Voice.onSpeechStart = () => setIsRecording(true);
     Voice.onSpeechEnd = () => setIsRecording(false);
@@ -53,6 +80,11 @@ export default function SpeechToTranslate() {
     Voice.onSpeechError = (e: any) => {
       console.error('Speech error:', e);
       setIsRecording(false);
+      Alert.alert(
+        'Microphone Access Needed',
+        'Please enable microphone permissions in your device settings to use voice translation.',
+        [{ text: 'OK' }]
+      );
     };
 
     return () => {
