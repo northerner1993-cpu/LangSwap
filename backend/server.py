@@ -526,6 +526,115 @@ async def get_access_code_logs(admin_user: dict = Depends(require_admin)):
         logs.append(log)
     return logs
 
+# SerpAPI Enhanced Search & Data Endpoints
+@api_router.post("/search/language-examples")
+async def search_language_examples(query: str, language: str = "thai"):
+    """
+    Search for real-world language examples using SerpAPI
+    Enriches learning with authentic usage examples
+    """
+    if not SERPAPI_AVAILABLE:
+        return {
+            "error": "SerpAPI not available",
+            "message": "Using cached examples",
+            "query": query,
+            "examples": []
+        }
+    
+    try:
+        # Search for language examples
+        params = {
+            "engine": "google",
+            "q": f"{query} {language} language example usage",
+            "api_key": SERPAPI_KEY,
+            "num": 5
+        }
+        
+        search = GoogleSearch(params)
+        results = search.get_dict()
+        
+        # Extract relevant information
+        examples = []
+        if "organic_results" in results:
+            for result in results["organic_results"][:5]:
+                examples.append({
+                    "title": result.get("title", ""),
+                    "snippet": result.get("snippet", ""),
+                    "link": result.get("link", ""),
+                    "source": "SerpAPI Google Search"
+                })
+        
+        # Log to SerpAPI endpoint
+        await log_to_serpapi({
+            "action": "language_search",
+            "query": query,
+            "language": language,
+            "results_count": len(examples),
+            "timestamp": datetime.utcnow().isoformat()
+        })
+        
+        return {
+            "query": query,
+            "language": language,
+            "examples": examples,
+            "source": "SerpAPI",
+            "cached": False
+        }
+        
+    except Exception as e:
+        print(f"SerpAPI search error: {e}")
+        return {
+            "error": str(e),
+            "query": query,
+            "examples": []
+        }
+
+@api_router.post("/analytics/log")
+async def log_app_analytics(data: dict):
+    """
+    Log app analytics data to SerpAPI endpoint
+    Tracks user interactions, lesson progress, and feature usage
+    """
+    try:
+        # Add metadata
+        data["timestamp"] = datetime.utcnow().isoformat()
+        data["app_version"] = "1.0.0"
+        data["platform"] = data.get("platform", "unknown")
+        
+        # Log to SerpAPI
+        await log_to_serpapi(data)
+        
+        # Also store in MongoDB
+        await db.analytics.insert_one(data)
+        
+        return {
+            "status": "success",
+            "message": "Analytics logged successfully"
+        }
+    except Exception as e:
+        return {
+            "status": "error",
+            "message": str(e)
+        }
+
+async def log_to_serpapi(data: dict):
+    """Helper function to log data to SerpAPI endpoint"""
+    import requests
+    try:
+        response = requests.post(
+            SERPAPI_ENDPOINT,
+            json=data,
+            headers={
+                "Content-Type": "application/json",
+                "Authorization": f"Bearer {SERPAPI_KEY}"
+            },
+            timeout=5
+        )
+        return response.status_code == 200
+    except Exception as e:
+        print(f"Error logging to SerpAPI: {e}")
+        return False
+
 @api_router.post("/init-admin")
 async def initialize_admin():
     """Initialize primary admin accounts with both owner emails"""
