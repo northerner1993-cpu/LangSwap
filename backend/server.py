@@ -1441,12 +1441,48 @@ async def initialize_data(force: bool = False):
             "language_mode": "learn-english"
         },
         {
+            "title": "English Colors",
+            "category": "vocabulary",
+            "subcategory": "colors",
+            "description": "Learn English colors with examples",
+            "items": english_colors,
+            "order": 6,
+            "language_mode": "learn-english"
+        },
+        {
+            "title": "English Family Members",
+            "category": "vocabulary",
+            "subcategory": "family",
+            "description": "English words for family relationships",
+            "items": english_family,
+            "order": 7,
+            "language_mode": "learn-english"
+        },
+        {
+            "title": "English Days of the Week",
+            "category": "time",
+            "subcategory": "days",
+            "description": "Learn English days and time expressions",
+            "items": english_days,
+            "order": 8,
+            "language_mode": "learn-english"
+        },
+        {
+            "title": "English Household Items (100+ items)",
+            "category": "vocabulary",
+            "subcategory": "household",
+            "description": "Common items found at home in English",
+            "items": household_expanded,
+            "order": 9,
+            "language_mode": "learn-english"
+        },
+        {
             "title": "ABC Song",
             "category": "songs",
             "subcategory": "alphabet",
             "description": "Learn English alphabet through the classic ABC song",
             "items": english_alphabet_song,
-            "order": 6,
+            "order": 10,
             "language_mode": "learn-english"
         },
         {
@@ -1455,7 +1491,7 @@ async def initialize_data(force: bool = False):
             "subcategory": "numbers",
             "description": "Fun English counting song with rhymes",
             "items": english_numbers_song,
-            "order": 7,
+            "order": 11,
             "language_mode": "learn-english"
         },
         {
@@ -1464,7 +1500,7 @@ async def initialize_data(force: bool = False):
             "subcategory": "colors",
             "description": "Learn colors in English through the Rainbow song",
             "items": english_colors_song,
-            "order": 8,
+            "order": 12,
             "language_mode": "learn-english"
         }
     ]
