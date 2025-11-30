@@ -35,12 +35,12 @@ export default function SongsScreen() {
 
   useEffect(() => {
     loadSongs();
-  }, [languageMode]);
+  }, []);
 
   const loadSongs = async () => {
     try {
-      const modeParam = languageMode ? `?language_mode=${languageMode}` : '';
-      const response = await fetch(`${API_URL}/api/lessons${modeParam}`);
+      // Load ALL songs from both Thai and English lessons
+      const response = await fetch(`${API_URL}/api/lessons`);
       const data = await response.json();
       const songLessons = data.filter((lesson: Lesson) => lesson.category === 'songs');
       setSongs(songLessons);
