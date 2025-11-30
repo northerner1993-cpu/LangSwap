@@ -50,6 +50,7 @@ export default function LessonScreen() {
   const [loading, setLoading] = useState(true);
   const [isSpeaking, setIsSpeaking] = useState(false);
   const [isTTSMuted, setIsTTSMuted] = useState(false);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(false);
   
   // Swipe gesture values
   const translateX = useSharedValue(0);
