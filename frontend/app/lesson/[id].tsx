@@ -138,7 +138,7 @@ export default function LessonScreen() {
     }
   };
 
-  const speak = async (text: string) => {
+  const speak = async (text: string, isAutoPlay = false) => {
     // Check if muted
     if (isTTSMuted) {
       return;
@@ -165,10 +165,31 @@ export default function LessonScreen() {
         language: languageCode,
         pitch: 1.0,
         rate: 0.75, // Slightly slower for learning
-        onDone: () => setIsSpeaking(false),
-        onStopped: () => setIsSpeaking(false),
+        onDone: () => {
+          setIsSpeaking(false);
+          // Auto-advance if in autoplay mode
+          if (isAutoPlay && isAutoPlaying && lesson && currentIndex < lesson.items.length - 1) {
+            setTimeout(() => {
+              setCurrentIndex(currentIndex + 1);
+              setShowAnswer(true);
+            }, 1500); // 1.5 second pause between items
+          } else if (isAutoPlay && isAutoPlaying) {
+            // Finished all items
+            setIsAutoPlaying(false);
+            Alert.alert('Lesson Complete', 'You have finished all items in this lesson!');
+          }
+        },
+        onStopped: () => {
+          setIsSpeaking(false);
+          if (isAutoPlay) {
+            setIsAutoPlaying(false);
+          }
+        },
         onError: () => {
           setIsSpeaking(false);
+          if (isAutoPlay) {
+            setIsAutoPlaying(false);
+          }
           Alert.alert(
             'Audio Not Available', 
             `Text-to-speech works on mobile devices. On web, ${languageName} audio is not supported by browsers. Please use the Expo Go app on your phone for full audio features.`
@@ -178,6 +199,9 @@ export default function LessonScreen() {
     } catch (error) {
       console.error('Error speaking:', error);
       setIsSpeaking(false);
+      if (isAutoPlay) {
+        setIsAutoPlaying(false);
+      }
       const languageName = lesson?.language_mode === 'learn-english' ? 'English' : 'Thai';
       Alert.alert(
         'Audio Feature', 
@@ -185,6 +209,34 @@ export default function LessonScreen() {
       );
     }
   };
+  
+  const handlePlayAll = () => {
+    if (!lesson || isTTSMuted) {
+      if (isTTSMuted) {
+        Alert.alert('TTS Muted', 'Please unmute TTS to use Play All feature.');
+      }
+      return;
+    }
+    
+    setIsAutoPlaying(true);
+    setCurrentIndex(0);
+    setShowAnswer(true);
+  };
+  
+  const handleStopAutoPlay = async () => {
+    setIsAutoPlaying(false);
+    await Speech.stop();
+    setIsSpeaking(false);
+  };
+  
+  // Auto-play effect
+  useEffect(() => {
+    if (isAutoPlaying && showAnswer && lesson) {
+      const currentItem = lesson.items[currentIndex];
+      const textToSpeak = lesson.language_mode === 'learn-english' ? currentItem.english : currentItem.thai;
+      speak(textToSpeak, true);
+    }
+  }, [isAutoPlaying, currentIndex, showAnswer]);
   
   // Swipe handlers
   const handleSwipeLeft = () => {
