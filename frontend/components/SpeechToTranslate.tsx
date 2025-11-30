@@ -226,7 +226,6 @@ export default function SpeechToTranslate() {
           </View>
         )}
       </View>
-      </View>
 
       {/* Swap Button */}
       <View style={styles.swapContainer}>
