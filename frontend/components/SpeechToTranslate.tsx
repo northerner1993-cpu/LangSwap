@@ -36,22 +36,28 @@ export default function SpeechToTranslate() {
   const [isTranslating, setIsTranslating] = useState(false);
   const [isSpeaking, setIsSpeaking] = useState(false);
   const [isRecording, setIsRecording] = useState(false);
-  const [recording, setRecording] = useState<Audio.Recording | null>(null);
   const [history, setHistory] = useState<TranslationHistory[]>([]);
 
   const sourceLang = languageMode === 'learn-thai' ? 'en' : 'th';
   const targetLang = languageMode === 'learn-thai' ? 'th' : 'en';
 
-  React.useEffect(() => {
-    // Request audio permissions on mount
-    (async () => {
-      if (Platform.OS !== 'web') {
-        const { status } = await Audio.requestPermissionsAsync();
-        if (status !== 'granted') {
-          Alert.alert('Permission Required', 'Microphone access is needed for voice input');
-        }
+  useEffect(() => {
+    // Setup voice recognition
+    Voice.onSpeechStart = () => setIsRecording(true);
+    Voice.onSpeechEnd = () => setIsRecording(false);
+    Voice.onSpeechResults = (e: any) => {
+      if (e.value && e.value.length > 0) {
+        setInputText(e.value[0]);
       }
-    })();
+    };
+    Voice.onSpeechError = (e: any) => {
+      console.error('Speech error:', e);
+      setIsRecording(false);
+    };
+
+    return () => {
+      Voice.destroy().then(Voice.removeAllListeners);
+    };
   }, []);
 
   const handleTranslate = async () => {
