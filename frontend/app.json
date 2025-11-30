@@ -4,42 +4,64 @@
     "slug": "langswap",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
-    "scheme": "frontend",
+    "icon": "./assets/logo.png",
+    "scheme": "langswap",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
-    "owner": "Jake Adamson",
-    "description": "LangSwap - Bidirectional Language Learning App for Thai and English. Created and developed by Jake Adamson.",
+    "owner": "jakemadamson2k14",
+    "description": "LangSwap - Bidirectional Language Learning Platform. Master Thai and English with interactive lessons, instant translation, and AI-powered speech recognition. Features: 40+ lessons, songs, premium subscriptions, offline mode. Created by Jake Adamson.",
     "copyright": "© 2025 Jake Adamson. All Rights Reserved.",
+    "privacy": "public",
+    "primaryColor": "#4F46E5",
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.langswap.app",
+      "buildNumber": "1.0.0",
+      "infoPlist": {
+        "NSMicrophoneUsageDescription": "LangSwap needs microphone access for voice translation and pronunciation practice.",
+        "NSCameraUsageDescription": "LangSwap needs camera access for QR code scanning.",
+        "NSSpeechRecognitionUsageDescription": "LangSwap needs speech recognition for voice-to-text translation."
+      }
     },
     "android": {
+      "package": "com.langswap.app",
+      "versionCode": 1,
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/adaptive-icon.png",
-        "backgroundColor": "#000"
+        "foregroundImage": "./assets/logo.png",
+        "backgroundColor": "#4F46E5"
       },
+      "permissions": [
+        "RECORD_AUDIO",
+        "INTERNET",
+        "READ_EXTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE"
+      ],
       "edgeToEdgeEnabled": true
     },
     "web": {
       "bundler": "metro",
       "output": "static",
-      "favicon": "./assets/images/favicon.png"
+      "favicon": "./assets/logo.png"
     },
     "plugins": [
       "expo-router",
       [
         "expo-splash-screen",
         {
-          "image": "./assets/images/splash-icon.png",
+          "image": "./assets/logo.png",
           "imageWidth": 200,
           "resizeMode": "contain",
-          "backgroundColor": "#000"
+          "backgroundColor": "#4F46E5"
         }
       ]
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "eas": {
+        "projectId": "langswap-production"
+      }
     }
   }
 }
