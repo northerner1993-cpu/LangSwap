@@ -16,7 +16,7 @@ export class SpeechRecognitionService {
       }
     } catch (error) {
       console.error('Speech recognition error:', error);
-      if (onError) onError(error.toString());
+      if (onError) onError(String(error));
       return false;
     }
   }
@@ -52,7 +52,7 @@ export class SpeechRecognitionService {
       return true;
     } catch (error) {
       console.error('Mobile speech recognition error:', error);
-      if (onError) onError(error.toString());
+      if (onError) onError(String(error));
       return false;
     }
   }
@@ -96,7 +96,7 @@ export class SpeechRecognitionService {
         resolve(true);
       } catch (error) {
         console.error('Web speech recognition setup error:', error);
-        if (onError) onError(error.toString());
+        if (onError) onError(String(error));
         resolve(false);
       }
     });
