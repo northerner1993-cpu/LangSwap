@@ -1,92 +1,86 @@
 <analysis>
-My analysis of the trajectory reveals an iterative and highly responsive development process, transforming a simple Thai language app into a feature-rich, bidirectional learning platform named LangSwap. The project's scope expanded dramatically based on the user's continuous feedback.
+The trajectory details the iterative development of LangSwap, a language learning application, evolving from a simple tool to a feature-rich, commercial-ready platform. The process was highly reactive to user feedback, leading to significant scope expansion.
 
-Initially, the app was a basic ThaiTeach application. The key pivot occurred when the user requested a bidirectional learning mode, allowing Thai speakers to learn English and vice-versa. This architectural change required significant backend data modeling and frontend logic adjustments, including creating a  and dynamically updating UI elements like tab icons with country flags.
+Initial work focused on establishing a bidirectional learning model (Thai-English) and core UI/UX features like dark mode and i18n. The project's complexity grew substantially with requests for a full-stack authentication system (users, staff, admins), monetization features (premium subscriptions, coupons), and advanced staff management tools like an access code generator.
 
-Subsequent requests added layers of complexity: a global dark/light theme, extensive internationalization (i18n) for the UI with 14 languages, a developer profile with a custom image, and legal copyright notices. The AI engineer addressed these by creating a , setting up  with numerous language files, and modifying the settings screen.
+A significant portion of the development cycle was dedicated to implementing and repeatedly debugging a Speech-to-Translate feature, particularly its microphone detection and speech recognition capabilities across iOS and Android. UI refinement was a constant theme, with numerous iterations on the tab bar to add, hide, and fix icons for features like Songs, Premium, and Translate.
 
-The latest phase of development focused on monetization and advanced features. The user requested premium paywalls, Google AdMob integration, a mute button for Text-to-Speech (TTS), speech-to-text for pronunciation practice, and a major content expansion. The engineer identified and fixed a critical data duplication bug in the backend and was in the process of mirroring all Thai lessons into English and designing a new speak-to-translate feature for the home page when the work was passed on.
+The final phase involved preparing the application for deployment by creating documentation (, ), initializing a Git repository, and integrating external services like SerpAPI. The last interactions revolved around fixing a persistent UI bug with a tab icon and adding more user-centric features to the settings screen.
 
-The user's primary language is English, and all future communication should be in English.
+The user's primary language is English. All future communications should be in English.
 </analysis>
 
 <product_requirements>
-The project is to build LangSwap, a comprehensive, commercial-ready mobile application for iOS and Android. It functions as a bidirectional language learning tool, initially supporting Thai-for-English-speakers and English-for-Thai-speakers.
+The goal is to build LangSwap, a commercial-grade, bidirectional language learning app for iOS and Android, initially for Thai and English.
 
-**Core Features Implemented:**
--   **Dual Learning Modes:** A language selection screen allows users to choose between Learn Thai 🇹🇭 and Learn English 🇬🇧.
--   **Interactive Content:** A flashcard-style interface with tap to reveal, Text-to-Speech (TTS) for both Thai and English, and improved lesson descriptions.
--   **Extensive Content:** Over 42 unique lessons, including alphabets, numbers, vocabulary, phrases, and songs for both learning modes.
--   **UI/UX:** A modern UI with a global dark/light mode, a tab bar with dynamic flag icons, an enhanced progress screen, and a floating action button for quick language swapping.
--   **Personalization & Branding:** A Settings screen includes a developer profile with a picture, copyright information credited to Jake Adamson, a theme toggle, and a UI language switcher.
--   **Internationalization (i18n):** The UI supports 14 languages, including English, Thai, Spanish, French, Japanese, and Chinese.
+**Core Functionality:**
+-   **Learning Modes:** Switch between Learn Thai 🇹🇭 and Learn English 🇬🇧.
+-   **Interactive Content:** Flashcards with TTS, swipe navigation, a Play All feature for song lessons (with a 3-second delay), and difficulty tiers (Beginner/Intermediate).
+-   **Speech-to-Translate:** A home screen feature for real-time voice translation with forced microphone permissions.
 
-**Pending High-Priority Features:**
--   **Monetization:** A freemium model with a £5.99/month premium subscription via Google Pay, supplemented by Google AdMob ads in the basic version.
--   **Advanced Interactivity:** A speak-to-translate function on the home page and speech-to-text pronunciation practice within lessons.
--   **Content Parity & Organization:** All 34 Thai lessons must be mirrored to English. All songs should be moved to a dedicated Songs tab.
+**User & Staff Management:**
+-   **Authentication:** A three-tiered role system (user, staff, admin) with email/password and Google Sign-In.
+-   **Admin Hierarchy:** Two owner accounts (, ) with full permissions.
+-   **Staff Tools:** A secure staff login and a system for admins to generate single-use registration access codes for new staff, with all generation requests logged.
+
+**Application & Settings:**
+-   **UI:** A dedicated Songs tab, a functional translate icon on the tab bar, and a settings page.
+-   **Personalization:** The ability for users to change the app's UI language from an extensive list of world languages.
+-   **Monetization (Currently Disabled):** The premium tab is hidden, and all paywalls/ads are disabled to allow for full testing.
 </product_requirements>
 
 <key_technical_concepts>
-- **Frontend:** React Native with Expo,  for file-based navigation.
-- **Backend:** Python with FastAPI framework.
-- **State Management:** React Context API for theme (), learning direction (), and UI language ().
-- **Audio:**  for Text-to-Speech (TTS) and planned Speech-to-Text (STT).
-- **Internationalization:**  and  for UI translations.
-- **UI:**  for styling, custom components, and dynamic icons.
+-   **Full-Stack:** Expo (React Native) frontend and FastAPI (Python) backend.
+-   **Database:** MongoDB.
+-   **Navigation:**  for file-based routing and tab navigation.
+-   **State Management:** React Context API for Theme, Language Mode, UI Language, and Authentication.
+-   **Authentication:** JWT-based system using  and  on the backend.
+-   **Audio:**  for TTS and  for Speech-to-Text.
+-   **API Integration:** Securely configured for SerpAPI and a generic external API key.
+-   **Internationalization:**  for UI translations.
 </key_technical_concepts>
 
 <code_architecture>
-The application uses a full-stack architecture with an Expo frontend and a FastAPI backend.
-
-**Directory Structure:**
+The application is a full-stack monorepo with an Expo frontend and a FastAPI backend.
 
 
-**Key File Analysis:**
--   ****:
-    -   **Importance**: The entire backend logic resides here. It defines the data models and API endpoints to serve lesson content.
-    -   **Changes**: Evolved significantly to support bidirectional learning. A  field was added to the data models. The  endpoint was fixed to prevent massive data duplication by clearing the database before insertion. It now contains data for 34 Thai lessons and 8 English lessons (including songs). The  endpoint was updated to filter content based on the selected .
 
--   ****:
-    -   **Importance**: Defines the main bottom tab navigator.
-    -   **Changes**: Updated to dynamically display country flag icons (🇹🇭/🇬🇧) based on the . The number of tabs was refined, and a Progress tab with a new icon was added. It also includes a floating action button for quick language swapping.
+-   ****
+    -   **Importance:** This is the monolithic backend service. It handles all API logic, including serving lessons, user authentication (register, login, roles), staff access code generation, premium feature flags, and proxying requests to external APIs like SerpAPI.
+    -   **Summary of Changes:** Grew from a simple content server to a complex application backend. It was heavily modified to add user/staff/admin roles, JWT authentication, owner account initialization, SerpAPI integration, and numerous endpoints for staff and admin functionalities.
 
--   ****:
-    -   **Importance**: The core interactive learning screen.
-    -   **Changes**: Heavily modified to support bidirectional learning. It now conditionally renders the front of the flashcard (e.g., English for Learn English mode). The TTS function () was updated to use the correct language ( or ) based on the learning mode. Planning for a Mute TTS button and speech-to-text functionality began here.
+-   ****
+    -   **Importance:** This file configures the main bottom tab navigator, defining which screens are accessible and their corresponding icons.
+    -   **Summary of Changes:** This file was edited frequently. A Songs tab was added. A Premium tab was added and later hidden by setting  to disable it for testing. The Translate tab icon was a recurring issue, with multiple attempts made to fix its display, culminating in simplifying the component wrapper around the icon.
 
--   ****:
-    -   **Importance**: The central hub for user configuration and app information.
-    -   **Changes**: Transformed into a multi-functional screen. It now includes a dark/light mode toggle, a UI language switcher, a developer profile section with an image, and a detailed copyright/legal notice section for Jake Adamson.
+-   ****
+    -   **Importance:** The core component for the voice translation feature on the home screen.
+    -   **Summary of Changes:** This component underwent multiple major rewrites to fix microphone detection and speech recognition. It was updated to use , request permissions programmatically, and handle platform-specific (iOS/Android) implementation details.
 
--   ****:
-    -   **Importance**: These files manage the global state of the application.
-    -   **Changes**:  was created for dark/light mode.  was added to manage the learning direction (Thai→English vs. English→Thai).  was created to handle the app's display language for the i18n system.
+-   ****
+    -   **Importance:** The screen where users interact with individual lesson flashcards.
+    -   **Summary of Changes:** Enhanced with a Play All feature, specifically for song lessons, which includes logic to automatically advance to the next card after a 3-second delay. It also includes swipe gestures and a mute button for TTS.
 
--   ****:
-    -   **Importance**: The root layout of the entire application.
-    -   **Changes**: Wrapped the application with all the necessary context providers (, , ) to make the global state available to all components. It also contains the initial routing logic to direct new users to the  screen.
+-   ****
+    -   **Importance:** The main configuration file for the Expo app. It controls app metadata, icons, and permissions.
+    -   **Summary of Changes:** Modified to include the app logo, a user-facing name LangSwap, and, most importantly, added the  permission under the  and  keys to ensure the speech recognition feature could function.
 </code_architecture>
 
 <pending_tasks>
-- **Implement Full Content Parity:** Create English versions for all remaining Thai lessons.
-- **Monetization:** Implement the Google Paywall (£5.99/month), premium feature pop-ups, and Google AdMob ads.
-- **Speech-to-Translate:** Build the new speech translation interface on the home page with global language support.
-- **UI/UX Refinements:** Create a dedicated Songs tab, add a mute button to lessons, and enable swipe navigation on flashcards.
-- **Backend Content:** Add 100+ new Household Items to both Thai and English courses.
+-   Fix the translation tab icon, which is still not displaying correctly as per the user's latest screenshot.
+-   Update the Settings tab to include detailed information about the application's new features.
+-   Add a new section or screen within Settings for World Languages, allowing users to change their language preference from an expanded list (English, French, Russian, Thai, Chinese, German, Spanish, Dutch, Finnish, etc.).
 </pending_tasks>
 
 <current_work>
-The most recent work was focused on a major feature expansion requested by the user, aiming to significantly enhance the app's functionality and content. The previous engineer had just completed a critical backend bug fix, resolving a massive data duplication issue by ensuring the  endpoint correctly clears the database before adding new lessons. This stabilized the content at 42 unique lessons (34 Thai, 8 English).
+The immediate last task was a multi-part user request focusing on UI fixes and feature enhancements. The AI engineer was actively addressing the following points from the user's message ():
 
-Immediately after, work began on the user's latest multi-part request:
-1.  **Mirror ALL Thai lessons to English:** The plan was to expand the English content to match the Thai content fully.
-2.  **Create a separate Songs tab:** This required reorganizing the navigation structure.
-3.  **Build a Speech-to-Translate feature:** This is a new, complex feature intended for the home page, involving a new UI for text and voice input/output.
+1.  **Fixing the Translation Tab Icon:** The user reported for the *n-th* time that the icon for the translation tab was not showing, providing a screenshot. The engineer identified the issue as a problematic component wrapper.
+2.  **Updating Settings:** A request to add details about new application features to the settings tab.
+3.  **Adding World Languages:** A request to add a comprehensive language preference selector in settings.
 
-The last concrete action was outlining a plan to tackle these items, starting with the creation of the user interface for the speech-to-translate feature, followed by the significant backend work required to create and add all the mirrored English lesson data. The engineer was preparing to write the code for the new translation component.
+The very last action taken () was an attempt to fix the icon issue by editing  to simplify the icon's implementation, removing the wrapper that was believed to be causing the problem. The frontend was rebuilding with this fix when the work was passed on. Work on the settings screen and language list had not yet begun.
 </current_work>
 
 <optional_next_step>
-Create the UI component for the Speech-to-Translate feature on the home page, and then proceed to update the backend  file to mirror all remaining Thai lessons into their English equivalents.
-</optional_next_step>
+Complete the user's latest request: update the settings screen to include app features and a comprehensive World Languages preference list, and verify that the translation tab icon is now correctly displayed.
