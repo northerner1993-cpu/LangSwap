@@ -107,6 +107,12 @@ export default function SettingsScreen() {
           </TouchableOpacity>
         </View>
 
+        {/* World Languages Selector */}
+        <WorldLanguagesSelector colors={colors} />
+
+        {/* Microphone Permissions */}
+        <MicrophonePermissions colors={colors} />
+
         {/* App Info Card */}
         <View style={[styles.card, { backgroundColor: colors.card, borderColor: colors.border }]}>
           <View style={styles.cardHeader}>
