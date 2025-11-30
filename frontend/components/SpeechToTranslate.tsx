@@ -136,54 +136,32 @@ export default function SpeechToTranslate() {
 
   const startRecording = async () => {
     try {
-      if (Platform.OS === 'web') {
-        Alert.alert('Not Available', 'Voice recording works on mobile devices only');
-        return;
-      }
-
-      await Audio.setAudioModeAsync({
-        allowsRecordingIOS: true,
-        playsInSilentModeIOS: true,
-      });
-
-      const { recording: newRecording } = await Audio.Recording.createAsync(
-        Audio.RecordingOptionsPresets.HIGH_QUALITY
-      );
-      
-      setRecording(newRecording);
       setIsRecording(true);
+      
+      // Determine language for recognition
+      const recognitionLang = sourceLang; // 'th' or 'en'
+      
+      // Start speech recognition
+      const started = await Voice.start(recognitionLang === 'th' ? 'th-TH' : 'en-US');
+      
+      if (!started) {
+        setIsRecording(false);
+        Alert.alert('Error', 'Could not start speech recognition. Please check microphone permissions.');
+      }
     } catch (error) {
       console.error('Failed to start recording:', error);
-      Alert.alert('Recording Error', 'Could not start recording');
+      setIsRecording(false);
+      Alert.alert('Microphone Error', 'Please enable microphone permissions in your device settings.');
     }
   };
 
   const stopRecording = async () => {
-    if (!recording) return;
-
     try {
+      await Voice.stop();
       setIsRecording(false);
-      await recording.stopAndUnloadAsync();
-      const uri = recording.getURI();
-      
-      // For now, show placeholder - in production integrate with speech-to-text API
-      Alert.alert(
-        'Recording Complete',
-        'Speech-to-text requires API integration. For now, please use text input.',
-        [
-          {
-            text: 'OK',
-            onPress: () => {
-              // In production: send audio to speech-to-text service
-              // const transcription = await speechToText(uri);
-              // setInputText(transcription);
-            }
-          }
-        ]
-      );
-      setRecording(null);
     } catch (error) {
       console.error('Failed to stop recording:', error);
+      setIsRecording(false);
     }
   };
 
