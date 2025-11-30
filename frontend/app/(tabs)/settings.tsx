@@ -113,47 +113,179 @@ export default function SettingsScreen() {
         {/* Microphone Permissions */}
         <MicrophonePermissions colors={colors} />
 
-        {/* App Info Card */}
+        {/* App Features Card - Enhanced */}
         <View style={[styles.card, { backgroundColor: colors.card, borderColor: colors.border }]}>
           <View style={styles.cardHeader}>
-            <Ionicons name="information-circle" size={24} color={colors.primary} />
-            <Text style={[styles.cardTitle, { color: colors.text }]}>About This App</Text>
+            <Ionicons name="star" size={24} color={colors.primary} />
+            <Text style={[styles.cardTitle, { color: colors.text }]}>App Features</Text>
           </View>
           <View style={styles.infoContent}>
             <Text style={[styles.infoText, { color: colors.textSecondary }]}>
-              A comprehensive Thai language learning application with 575+ learning items, 
-              including alphabet, numbers, conversations, vocabulary, and educational songs.
+              LangSwap is a comprehensive, bidirectional language learning platform for Thai and English speakers.
             </Text>
-            <View style={styles.featureList}>
-              <View style={styles.featureItem}>
-                <Ionicons name="checkmark-circle" size={18} color={colors.success} />
-                <Text style={[styles.featureText, { color: colors.textSecondary }]}>
-                  575 Learning Items
-                </Text>
+            
+            {/* Core Features */}
+            <View style={[styles.featureSection, { borderLeftColor: colors.primary }]}>
+              <Text style={[styles.featureSectionTitle, { color: colors.text }]}>
+                🎯 Core Learning Features
+              </Text>
+              <View style={styles.featureList}>
+                <View style={styles.featureItem}>
+                  <Ionicons name="swap-horizontal" size={18} color={colors.success} />
+                  <Text style={[styles.featureText, { color: colors.textSecondary }]}>
+                    Bidirectional Learning (Thai ⇄ English)
+                  </Text>
+                </View>
+                <View style={styles.featureItem}>
+                  <Ionicons name="card" size={18} color={colors.success} />
+                  <Text style={[styles.featureText, { color: colors.textSecondary }]}>
+                    Interactive Flashcards with Swipe Gestures
+                  </Text>
+                </View>
+                <View style={styles.featureItem}>
+                  <Ionicons name="volume-high" size={18} color={colors.success} />
+                  <Text style={[styles.featureText, { color: colors.textSecondary }]}>
+                    Native Text-to-Speech (TTS) Audio
+                  </Text>
+                </View>
+                <View style={styles.featureItem}>
+                  <Ionicons name="play" size={18} color={colors.success} />
+                  <Text style={[styles.featureText, { color: colors.textSecondary }]}>
+                    Play All Mode for Continuous Learning
+                  </Text>
+                </View>
+                <View style={styles.featureItem}>
+                  <Ionicons name="trophy" size={18} color={colors.success} />
+                  <Text style={[styles.featureText, { color: colors.textSecondary }]}>
+                    Difficulty Levels (Beginner/Intermediate)
+                  </Text>
+                </View>
               </View>
-              <View style={styles.featureItem}>
-                <Ionicons name="checkmark-circle" size={18} color={colors.success} />
-                <Text style={[styles.featureText, { color: colors.textSecondary }]}>
-                  34 Comprehensive Lessons
-                </Text>
+            </View>
+
+            {/* Voice Features */}
+            <View style={[styles.featureSection, { borderLeftColor: colors.error }]}>
+              <Text style={[styles.featureSectionTitle, { color: colors.text }]}>
+                🎤 Voice Translation Features
+              </Text>
+              <View style={styles.featureList}>
+                <View style={styles.featureItem}>
+                  <Ionicons name="mic" size={18} color={colors.success} />
+                  <Text style={[styles.featureText, { color: colors.textSecondary }]}>
+                    Speech-to-Translate (Real-time)
+                  </Text>
+                </View>
+                <View style={styles.featureItem}>
+                  <Ionicons name="globe" size={18} color={colors.success} />
+                  <Text style={[styles.featureText, { color: colors.textSecondary }]}>
+                    Voice Recognition for Practice
+                  </Text>
+                </View>
+                <View style={styles.featureItem}>
+                  <Ionicons name="chatbubbles" size={18} color={colors.success} />
+                  <Text style={[styles.featureText, { color: colors.textSecondary }]}>
+                    Conversation Practice Tools
+                  </Text>
+                </View>
               </View>
-              <View style={styles.featureItem}>
-                <Ionicons name="checkmark-circle" size={18} color={colors.success} />
-                <Text style={[styles.featureText, { color: colors.textSecondary }]}>
-                  8 Learning Songs
-                </Text>
+            </View>
+
+            {/* Content */}
+            <View style={[styles.featureSection, { borderLeftColor: colors.warning }]}>
+              <Text style={[styles.featureSectionTitle, { color: colors.text }]}>
+                📚 Rich Content Library
+              </Text>
+              <View style={styles.featureList}>
+                <View style={styles.featureItem}>
+                  <Ionicons name="library" size={18} color={colors.success} />
+                  <Text style={[styles.featureText, { color: colors.textSecondary }]}>
+                    350+ Comprehensive Lessons
+                  </Text>
+                </View>
+                <View style={styles.featureItem}>
+                  <Ionicons name="musical-notes" size={18} color={colors.success} />
+                  <Text style={[styles.featureText, { color: colors.textSecondary }]}>
+                    100+ Song-Based Lessons
+                  </Text>
+                </View>
+                <View style={styles.featureItem}>
+                  <Ionicons name="restaurant" size={18} color={colors.success} />
+                  <Text style={[styles.featureText, { color: colors.textSecondary }]}>
+                    Day-to-Day Conversations (Restaurant, Shopping, Travel)
+                  </Text>
+                </View>
+                <View style={styles.featureItem}>
+                  <Ionicons name="school" size={18} color={colors.success} />
+                  <Text style={[styles.featureText, { color: colors.textSecondary }]}>
+                    Alphabet, Numbers, Grammar & Vocabulary
+                  </Text>
+                </View>
               </View>
-              <View style={styles.featureItem}>
-                <Ionicons name="checkmark-circle" size={18} color={colors.success} />
-                <Text style={[styles.featureText, { color: colors.textSecondary }]}>
-                  Native Thai Audio (TTS)
-                </Text>
+            </View>
+
+            {/* User Experience */}
+            <View style={[styles.featureSection, { borderLeftColor: colors.primary }]}>
+              <Text style={[styles.featureSectionTitle, { color: colors.text }]}>
+                ✨ User Experience
+              </Text>
+              <View style={styles.featureList}>
+                <View style={styles.featureItem}>
+                  <Ionicons name="moon" size={18} color={colors.success} />
+                  <Text style={[styles.featureText, { color: colors.textSecondary }]}>
+                    Dark/Light Mode Support
+                  </Text>
+                </View>
+                <View style={styles.featureItem}>
+                  <Ionicons name="heart" size={18} color={colors.success} />
+                  <Text style={[styles.featureText, { color: colors.textSecondary }]}>
+                    Favorites & Progress Tracking
+                  </Text>
+                </View>
+                <View style={styles.featureItem}>
+                  <Ionicons name="analytics" size={18} color={colors.success} />
+                  <Text style={[styles.featureText, { color: colors.textSecondary }]}>
+                    Visual Progress Dashboard
+                  </Text>
+                </View>
+                <View style={styles.featureItem}>
+                  <Ionicons name="language" size={18} color={colors.success} />
+                  <Text style={[styles.featureText, { color: colors.textSecondary }]}>
+                    30+ UI Language Options
+                  </Text>
+                </View>
+                <View style={styles.featureItem}>
+                  <Ionicons name="phone-portrait" size={18} color={colors.success} />
+                  <Text style={[styles.featureText, { color: colors.textSecondary }]}>
+                    iOS & Android Compatible
+                  </Text>
+                </View>
               </View>
-              <View style={styles.featureItem}>
-                <Ionicons name="checkmark-circle" size={18} color={colors.success} />
-                <Text style={[styles.featureText, { color: colors.textSecondary }]}>
-                  Dark/Light Mode
-                </Text>
+            </View>
+
+            {/* Account & Management */}
+            <View style={[styles.featureSection, { borderLeftColor: colors.success }]}>
+              <Text style={[styles.featureSectionTitle, { color: colors.text }]}>
+                🔐 Account & Management
+              </Text>
+              <View style={styles.featureList}>
+                <View style={styles.featureItem}>
+                  <Ionicons name="person" size={18} color={colors.success} />
+                  <Text style={[styles.featureText, { color: colors.textSecondary }]}>
+                    User Accounts with Progress Sync
+                  </Text>
+                </View>
+                <View style={styles.featureItem}>
+                  <Ionicons name="people" size={18} color={colors.success} />
+                  <Text style={[styles.featureText, { color: colors.textSecondary }]}>
+                    Staff & Admin Management System
+                  </Text>
+                </View>
+                <View style={styles.featureItem}>
+                  <Ionicons name="shield-checkmark" size={18} color={colors.success} />
+                  <Text style={[styles.featureText, { color: colors.textSecondary }]}>
+                    Secure Authentication (JWT)
+                  </Text>
+                </View>
               </View>
             </View>
           </View>
