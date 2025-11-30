@@ -369,6 +369,25 @@ export default function LessonScreen() {
           </Text>
         </View>
         <View style={styles.headerRight}>
+          {lesson?.category === 'songs' && (
+            <TouchableOpacity
+              onPress={isAutoPlaying ? handleStopAutoPlay : handlePlayAll}
+              style={[
+                styles.playAllButton, 
+                { backgroundColor: isAutoPlaying ? '#EF4444' : '#10B981' }
+              ]}
+              disabled={isTTSMuted}
+            >
+              <Ionicons 
+                name={isAutoPlaying ? "stop" : "play-skip-forward"} 
+                size={18} 
+                color="#FFFFFF" 
+              />
+              <Text style={styles.playAllText}>
+                {isAutoPlaying ? 'Stop' : 'Play All'}
+              </Text>
+            </TouchableOpacity>
+          )}
           <TouchableOpacity
             onPress={toggleMute}
             style={[styles.iconButton, { backgroundColor: colors.inputBackground }]}
@@ -389,12 +408,12 @@ export default function LessonScreen() {
               isSpeaking && styles.iconButtonActive,
               { backgroundColor: colors.inputBackground }
             ]}
-            disabled={isTTSMuted}
+            disabled={isTTSMuted || isAutoPlaying}
           >
             <Ionicons 
               name={isSpeaking ? "play-circle" : "play"} 
               size={22} 
-              color={isTTSMuted ? colors.textSecondary : (isSpeaking ? colors.success : colors.primary)} 
+              color={isTTSMuted || isAutoPlaying ? colors.textSecondary : (isSpeaking ? colors.success : colors.primary)} 
             />
           </TouchableOpacity>
           <TouchableOpacity
