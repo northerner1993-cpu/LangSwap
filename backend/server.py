@@ -2197,6 +2197,90 @@ async def initialize_data(force: bool = False):
         {"thai": "พรุ่งนี้", "romanization": "Tomorrow", "english": "Tomorrow", "example": "See you tomorrow - พรุ่งนี้เจอกัน"}
     ]
     
+    # Daily Conversation - Restaurant & Food (Beginner)
+    daily_restaurant_beginner = [
+        {"thai": "ฉันหิวแล้ว", "romanization": "chan hiu laew / I'm hungry", "english": "I'm hungry", "example": "Time to eat - เวลากินข้าว"},
+        {"thai": "อร่อย", "romanization": "aroi / Delicious", "english": "Delicious", "example": "This is delicious - อันนี้อร่อย"},
+        {"thai": "น้ำ", "romanization": "nam / Water", "english": "Water", "example": "I want water - ฉันต้องการน้ำ"},
+        {"thai": "กาแฟ", "romanization": "ga-fae / Coffee", "english": "Coffee", "example": "Hot coffee - กาแฟร้อน"},
+        {"thai": "เมนู", "romanization": "menu / Menu", "english": "Menu", "example": "May I see the menu? - ขอดูเมนูได้ไหม"},
+        {"thai": "บิล", "romanization": "bin / Bill", "english": "Bill/Check", "example": "Check please - เช็คบิลด้วย"},
+        {"thai": "ราคา", "romanization": "ra-ka / Price", "english": "Price", "example": "How much? - ราคาเท่าไหร่"},
+        {"thai": "แพง", "romanization": "phaeng / Expensive", "english": "Expensive", "example": "Too expensive - แพงเกินไป"},
+        {"thai": "ถูก", "romanization": "thuuk / Cheap", "english": "Cheap", "example": "Very cheap - ถูกมาก"},
+        {"thai": "อิ่ม", "romanization": "im / Full", "english": "Full (stomach)", "example": "I'm full - ฉันอิ่มแล้ว"}
+    ]
+    
+    # Daily Conversation - Shopping (Beginner)
+    daily_shopping_beginner = [
+        {"thai": "ซื้อ", "romanization": "sue / Buy", "english": "Buy", "example": "I want to buy - ฉันอยากซื้อ"},
+        {"thai": "ขาย", "romanization": "khai / Sell", "english": "Sell", "example": "Do you sell? - คุณขายไหม"},
+        {"thai": "ลด", "romanization": "lot / Discount", "english": "Discount", "example": "Is there a discount? - มีส่วนลดไหม"},
+        {"thai": "ใหม่", "romanization": "mai / New", "english": "New", "example": "Brand new - ใหม่เอี่ยม"},
+        {"thai": "เก่า", "romanization": "gao / Old", "english": "Old", "example": "Used/old - ของเก่า"},
+        {"thai": "สวย", "romanization": "suay / Beautiful", "english": "Beautiful", "example": "Very beautiful - สวยมาก"},
+        {"thai": "ใหญ่", "romanization": "yai / Big", "english": "Big", "example": "Too big - ใหญ่เกินไป"},
+        {"thai": "เล็ก", "romanization": "lek / Small", "english": "Small", "example": "Too small - เล็กเกินไป"},
+        {"thai": "พอดี", "romanization": "pho-di / Just right", "english": "Just right/Fits", "example": "Perfect fit - พอดีเลย"},
+        {"thai": "ลอง", "romanization": "long / Try", "english": "Try", "example": "Can I try? - ลองได้ไหม"}
+    ]
+    
+    # Daily Conversation - Transportation (Beginner)
+    daily_transport_beginner = [
+        {"thai": "ไป", "romanization": "pai / Go", "english": "Go", "example": "I want to go - ฉันอยากไป"},
+        {"thai": "มา", "romanization": "ma / Come", "english": "Come", "example": "Come here - มานี่"},
+        {"thai": "รถแท็กซี่", "romanization": "rot taxi / Taxi", "english": "Taxi", "example": "Call a taxi - เรียกแท็กซี่"},
+        {"thai": "รถไฟฟ้า", "romanization": "rot fai fa / Sky train", "english": "Sky train/BTS", "example": "Take the BTS - นั่งรถไฟฟ้า"},
+        {"thai": "รถเมล์", "romanization": "rot mae / Bus", "english": "Bus", "example": "Bus stop - ป้ายรถเมล์"},
+        {"thai": "สถานี", "romanization": "sa-tha-ni / Station", "english": "Station", "example": "Train station - สถานีรถไฟ"},
+        {"thai": "ที่นี่", "romanization": "thi-ni / Here", "english": "Here", "example": "Stop here - จอดที่นี่"},
+        {"thai": "ที่นั่น", "romanization": "thi-nan / There", "english": "There", "example": "Over there - ที่นั่น"},
+        {"thai": "ใกล้", "romanization": "glai / Near", "english": "Near/Close", "example": "Very close - ใกล้มาก"},
+        {"thai": "ไกล", "romanization": "glai / Far", "english": "Far", "example": "Too far - ไกลเกินไป"}
+    ]
+    
+    # Weather & Time - Intermediate
+    daily_weather_intermediate = [
+        {"thai": "อากาศ", "romanization": "a-gat / Weather", "english": "Weather", "example": "The weather today - อากาศวันนี้"},
+        {"thai": "ร้อน", "romanization": "ron / Hot", "english": "Hot", "example": "Very hot - ร้อนมาก"},
+        {"thai": "หนาว", "romanization": "nao / Cold", "english": "Cold", "example": "Cold weather - อากาศหนาว"},
+        {"thai": "ฝน", "romanization": "fon / Rain", "english": "Rain", "example": "It's raining - ฝนตก"},
+        {"thai": "แดด", "romanization": "daet / Sun", "english": "Sun/Sunny", "example": "Sunny day - วันแดดดี"},
+        {"thai": "เมฆ", "romanization": "mek / Cloud", "english": "Cloud", "example": "Cloudy - มีเมฆมาก"},
+        {"thai": "ลม", "romanization": "lom / Wind", "english": "Wind", "example": "Windy - ลมแรง"},
+        {"thai": "ตอนเช้า", "romanization": "ton chao / Morning", "english": "Morning", "example": "Good morning - สวัสดีตอนเช้า"},
+        {"thai": "ตอนเที่ยง", "romanization": "ton thiang / Noon", "english": "Noon", "example": "At noon - ตอนเที่ยง"},
+        {"thai": "ตอนเย็น", "romanization": "ton yen / Evening", "english": "Evening", "example": "This evening - เย็นนี้"}
+    ]
+    
+    # Emotions & Feelings - Intermediate  
+    daily_feelings_intermediate = [
+        {"thai": "มีความสุข", "romanization": "mi kwam suk / Happy", "english": "Happy", "example": "I'm happy - ฉันมีความสุข"},
+        {"thai": "เศร้า", "romanization": "sao / Sad", "english": "Sad", "example": "Feeling sad - รู้สึกเศร้า"},
+        {"thai": "โกรธ", "romanization": "grot / Angry", "english": "Angry", "example": "I'm angry - ฉันโกรธ"},
+        {"thai": "ตื่นเต้น", "romanization": "tuen ten / Excited", "english": "Excited", "example": "Very excited - ตื่นเต้นมาก"},
+        {"thai": "เหนื่อย", "romanization": "nuey / Tired", "english": "Tired", "example": "I'm tired - ฉันเหนื่อย"},
+        {"thai": "ง่วง", "romanization": "nguang / Sleepy", "english": "Sleepy", "example": "Feel sleepy - รู้สึกง่วง"},
+        {"thai": "กลัว", "romanization": "glua / Scared", "english": "Scared/Afraid", "example": "I'm scared - ฉันกลัว"},
+        {"thai": "แปลกใจ", "romanization": "plaek jai / Surprised", "english": "Surprised", "example": "Very surprised - แปลกใจมาก"},
+        {"thai": "เบื่อ", "romanization": "buea / Bored", "english": "Bored", "example": "I'm bored - ฉันเบื่อ"},
+        {"thai": "รัก", "romanization": "rak / Love", "english": "Love", "example": "I love - ฉันรัก"}
+    ]
+    
+    # Work & Office - Intermediate
+    daily_work_intermediate = [
+        {"thai": "ทำงาน", "romanization": "tham ngan / Work", "english": "Work", "example": "I work at - ฉันทำงานที่"},
+        {"thai": "สำนักงาน", "romanization": "sam-nak-ngan / Office", "english": "Office", "example": "Go to office - ไปออฟฟิศ"},
+        {"thai": "ประชุม", "romanization": "pra-chum / Meeting", "english": "Meeting", "example": "In a meeting - อยู่ในประชุม"},
+        {"thai": "คอมพิวเตอร์", "romanization": "com / Computer", "english": "Computer", "example": "Use computer - ใช้คอมพิวเตอร์"},
+        {"thai": "อีเมล", "romanization": "email / Email", "english": "Email", "example": "Send email - ส่งอีเมล"},
+        {"thai": "โทรศัพท์", "romanization": "tho-ra-sap / Telephone", "english": "Telephone", "example": "Phone call - โทรศัพท์"},
+        {"thai": "เอกสาร", "romanization": "aek-ka-san / Document", "english": "Document", "example": "Important document - เอกสารสำคัญ"},
+        {"thai": "นัดหมาย", "romanization": "nat mai / Appointment", "english": "Appointment", "example": "Make appointment - นัดหมาย"},
+        {"thai": "เจ้านาย", "romanization": "jao nai / Boss", "english": "Boss", "example": "My boss - เจ้านายของฉัน"},
+        {"thai": "เพื่อนร่วมงาน", "romanization": "phuean ruam ngan / Colleague", "english": "Colleague", "example": "My colleague - เพื่อนร่วมงาน"}
+    ]
+    
     # Expanded Household Items (100+ items for both Thai and English)
     household_expanded = [
         {"thai": "ห้องน้ำ", "romanization": "hong-naam / Bathroom", "english": "Bathroom", "example": "I need the bathroom - ฉันต้องการห้องน้ำ"},
