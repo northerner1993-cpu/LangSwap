@@ -88,6 +88,13 @@ export default function TabLayout() {
           ),
         }}
       />
+      <Tabs.Screen
+        name="premium"
+        options={{
+          href: null,
+          tabBarButton: () => null,
+        }}
+      />
     </Tabs>
   );
 }
