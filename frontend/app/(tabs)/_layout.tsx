@@ -38,14 +38,9 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: getLearnTitle(),
+          title: 'Translate',
           tabBarIcon: ({ color, size }) => (
-            <View style={{ position: 'relative' }}>
-              <Ionicons name="book" size={size} color={color} />
-              <View style={{ position: 'absolute', right: -4, top: -4, backgroundColor: '#4F46E5', borderRadius: 6, width: 12, height: 12, justifyContent: 'center', alignItems: 'center' }}>
-                <Ionicons name="language" size={8} color="#FFFFFF" />
-              </View>
-            </View>
+            <Ionicons name="language-outline" size={size} color={color} />
           ),
         }}
       />
