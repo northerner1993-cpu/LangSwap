@@ -24,6 +24,7 @@ interface Lesson {
   description: string;
   items: any[];
   order: number;
+  language_mode?: string;
 }
 
 export default function SongsScreen() {
