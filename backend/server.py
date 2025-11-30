@@ -167,6 +167,37 @@ async def clear_data():
     await db.favorites.delete_many({})
     return {"message": "All data cleared"}
 
+@api_router.post("/translate")
+async def translate_text(request: dict):
+    """
+    Mock translation endpoint for Speech-to-Translate feature
+    In production, integrate with Google Translate, DeepL, or custom translation API
+    """
+    text = request.get("text", "")
+    source_lang = request.get("source_lang", "th")
+    target_lang = request.get("target_lang", "en")
+    
+    # Mock translation - in production replace with actual API call
+    # Example: Google Translate, DeepL, AWS Translate, etc.
+    mock_translations = {
+        "สวัสดี": "Hello",
+        "ขอบคุณ": "Thank you",
+        "ลาก่อน": "Goodbye",
+        "Hello": "สวัสดี",
+        "Thank you": "ขอบคุณ",
+        "Goodbye": "ลาก่อน"
+    }
+    
+    translated = mock_translations.get(text, f"[Translation of: {text}]")
+    
+    return {
+        "original": text,
+        "translated": translated,
+        "source_lang": source_lang,
+        "target_lang": target_lang,
+        "confidence": 0.95
+    }
+
 @api_router.post("/init-data")
 async def initialize_data(force: bool = False):
     """Initialize database with Thai learning content"""
