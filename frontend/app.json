@@ -18,9 +18,9 @@
       "bundleIdentifier": "com.langswap.app",
       "buildNumber": "1.0.0",
       "infoPlist": {
-        "NSMicrophoneUsageDescription": "LangSwap needs microphone access for voice translation and pronunciation practice.",
-        "NSCameraUsageDescription": "LangSwap needs camera access for QR code scanning.",
-        "NSSpeechRecognitionUsageDescription": "LangSwap needs speech recognition for voice-to-text translation."
+        "NSMicrophoneUsageDescription": "LangSwap needs microphone access for voice translation, speech recognition, and pronunciation practice. This allows you to speak and get instant translations.",
+        "NSCameraUsageDescription": "LangSwap may need camera access for QR code scanning and visual learning features.",
+        "NSSpeechRecognitionUsageDescription": "LangSwap uses speech recognition to convert your voice into text for accurate translation between Thai and English."
       }
     },
     "android": {
@@ -34,9 +34,15 @@
         "RECORD_AUDIO",
         "INTERNET",
         "READ_EXTERNAL_STORAGE",
-        "WRITE_EXTERNAL_STORAGE"
+        "WRITE_EXTERNAL_STORAGE",
+        "MODIFY_AUDIO_SETTINGS",
+        "BLUETOOTH",
+        "BLUETOOTH_ADMIN"
       ],
-      "edgeToEdgeEnabled": true
+      "edgeToEdgeEnabled": true,
+      "config": {
+        "googleMobileAdsAppId": "ca-app-pub-3940256099942544~3347511713"
+      }
     },
     "web": {
       "bundler": "metro",
