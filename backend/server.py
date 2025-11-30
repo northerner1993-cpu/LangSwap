@@ -130,6 +130,226 @@ class Favorite(BaseModel):
         populate_by_name = True
         json_encoders = {ObjectId: str}
 
+# Authentication Helper Functions
+def hash_password(password: str) -> str:
+    """Hash a password using bcrypt"""
+    salt = bcrypt.gensalt()
+    return bcrypt.hashpw(password.encode('utf-8'), salt).decode('utf-8')
+
+def verify_password(plain_password: str, hashed_password: str) -> bool:
+    """Verify a password against its hash"""
+    return bcrypt.checkpw(plain_password.encode('utf-8'), hashed_password.encode('utf-8'))
+
+def create_access_token(data: dict) -> str:
+    """Create a JWT access token"""
+    to_encode = data.copy()
+    expire = datetime.utcnow() + timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
+    to_encode.update({"exp": expire})
+    return jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
+
+async def get_current_user(credentials: HTTPAuthorizationCredentials = Depends(security)):
+    """Get current user from JWT token"""
+    try:
+        token = credentials.credentials
+        payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
+        email: str = payload.get("sub")
+        if email is None:
+            raise HTTPException(status_code=401, detail="Invalid authentication credentials")
+        
+        user = await db.users.find_one({"email": email})
+        if user is None:
+            raise HTTPException(status_code=401, detail="User not found")
+        
+        return user
+    except jwt.ExpiredSignatureError:
+        raise HTTPException(status_code=401, detail="Token has expired")
+    except jwt.JWTError:
+        raise HTTPException(status_code=401, detail="Could not validate credentials")
+
+async def require_admin(current_user: dict = Depends(get_current_user)):
+    """Require admin role"""
+    if current_user.get("role") != "admin":
+        raise HTTPException(status_code=403, detail="Admin access required")
+    return current_user
+
+# Authentication Endpoints
+@api_router.post("/register", response_model=TokenResponse)
+async def register(user: User):
+    """Register a new user"""
+    # Check if user already exists
+    existing_user = await db.users.find_one({"email": user.email})
+    if existing_user:
+        raise HTTPException(status_code=400, detail="Email already registered")
+    
+    # Hash password
+    hashed_password = hash_password(user.password)
+    
+    # Create user document
+    user_doc = {
+        "email": user.email,
+        "username": user.username,
+        "password": hashed_password,
+        "role": user.role,
+        "permissions": user.permissions,
+        "created_at": datetime.utcnow(),
+        "is_active": True
+    }
+    
+    result = await db.users.insert_one(user_doc)
+    user_doc["_id"] = result.inserted_id
+    
+    # Create access token
+    access_token = create_access_token({"sub": user.email})
+    
+    # Return response
+    user_response = UserResponse(
+        id=str(user_doc["_id"]),
+        email=user_doc["email"],
+        username=user_doc["username"],
+        role=user_doc["role"],
+        permissions=user_doc["permissions"],
+        created_at=user_doc["created_at"]
+    )
+    
+    return TokenResponse(
+        access_token=access_token,
+        token_type="bearer",
+        user=user_response
+    )
+
+@api_router.post("/login", response_model=TokenResponse)
+async def login(user_login: UserLogin):
+    """Login user"""
+    # Find user
+    user = await db.users.find_one({"email": user_login.email})
+    if not user:
+        raise HTTPException(status_code=401, detail="Invalid email or password")
+    
+    # Verify password
+    if not verify_password(user_login.password, user["password"]):
+        raise HTTPException(status_code=401, detail="Invalid email or password")
+    
+    # Check if user is active
+    if not user.get("is_active", True):
+        raise HTTPException(status_code=403, detail="Account is deactivated")
+    
+    # Create access token
+    access_token = create_access_token({"sub": user["email"]})
+    
+    # Return response
+    user_response = UserResponse(
+        id=str(user["_id"]),
+        email=user["email"],
+        username=user["username"],
+        role=user["role"],
+        permissions=user.get("permissions", []),
+        created_at=user.get("created_at")
+    )
+    
+    return TokenResponse(
+        access_token=access_token,
+        token_type="bearer",
+        user=user_response
+    )
+
+@api_router.get("/me", response_model=UserResponse)
+async def get_current_user_info(current_user: dict = Depends(get_current_user)):
+    """Get current user information"""
+    return UserResponse(
+        id=str(current_user["_id"]),
+        email=current_user["email"],
+        username=current_user["username"],
+        role=current_user["role"],
+        permissions=current_user.get("permissions", []),
+        created_at=current_user.get("created_at")
+    )
+
+@api_router.post("/staff", response_model=UserResponse)
+async def create_staff(staff: StaffCreate, admin_user: dict = Depends(require_admin)):
+    """Create a new staff member (admin only)"""
+    # Check if user already exists
+    existing_user = await db.users.find_one({"email": staff.email})
+    if existing_user:
+        raise HTTPException(status_code=400, detail="Email already registered")
+    
+    # Hash password
+    hashed_password = hash_password(staff.password)
+    
+    # Create staff document
+    staff_doc = {
+        "email": staff.email,
+        "username": staff.username,
+        "password": hashed_password,
+        "role": "staff",
+        "permissions": staff.permissions,
+        "created_at": datetime.utcnow(),
+        "is_active": True
+    }
+    
+    result = await db.users.insert_one(staff_doc)
+    staff_doc["_id"] = result.inserted_id
+    
+    return UserResponse(
+        id=str(staff_doc["_id"]),
+        email=staff_doc["email"],
+        username=staff_doc["username"],
+        role=staff_doc["role"],
+        permissions=staff_doc["permissions"],
+        created_at=staff_doc["created_at"]
+    )
+
+@api_router.get("/staff", response_model=List[UserResponse])
+async def get_all_staff(admin_user: dict = Depends(require_admin)):
+    """Get all staff members (admin only)"""
+    staff_list = []
+    async for staff in db.users.find({"role": {"$in": ["staff", "admin"]}}):
+        staff_list.append(UserResponse(
+            id=str(staff["_id"]),
+            email=staff["email"],
+            username=staff["username"],
+            role=staff["role"],
+            permissions=staff.get("permissions", []),
+            created_at=staff.get("created_at")
+        ))
+    return staff_list
+
+@api_router.delete("/staff/{staff_id}")
+async def delete_staff(staff_id: str, admin_user: dict = Depends(require_admin)):
+    """Delete a staff member (admin only)"""
+    result = await db.users.delete_one({"_id": ObjectId(staff_id), "role": "staff"})
+    if result.deleted_count == 0:
+        raise HTTPException(status_code=404, detail="Staff member not found")
+    return {"message": "Staff member deleted successfully"}
+
+@api_router.post("/init-admin")
+async def initialize_admin():
+    """Initialize primary admin account (only works if no admin exists)"""
+    # Check if admin already exists
+    existing_admin = await db.users.find_one({"role": "admin"})
+    if existing_admin:
+        raise HTTPException(status_code=400, detail="Admin account already exists")
+    
+    # Create primary admin
+    admin_password = hash_password("admin123")  # Default password - CHANGE THIS!
+    admin_doc = {
+        "email": "admin@langswap.com",
+        "username": "Primary Admin",
+        "password": admin_password,
+        "role": "admin",
+        "permissions": ["all"],
+        "created_at": datetime.utcnow(),
+        "is_active": True
+    }
+    
+    result = await db.users.insert_one(admin_doc)
+    
+    return {
+        "message": "Primary admin account created",
+        "email": "admin@langswap.com",
+        "default_password": "admin123",
+        "note": "PLEASE CHANGE THE PASSWORD IMMEDIATELY"
+    }
+
 # API Routes
 @api_router.get("/")
 async def root():
