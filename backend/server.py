@@ -48,6 +48,44 @@ class PyObjectId(ObjectId):
     def __modify_schema__(cls, field_schema):
         field_schema.update(type="string")
 
+# Authentication Models
+class UserRole(BaseModel):
+    name: str
+    permissions: List[str]
+
+class User(BaseModel):
+    email: EmailStr
+    username: str
+    password: str
+    role: str = "user"  # user, staff, admin
+    permissions: List[str] = []
+    created_at: Optional[datetime] = None
+    is_active: bool = True
+
+class UserLogin(BaseModel):
+    email: EmailStr
+    password: str
+
+class UserResponse(BaseModel):
+    id: str
+    email: str
+    username: str
+    role: str
+    permissions: List[str]
+    created_at: Optional[datetime]
+
+class TokenResponse(BaseModel):
+    access_token: str
+    token_type: str
+    user: UserResponse
+
+class StaffCreate(BaseModel):
+    email: EmailStr
+    username: str
+    password: str
+    permissions: List[str]
+
+# Lesson Models
 class LessonItem(BaseModel):
     thai: str
     romanization: str
