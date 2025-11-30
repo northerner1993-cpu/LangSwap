@@ -8,9 +8,11 @@ import {
   ActivityIndicator,
   ScrollView,
   Alert,
+  Platform,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import * as Speech from 'expo-speech';
+import { Audio } from 'expo-av';
 import Constants from 'expo-constants';
 import { useTheme } from '../contexts/ThemeContext';
 import { useLanguageMode } from '../contexts/LanguageModeContext';
