@@ -128,6 +128,59 @@ export default function SpeechToTranslate() {
     setTranslatedText(temp);
   };
 
+  const startRecording = async () => {
+    try {
+      if (Platform.OS === 'web') {
+        Alert.alert('Not Available', 'Voice recording works on mobile devices only');
+        return;
+      }
+
+      await Audio.setAudioModeAsync({
+        allowsRecordingIOS: true,
+        playsInSilentModeIOS: true,
+      });
+
+      const { recording: newRecording } = await Audio.Recording.createAsync(
+        Audio.RecordingOptionsPresets.HIGH_QUALITY
+      );
+      
+      setRecording(newRecording);
+      setIsRecording(true);
+    } catch (error) {
+      console.error('Failed to start recording:', error);
+      Alert.alert('Recording Error', 'Could not start recording');
+    }
+  };
+
+  const stopRecording = async () => {
+    if (!recording) return;
+
+    try {
+      setIsRecording(false);
+      await recording.stopAndUnloadAsync();
+      const uri = recording.getURI();
+      
+      // For now, show placeholder - in production integrate with speech-to-text API
+      Alert.alert(
+        'Recording Complete',
+        'Speech-to-text requires API integration. For now, please use text input.',
+        [
+          {
+            text: 'OK',
+            onPress: () => {
+              // In production: send audio to speech-to-text service
+              // const transcription = await speechToText(uri);
+              // setInputText(transcription);
+            }
+          }
+        ]
+      );
+      setRecording(null);
+    } catch (error) {
+      console.error('Failed to stop recording:', error);
+    }
+  };
+
   const handleClear = () => {
     setInputText('');
     setTranslatedText('');
@@ -141,9 +194,21 @@ export default function SpeechToTranslate() {
           <Text style={[styles.headerText, { color: colors.text }]}>
             {sourceLang === 'en' ? 'English' : 'ไทย'}
           </Text>
-          <TouchableOpacity onPress={() => handleSpeak(inputText, sourceLang)} disabled={!inputText || isSpeaking}>
-            <Ionicons name="volume-high" size={24} color={inputText ? colors.primary : colors.textSecondary} />
-          </TouchableOpacity>
+          <View style={styles.headerActions}>
+            <TouchableOpacity 
+              onPress={isRecording ? stopRecording : startRecording}
+              style={[styles.micButton, isRecording && styles.micButtonActive]}
+            >
+              <Ionicons 
+                name={isRecording ? "stop-circle" : "mic"} 
+                size={24} 
+                color={isRecording ? "#EF4444" : colors.primary} 
+              />
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => handleSpeak(inputText, sourceLang)} disabled={!inputText || isSpeaking}>
+              <Ionicons name="volume-high" size={24} color={inputText ? colors.primary : colors.textSecondary} />
+            </TouchableOpacity>
+          </View>
         </View>
         <TextInput
           style={[styles.input, { color: colors.text, backgroundColor: colors.inputBackground }]}
@@ -154,6 +219,13 @@ export default function SpeechToTranslate() {
           multiline
           maxLength={500}
         />
+        {isRecording && (
+          <View style={styles.recordingIndicator}>
+            <View style={styles.recordingDot} />
+            <Text style={[styles.recordingText, { color: '#EF4444' }]}>Recording...</Text>
+          </View>
+        )}
+      </View>
       </View>
 
       {/* Swap Button */}
