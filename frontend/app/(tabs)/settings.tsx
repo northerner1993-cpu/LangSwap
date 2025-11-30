@@ -516,6 +516,17 @@ const styles = StyleSheet.create({
   },
   featureText: {
     fontSize: 14,
+    flex: 1,
+  },
+  featureSection: {
+    marginTop: 16,
+    paddingLeft: 16,
+    borderLeftWidth: 3,
+  },
+  featureSectionTitle: {
+    fontSize: 15,
+    fontWeight: '600',
+    marginBottom: 12,
   },
   developerContent: {
     alignItems: 'center',
