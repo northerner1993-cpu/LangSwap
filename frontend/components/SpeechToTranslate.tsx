@@ -418,4 +418,33 @@ const styles = StyleSheet.create({
     flex: 1,
     fontSize: 14,
   },
+  headerActions: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 12,
+  },
+  micButton: {
+    padding: 4,
+    borderRadius: 8,
+  },
+  micButtonActive: {
+    backgroundColor: 'rgba(239, 68, 68, 0.1)',
+  },
+  recordingIndicator: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 12,
+    gap: 8,
+  },
+  recordingDot: {
+    width: 8,
+    height: 8,
+    borderRadius: 4,
+    backgroundColor: '#EF4444',
+  },
+  recordingText: {
+    fontSize: 14,
+    fontWeight: '600',
+  },
 });
