@@ -85,6 +85,24 @@ class StaffCreate(BaseModel):
     password: str
     permissions: List[str]
 
+# Premium/Subscription Models
+class CouponCode(BaseModel):
+    code: str
+    discount_percent: int
+    valid_until: datetime
+    max_uses: int
+    used_count: int = 0
+    is_active: bool = True
+
+class Subscription(BaseModel):
+    user_id: str
+    plan_type: str  # "monthly", "lifetime"
+    price: float
+    is_active: bool = True
+    purchased_at: datetime
+    expires_at: Optional[datetime] = None
+    coupon_used: Optional[str] = None
+
 # Lesson Models
 class LessonItem(BaseModel):
     thai: str
