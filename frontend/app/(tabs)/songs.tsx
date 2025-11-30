@@ -13,7 +13,6 @@ import { useRouter } from 'expo-router';
 import Constants from 'expo-constants';
 import { useTheme } from '../../contexts/ThemeContext';
 import { useLanguageMode } from '../../contexts/LanguageModeContext';
-import { LinearGradient } from 'expo-linear-gradient';
 
 const API_URL = Constants.expoConfig?.extra?.EXPO_PUBLIC_BACKEND_URL || process.env.EXPO_PUBLIC_BACKEND_URL;
 
@@ -25,7 +24,6 @@ interface Lesson {
   description: string;
   items: any[];
   order: number;
-  language_mode: string;
 }
 
 export default function SongsScreen() {
@@ -41,14 +39,31 @@ export default function SongsScreen() {
 
   const loadSongs = async () => {
     try {
-      const response = await fetch(`${API_URL}/api/lessons?category=songs&language_mode=${languageMode}`);
+      const modeParam = languageMode ? `?language_mode=${languageMode}` : '';
+      const response = await fetch(`${API_URL}/api/lessons${modeParam}`);
       const data = await response.json();
-      setSongs(data);
+      const songLessons = data.filter((lesson: Lesson) => lesson.category === 'songs');
+      setSongs(songLessons);
     } catch (error) {
       console.error('Error loading songs:', error);
     } finally {
       setLoading(false);
     }
+  };
+
+  const getSongIcon = (subcategory: string) => {
+    const iconMap: { [key: string]: string } = {
+      'alphabet': 'text',
+      'numbers': 'calculator',
+      'daily': 'sunny',
+      'vocabulary': 'color-palette',
+      'colors': 'color-fill',
+      'animals': 'paw',
+      'family': 'people',
+      'time': 'time',
+      'anatomy': 'body',
+    };
+    return iconMap[subcategory] || 'musical-note';
   };
 
   const handleSongPress = (songId: string) => {
@@ -60,9 +75,7 @@ export default function SongsScreen() {
       <SafeAreaView style={[styles.container, { backgroundColor: colors.background }]}>
         <View style={styles.loadingContainer}>
           <ActivityIndicator size="large" color={colors.primary} />
-          <Text style={[styles.loadingText, { color: colors.textSecondary }]}>
-            Loading songs...
-          </Text>
+          <Text style={[styles.loadingText, { color: colors.textSecondary }]}>Loading songs...</Text>
         </View>
       </SafeAreaView>
     );
@@ -72,86 +85,48 @@ export default function SongsScreen() {
     <SafeAreaView style={[styles.container, { backgroundColor: colors.background }]}>
       <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
         {/* Header */}
-        <LinearGradient
-          colors={[colors.primary + '20', colors.background]}
-          style={styles.header}
-        >
-          <View style={styles.headerContent}>
-            <Ionicons name="musical-notes" size={48} color={colors.primary} />
-            <Text style={[styles.title, { color: colors.text }]}>
-              {languageMode === 'learn-english' ? '🇬🇧 English Songs' : '🇹🇭 Thai Songs'}
-            </Text>
-            <Text style={[styles.subtitle, { color: colors.textSecondary }]}>
-              Learn through music • {songs.length} songs available
-            </Text>
-          </View>
-        </LinearGradient>
-
-        {/* Songs List */}
-        <View style={styles.songsContainer}>
-          {songs.map((song, index) => (
-            <TouchableOpacity
-              key={song._id}
-              style={[styles.songCard, { backgroundColor: colors.card }]}
-              onPress={() => handleSongPress(song._id)}
-              activeOpacity={0.8}
-            >
-              <LinearGradient
-                colors={[
-                  index % 4 === 0 ? '#F472B6' : 
-                  index % 4 === 1 ? '#EC4899' : 
-                  index % 4 === 2 ? '#DB2777' : '#BE185D',
-                  index % 4 === 0 ? '#EC4899' : 
-                  index % 4 === 1 ? '#DB2777' : 
-                  index % 4 === 2 ? '#BE185D' : '#9F1239',
-                ]}
-                start={{ x: 0, y: 0 }}
-                end={{ x: 1, y: 1 }}
-                style={styles.songGradient}
-              >
-                <View style={styles.songIcon}>
-                  <Ionicons name="musical-note" size={32} color="#FFFFFF" />
-                </View>
-                
-                <View style={styles.songInfo}>
-                  <Text style={styles.songTitle}>{song.title}</Text>
-                  <Text style={styles.songDescription}>{song.description}</Text>
-                  <View style={styles.songMeta}>
-                    <Ionicons name="layers" size={14} color="rgba(255,255,255,0.8)" />
-                    <Text style={styles.songMetaText}>{song.items.length} verses</Text>
-                  </View>
-                </View>
-
-                <View style={styles.playButton}>
-                  <Ionicons name="play-circle" size={48} color="#FFFFFF" />
-                </View>
-              </LinearGradient>
-            </TouchableOpacity>
-          ))}
+        <View style={styles.header}>
+          <Ionicons name="musical-notes" size={48} color="#EC4899" />
+          <Text style={[styles.title, { color: colors.text }]}>Learning Songs</Text>
+          <Text style={[styles.subtitle, { color: colors.textSecondary }]}>
+            {songs.length} {languageMode === 'learn-thai' ? 'Thai' : 'English'} songs available
+          </Text>
         </View>
 
-        {songs.length === 0 && (
-          <View style={styles.emptyContainer}>
-            <Ionicons name="musical-notes-outline" size={64} color={colors.textSecondary} />
-            <Text style={[styles.emptyText, { color: colors.textSecondary }]}>
-              No songs available for this language
-            </Text>
-          </View>
-        )}
-
-        {/* Info Card */}
-        <View style={[styles.infoCard, { backgroundColor: colors.primary + '10' }]}>
-          <Ionicons name="information-circle" size={24} color={colors.primary} />
-          <View style={styles.infoContent}>
-            <Text style={[styles.infoTitle, { color: colors.text }]}>Learning Tips</Text>
-            <Text style={[styles.infoText, { color: colors.textSecondary }]}>
-              • Listen to songs multiple times{'
-'}
-              • Sing along to practice pronunciation{'
-'}
-              • Use the auto-play feature for continuous learning
-            </Text>
-          </View>
+        {/* Songs Grid */}
+        <View style={styles.songsContainer}>
+          {songs.map((song) => (
+            <TouchableOpacity
+              key={song._id}
+              style={[styles.songCard, { backgroundColor: colors.card, borderColor: colors.border }]}
+              onPress={() => handleSongPress(song._id)}
+              activeOpacity={0.7}
+            >
+              <View style={[styles.songIconContainer, { backgroundColor: '#EC489920' }]}>
+                <Ionicons name={getSongIcon(song.subcategory) as any} size={32} color="#EC4899" />
+              </View>
+              <View style={styles.songContent}>
+                <Text style={[styles.songTitle, { color: colors.text }]}>{song.title}</Text>
+                <Text style={[styles.songDescription, { color: colors.textSecondary }]} numberOfLines={2}>
+                  {song.description}
+                </Text>
+                <View style={styles.songFooter}>
+                  <View style={[styles.badge, { backgroundColor: '#EC489915' }]}>
+                    <Text style={[styles.badgeText, { color: '#EC4899' }]}>{song.subcategory}</Text>
+                  </View>
+                  <View style={styles.itemCount}>
+                    <Ionicons name="musical-note" size={14} color={colors.textSecondary} />
+                    <Text style={[styles.itemCountText, { color: colors.textSecondary }]}>
+                      {song.items.length} verses
+                    </Text>
+                  </View>
+                </View>
+              </View>
+              <View style={styles.playIcon}>
+                <Ionicons name="play-circle" size={40} color="#EC4899" />
+              </View>
+            </TouchableOpacity>
+          ))}
         </View>
 
         <View style={styles.bottomPadding} />
@@ -171,113 +146,87 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    gap: 16,
+    gap: 12,
   },
   loadingText: {
     fontSize: 16,
   },
   header: {
-    paddingVertical: 32,
-    paddingHorizontal: 24,
-    marginBottom: 8,
-  },
-  headerContent: {
+    padding: 24,
     alignItems: 'center',
   },
   title: {
     fontSize: 32,
     fontWeight: 'bold',
     marginTop: 12,
-    marginBottom: 8,
   },
   subtitle: {
     fontSize: 15,
-    textAlign: 'center',
+    marginTop: 4,
   },
   songsContainer: {
-    paddingHorizontal: 16,
+    padding: 16,
     gap: 16,
   },
   songCard: {
-    borderRadius: 20,
-    overflow: 'hidden',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 8 },
-    shadowOpacity: 0.3,
-    shadowRadius: 20,
-    elevation: 10,
-  },
-  songGradient: {
     flexDirection: 'row',
     alignItems: 'center',
-    padding: 20,
-    gap: 16,
+    borderRadius: 20,
+    padding: 16,
+    borderWidth: 1,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.1,
+    shadowRadius: 12,
+    elevation: 4,
   },
-  songIcon: {
+  songIconContainer: {
     width: 64,
     height: 64,
-    borderRadius: 32,
-    backgroundColor: 'rgba(255,255,255,0.2)',
+    borderRadius: 16,
     justifyContent: 'center',
     alignItems: 'center',
+    marginRight: 16,
   },
-  songInfo: {
+  songContent: {
     flex: 1,
   },
   songTitle: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    color: '#FFFFFF',
+    fontSize: 18,
+    fontWeight: '700',
     marginBottom: 6,
   },
   songDescription: {
-    fontSize: 14,
-    color: 'rgba(255,255,255,0.9)',
-    marginBottom: 8,
-  },
-  songMeta: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 6,
-  },
-  songMetaText: {
-    fontSize: 12,
-    color: 'rgba(255,255,255,0.8)',
-    fontWeight: '600',
-  },
-  playButton: {
-    opacity: 0.9,
-  },
-  emptyContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    paddingVertical: 64,
-    gap: 16,
-  },
-  emptyText: {
-    fontSize: 16,
-    textAlign: 'center',
-  },
-  infoCard: {
-    flexDirection: 'row',
-    padding: 20,
-    marginHorizontal: 16,
-    marginTop: 24,
-    borderRadius: 16,
-    gap: 16,
-  },
-  infoContent: {
-    flex: 1,
-  },
-  infoTitle: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    marginBottom: 8,
-  },
-  infoText: {
     fontSize: 13,
-    lineHeight: 20,
+    marginBottom: 10,
+    lineHeight: 18,
+  },
+  songFooter: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  badge: {
+    paddingHorizontal: 10,
+    paddingVertical: 4,
+    borderRadius: 8,
+  },
+  badgeText: {
+    fontSize: 11,
+    fontWeight: '700',
+    textTransform: 'capitalize',
+  },
+  itemCount: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 4,
+  },
+  itemCountText: {
+    fontSize: 12,
+    fontWeight: '500',
+  },
+  playIcon: {
+    marginLeft: 8,
   },
   bottomPadding: {
     height: 24,
