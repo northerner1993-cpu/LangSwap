@@ -204,10 +204,32 @@ const styles = StyleSheet.create({
   songContent: {
     flex: 1,
   },
+  titleRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginBottom: 6,
+    gap: 8,
+  },
   songTitle: {
     fontSize: 18,
     fontWeight: '700',
-    marginBottom: 6,
+    flex: 1,
+  },
+  languageBadge: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+    borderRadius: 12,
+    gap: 4,
+  },
+  flagText: {
+    fontSize: 14,
+  },
+  languageText: {
+    fontSize: 11,
+    fontWeight: '700',
   },
   songDescription: {
     fontSize: 13,
