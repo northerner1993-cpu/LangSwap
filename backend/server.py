@@ -341,31 +341,168 @@ async def delete_staff(staff_id: str, admin_user: dict = Depends(require_admin))
 
 @api_router.post("/init-admin")
 async def initialize_admin():
-    """Initialize primary admin account (only works if no admin exists)"""
+    """Initialize primary admin account with Jake's email"""
     # Check if admin already exists
-    existing_admin = await db.users.find_one({"role": "admin"})
+    existing_admin = await db.users.find_one({"email": "jakemadamson2k14@gmail.com"})
     if existing_admin:
-        raise HTTPException(status_code=400, detail="Admin account already exists")
+        return {"message": "Admin account already exists", "email": "jakemadamson2k14@gmail.com"}
     
-    # Create primary admin
-    admin_password = hash_password("admin123")  # Default password - CHANGE THIS!
+    # Create primary admin - Jake Adamson
+    admin_password = hash_password("LangSwap2024!")  # Strong default password
     admin_doc = {
-        "email": "admin@langswap.com",
-        "username": "Primary Admin",
+        "email": "jakemadamson2k14@gmail.com",
+        "username": "Jake Adamson",
         "password": admin_password,
         "role": "admin",
-        "permissions": ["all"],
+        "permissions": ["all", "owner", "global_sales_conduct", "data_protection"],
         "created_at": datetime.utcnow(),
-        "is_active": True
+        "is_active": True,
+        "is_owner": True
     }
     
     await db.users.insert_one(admin_doc)
     
     return {
         "message": "Primary admin account created",
-        "email": "admin@langswap.com",
-        "default_password": "admin123",
-        "note": "PLEASE CHANGE THE PASSWORD IMMEDIATELY"
+        "email": "jakemadamson2k14@gmail.com",
+        "username": "Jake Adamson",
+        "role": "admin - OWNER",
+        "default_password": "LangSwap2024!",
+        "note": "PLEASE CHANGE THE PASSWORD IMMEDIATELY AFTER FIRST LOGIN"
+    }
+
+# Premium Subscription & Coupon Endpoints
+@api_router.post("/coupons")
+async def create_coupon(code: str, discount_percent: int, valid_days: int, max_uses: int, admin_user: dict = Depends(require_admin)):
+    """Create a new coupon code (admin only)"""
+    existing = await db.coupons.find_one({"code": code.upper()})
+    if existing:
+        raise HTTPException(status_code=400, detail="Coupon code already exists")
+    
+    coupon_doc = {
+        "code": code.upper(),
+        "discount_percent": discount_percent,
+        "valid_until": datetime.utcnow() + timedelta(days=valid_days),
+        "max_uses": max_uses,
+        "used_count": 0,
+        "is_active": True,
+        "created_at": datetime.utcnow()
+    }
+    
+    await db.coupons.insert_one(coupon_doc)
+    return {"message": "Coupon created successfully", "coupon": coupon_doc}
+
+@api_router.get("/coupons/validate/{code}")
+async def validate_coupon(code: str):
+    """Validate a coupon code"""
+    coupon = await db.coupons.find_one({"code": code.upper()})
+    
+    if not coupon:
+        raise HTTPException(status_code=404, detail="Invalid coupon code")
+    
+    if not coupon.get("is_active"):
+        raise HTTPException(status_code=400, detail="Coupon is no longer active")
+    
+    if coupon.get("used_count", 0) >= coupon.get("max_uses", 0):
+        raise HTTPException(status_code=400, detail="Coupon usage limit reached")
+    
+    if datetime.fromisoformat(str(coupon.get("valid_until"))) < datetime.utcnow():
+        raise HTTPException(status_code=400, detail="Coupon has expired")
+    
+    return {
+        "valid": True,
+        "discount_percent": coupon.get("discount_percent"),
+        "code": coupon.get("code")
+    }
+
+@api_router.post("/subscribe")
+async def create_subscription(plan_type: str, coupon_code: Optional[str] = None, current_user: dict = Depends(get_current_user)):
+    """Purchase a subscription"""
+    # Check if user already has active subscription
+    existing = await db.subscriptions.find_one({
+        "user_id": str(current_user["_id"]),
+        "is_active": True
+    })
+    
+    if existing:
+        return {"message": "You already have an active subscription", "subscription": existing}
+    
+    # Pricing
+    prices = {
+        "monthly": 5.99,
+        "lifetime": 2.99  # Special lifetime offer
+    }
+    
+    if plan_type not in prices:
+        raise HTTPException(status_code=400, detail="Invalid plan type")
+    
+    price = prices[plan_type]
+    discount = 0
+    
+    # Apply coupon if provided
+    if coupon_code:
+        try:
+            coupon = await db.coupons.find_one({"code": coupon_code.upper()})
+            if coupon and coupon.get("is_active"):
+                discount = coupon.get("discount_percent", 0)
+                price = price * (1 - discount / 100)
+                # Update coupon usage
+                await db.coupons.update_one(
+                    {"code": coupon_code.upper()},
+                    {"$inc": {"used_count": 1}}
+                )
+        except:
+            pass
+    
+    # Create subscription
+    subscription_doc = {
+        "user_id": str(current_user["_id"]),
+        "plan_type": plan_type,
+        "price": price,
+        "original_price": prices[plan_type],
+        "discount_applied": discount,
+        "is_active": True,
+        "purchased_at": datetime.utcnow(),
+        "expires_at": None if plan_type == "lifetime" else datetime.utcnow() + timedelta(days=30),
+        "coupon_used": coupon_code.upper() if coupon_code else None
+    }
+    
+    result = await db.subscriptions.insert_one(subscription_doc)
+    subscription_doc["_id"] = result.inserted_id
+    
+    return {
+        "message": "Subscription activated!",
+        "subscription": subscription_doc,
+        "features": ["No ads", "Unlimited translations", "Offline mode", "Priority support"]
+    }
+
+@api_router.get("/my-subscription")
+async def get_my_subscription(current_user: dict = Depends(get_current_user)):
+    """Get current user's subscription status"""
+    subscription = await db.subscriptions.find_one({
+        "user_id": str(current_user["_id"]),
+        "is_active": True
+    })
+    
+    if not subscription:
+        return {"has_subscription": False, "is_premium": False}
+    
+    # Check if expired (for monthly)
+    if subscription.get("plan_type") == "monthly":
+        expires_at = subscription.get("expires_at")
+        if expires_at and datetime.fromisoformat(str(expires_at)) < datetime.utcnow():
+            await db.subscriptions.update_one(
+                {"_id": subscription["_id"]},
+                {"$set": {"is_active": False}}
+            )
+            return {"has_subscription": False, "is_premium": False}
+    
+    return {
+        "has_subscription": True,
+        "is_premium": True,
+        "plan_type": subscription.get("plan_type"),
+        "purchased_at": subscription.get("purchased_at"),
+        "expires_at": subscription.get("expires_at")
     }
 
 # API Routes
