@@ -89,7 +89,7 @@ export default function SongsScreen() {
           <Ionicons name="musical-notes" size={48} color="#EC4899" />
           <Text style={[styles.title, { color: colors.text }]}>Learning Songs</Text>
           <Text style={[styles.subtitle, { color: colors.textSecondary }]}>
-            {songs.length} {languageMode === 'learn-thai' ? 'Thai' : 'English'} songs available
+            {songs.length} songs available • Thai + English
           </Text>
         </View>
 
