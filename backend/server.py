@@ -341,7 +341,7 @@ async def initialize_admin():
         "is_active": True
     }
     
-    result = await db.users.insert_one(admin_doc)
+    await db.users.insert_one(admin_doc)
     
     return {
         "message": "Primary admin account created",
