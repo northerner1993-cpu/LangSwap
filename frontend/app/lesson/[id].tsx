@@ -49,12 +49,40 @@ export default function LessonScreen() {
   const [completedItems, setCompletedItems] = useState<Set<number>>(new Set());
   const [loading, setLoading] = useState(true);
   const [isSpeaking, setIsSpeaking] = useState(false);
+  const [isTTSMuted, setIsTTSMuted] = useState(false);
+  
+  // Swipe gesture values
+  const translateX = useSharedValue(0);
 
   useEffect(() => {
     loadLesson();
     loadFavorites();
     loadProgress();
+    loadMutePreference();
   }, [id]);
+  
+  const loadMutePreference = async () => {
+    try {
+      const mutePref = await AsyncStorage.getItem('tts_muted');
+      setIsTTSMuted(mutePref === 'true');
+    } catch (error) {
+      console.error('Error loading mute preference:', error);
+    }
+  };
+  
+  const toggleMute = async () => {
+    const newMuteState = !isTTSMuted;
+    setIsTTSMuted(newMuteState);
+    try {
+      await AsyncStorage.setItem('tts_muted', newMuteState.toString());
+      if (newMuteState && isSpeaking) {
+        await Speech.stop();
+        setIsSpeaking(false);
+      }
+    } catch (error) {
+      console.error('Error saving mute preference:', error);
+    }
+  };
 
   const loadLesson = async () => {
     try {
