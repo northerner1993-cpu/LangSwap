@@ -355,8 +355,8 @@ export default function HomeScreen() {
                   />
                 </View>
                 <View style={styles.lessonContent}>
-                  <Text style={styles.lessonTitle}>{lesson.title}</Text>
-                  <Text style={styles.lessonDescription} numberOfLines={2}>
+                  <Text style={[styles.lessonTitle, { color: colors.text }]}>{lesson.title}</Text>
+                  <Text style={[styles.lessonDescription, { color: colors.textSecondary }]} numberOfLines={2}>
                     {lesson.description}
                   </Text>
                   <View style={styles.lessonFooter}>
