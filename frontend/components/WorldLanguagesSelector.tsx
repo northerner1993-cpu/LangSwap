@@ -61,19 +61,17 @@ export default function WorldLanguagesSelector({ colors }: WorldLanguagesSelecto
   const [currentLanguage, setCurrentLanguage] = useState<Language>(AVAILABLE_LANGUAGES[0]);
   const [modalVisible, setModalVisible] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
+  const { uiLanguage, setUILanguage } = useUILanguage();
 
   useEffect(() => {
     loadLanguagePreference();
-  }, []);
+  }, [uiLanguage]);
 
   const loadLanguagePreference = async () => {
     try {
-      const savedLanguageCode = await AsyncStorage.getItem('app_ui_language');
-      if (savedLanguageCode) {
-        const savedLanguage = AVAILABLE_LANGUAGES.find(lang => lang.code === savedLanguageCode);
-        if (savedLanguage) {
-          setCurrentLanguage(savedLanguage);
-        }
+      const savedLanguage = AVAILABLE_LANGUAGES.find(lang => lang.code === uiLanguage);
+      if (savedLanguage) {
+        setCurrentLanguage(savedLanguage);
       }
     } catch (error) {
       console.error('Error loading language preference:', error);
@@ -82,14 +80,29 @@ export default function WorldLanguagesSelector({ colors }: WorldLanguagesSelecto
 
   const saveLanguagePreference = async (language: Language) => {
     try {
-      await AsyncStorage.setItem('app_ui_language', language.code);
+      await setUILanguage(language.code as any);
       setCurrentLanguage(language);
       setModalVisible(false);
       
-      // Note: In a full implementation, you would integrate with i18next here
-      // i18n.changeLanguage(language.code);
+      // Show confirmation
+      Alert.alert(
+        'Language Changed',
+        `App language has been changed to ${language.name}. The app will reload to apply changes.`,
+        [
+          {
+            text: 'OK',
+            onPress: () => {
+              // Force reload to apply language changes
+              if (typeof window !== 'undefined') {
+                window.location.reload();
+              }
+            }
+          }
+        ]
+      );
     } catch (error) {
       console.error('Error saving language preference:', error);
+      Alert.alert('Error', 'Failed to change language. Please try again.');
     }
   };
 
