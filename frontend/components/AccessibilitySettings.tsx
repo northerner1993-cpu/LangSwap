@@ -231,10 +231,10 @@ export default function AccessibilitySettings({ colors }: AccessibilitySettingsP
       <View style={styles.section}>
         <View style={styles.sectionHeader}>
           <Ionicons name="color-palette" size={20} color={colors.text} />
-          <Text style={[styles.sectionTitle, { color: colors.text }]}>Colorblind Mode</Text>
+          <Text style={[styles.sectionTitle, { color: colors.text }]}>{t('settings.colorblindMode')}</Text>
         </View>
         <Text style={[styles.description, { color: colors.textSecondary }]}>
-          Adjust colors for different types of color vision deficiency
+          {t('settings.selectColorblindMode')}
         </Text>
         
         {colorBlindModes.map((mode) => (
