@@ -245,10 +245,10 @@ export default function HomeScreen() {
         </View>
 
         {/* Speech-to-Translate Feature */}
-        <View style={styles.translateSection}>
+        <View style={[styles.translateSection, { backgroundColor: colors.card }]}>
           <View style={styles.translateHeader}>
-            <Ionicons name="language" size={24} color="#4F46E5" />
-            <Text style={styles.translateTitle}>Instant Translator</Text>
+            <Ionicons name="language" size={24} color={colors.primary} />
+            <Text style={[styles.translateTitle, { color: colors.text }]}>Instant Translator</Text>
           </View>
           <SpeechToTranslate />
         </View>
