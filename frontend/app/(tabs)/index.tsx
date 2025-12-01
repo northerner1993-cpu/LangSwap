@@ -242,9 +242,9 @@ export default function HomeScreen() {
         {/* Header */}
         <View style={styles.header}>
           <Text style={[styles.title, { color: colors.text }]}>
-            {languageMode === 'learn-thai' ? 'Learn Thai' : 'Learn English'}
+            {languageMode === 'learn-thai' ? i18n.t('languageSelection.learnThai') : i18n.t('languageSelection.learnEnglish')}
           </Text>
-          <Text style={[styles.subtitle, { color: colors.textSecondary }]}>Choose a category to start learning</Text>
+          <Text style={[styles.subtitle, { color: colors.textSecondary }]}>{i18n.t('home.subtitle')}</Text>
         </View>
 
         {/* Speech-to-Translate Feature */}
