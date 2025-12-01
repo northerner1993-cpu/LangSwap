@@ -42,10 +42,16 @@ export default function HomeScreen() {
   const [lessons, setLessons] = useState<Lesson[]>([]);
   const [loading, setLoading] = useState(true);
   const [initialized, setInitialized] = useState(false);
+  const [, forceUpdate] = useState(0);
   const router = useRouter();
   const { colors } = useTheme();
   const { languageMode } = useLanguageMode();
   const { uiLanguage } = useUILanguage();
+  
+  // Force re-render when language changes
+  useEffect(() => {
+    forceUpdate(prev => prev + 1);
+  }, [uiLanguage]);
   
   // Helper function that depends on uiLanguage to trigger re-renders
   const t = (key: string) => i18n.t(key);
