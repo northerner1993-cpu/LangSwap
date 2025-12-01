@@ -99,7 +99,7 @@ export default function SettingsScreen() {
         <View style={[styles.card, { backgroundColor: colors.card, borderColor: colors.border }]}>
           <View style={styles.cardHeader}>
             <Ionicons name="color-palette" size={24} color={colors.primary} />
-            <Text style={[styles.cardTitle, { color: colors.text }]}>Appearance</Text>
+            <Text style={[styles.cardTitle, { color: colors.text }]}>{t('settings.appearance')}</Text>
           </View>
           <TouchableOpacity
             style={[styles.optionRow, { borderTopColor: colors.border }]}
@@ -113,7 +113,7 @@ export default function SettingsScreen() {
                 color={colors.warning} 
               />
               <Text style={[styles.optionText, { color: colors.text }]}>
-                {theme === 'dark' ? 'Dark Mode' : 'Light Mode'}
+                {theme === 'dark' ? t('settings.darkMode') : t('settings.lightMode')}
               </Text>
             </View>
             <Ionicons name="chevron-forward" size={20} color={colors.textSecondary} />
