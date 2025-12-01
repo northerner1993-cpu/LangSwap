@@ -36,10 +36,28 @@ except ImportError:
     SERPAPI_AVAILABLE = False
     print("Warning: SerpAPI not available. Install 'google-search-results' package.")
 
-# MongoDB connection
-mongo_url = os.environ['MONGO_URL']
-client = AsyncIOMotorClient(mongo_url)
-db = client[os.environ['DB_NAME']]
+# MongoDB connection with Atlas support
+mongo_url = os.getenv('MONGO_URL', os.getenv('MONGODB_URI', 'mongodb://localhost:27017'))
+db_name = os.getenv('DB_NAME', os.getenv('MONGODB_DB_NAME', 'langswap'))
+
+# MongoDB client configuration for Atlas compatibility
+client = AsyncIOMotorClient(
+    mongo_url,
+    serverSelectionTimeoutMS=5000,
+    connectTimeoutMS=10000,
+    socketTimeoutMS=10000,
+    maxPoolSize=50,
+    minPoolSize=10,
+    retryWrites=True,
+    w='majority'
+)
+db = client[db_name]
+
+# Logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+logger.info(f"Connecting to MongoDB at: {mongo_url.split('@')[-1] if '@' in mongo_url else mongo_url}")
+logger.info(f"Using database: {db_name}")
 
 # Create the main app
 app = FastAPI()
