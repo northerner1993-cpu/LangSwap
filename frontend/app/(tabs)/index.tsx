@@ -517,13 +517,11 @@ const styles = StyleSheet.create({
   featuredTitle: {
     fontSize: 16,
     fontWeight: '700',
-    color: '#111827',
     marginBottom: 4,
     textAlign: 'center',
   },
   featuredCount: {
     fontSize: 12,
-    color: '#6B7280',
     fontWeight: '500',
   },
   categoriesContainer: {
