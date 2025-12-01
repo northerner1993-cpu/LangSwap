@@ -133,11 +133,11 @@ export default function SettingsScreen() {
         <View style={[styles.card, { backgroundColor: colors.card, borderColor: colors.border }]}>
           <View style={styles.cardHeader}>
             <Ionicons name="star" size={24} color={colors.primary} />
-            <Text style={[styles.cardTitle, { color: colors.text }]}>App Features</Text>
+            <Text style={[styles.cardTitle, { color: colors.text }]}>{t('settings.appFeatures')}</Text>
           </View>
           <View style={styles.infoContent}>
             <Text style={[styles.infoText, { color: colors.textSecondary }]}>
-              LangSwap is a comprehensive, accessible, bidirectional language learning platform for Thai and English speakers with advanced accessibility features for all users.
+              {t('settings.appFeaturesDescription')}
             </Text>
             
             {/* Core Features */}
