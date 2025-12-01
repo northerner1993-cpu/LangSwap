@@ -211,9 +211,9 @@ export default function ProgressScreen() {
             </View>
             
             <View style={styles.progressCircleContainer}>
-              <View style={[styles.progressCircle, { borderColor: colors.primary }]}>
-                <Text style={[styles.progressPercentage, { color: colors.primary }]}>{overallProgress}%</Text>
-                <Text style={[styles.progressLabel, { color: colors.textSecondary }]}>Complete</Text>
+              <View style={[styles.progressCircle, { borderColor: colors.primary, backgroundColor: colors.primary + '10' }]}>
+                <Text style={[styles.progressPercentage, { color: colors.text, fontWeight: 'bold' }]}>{overallProgress}%</Text>
+                <Text style={[styles.progressLabel, { color: colors.text, opacity: 0.7 }]}>Complete</Text>
               </View>
             </View>
             
