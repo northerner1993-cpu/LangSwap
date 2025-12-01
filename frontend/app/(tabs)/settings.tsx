@@ -236,7 +236,7 @@ export default function SettingsScreen() {
                 <View style={styles.featureItem}>
                   <Ionicons name="moon" size={18} color={colors.success} />
                   <Text style={[styles.featureText, { color: colors.textSecondary }]}>
-                    Dark/Light Mode Support
+                    Dark/Light Mode Support (OLED Optimized)
                   </Text>
                 </View>
                 <View style={styles.featureItem}>
@@ -261,6 +261,51 @@ export default function SettingsScreen() {
                   <Ionicons name="phone-portrait" size={18} color={colors.success} />
                   <Text style={[styles.featureText, { color: colors.textSecondary }]}>
                     iOS & Android Compatible
+                  </Text>
+                </View>
+              </View>
+            </View>
+
+            {/* Accessibility Features */}
+            <View style={[styles.featureSection, { borderLeftColor: colors.success }]}>
+              <Text style={[styles.featureSectionTitle, { color: colors.text }]}>
+                ♿ Accessibility Features
+              </Text>
+              <View style={styles.featureList}>
+                <View style={styles.featureItem}>
+                  <Ionicons name="text" size={18} color={colors.success} />
+                  <Text style={[styles.featureText, { color: colors.textSecondary }]}>
+                    Adjustable Text Size (80-150%)
+                  </Text>
+                </View>
+                <View style={styles.featureItem}>
+                  <Ionicons name="resize" size={18} color={colors.success} />
+                  <Text style={[styles.featureText, { color: colors.textSecondary }]}>
+                    Scalable Card Sizes for Better Visibility
+                  </Text>
+                </View>
+                <View style={styles.featureItem}>
+                  <Ionicons name="contrast" size={18} color={colors.success} />
+                  <Text style={[styles.featureText, { color: colors.textSecondary }]}>
+                    High Contrast Mode
+                  </Text>
+                </View>
+                <View style={styles.featureItem}>
+                  <Ionicons name="color-palette" size={18} color={colors.success} />
+                  <Text style={[styles.featureText, { color: colors.textSecondary }]}>
+                    Colorblind Modes (Protanopia, Deuteranopia, Tritanopia, Achromatopsia)
+                  </Text>
+                </View>
+                <View style={styles.featureItem}>
+                  <Ionicons name="play-skip-forward" size={18} color={colors.success} />
+                  <Text style={[styles.featureText, { color: colors.textSecondary }]}>
+                    Reduced Motion Option
+                  </Text>
+                </View>
+                <View style={styles.featureItem}>
+                  <Ionicons name="accessibility" size={18} color={colors.success} />
+                  <Text style={[styles.featureText, { color: colors.textSecondary }]}>
+                    Screen Reader Compatible
                   </Text>
                 </View>
               </View>
