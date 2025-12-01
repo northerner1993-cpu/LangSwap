@@ -46,6 +46,9 @@ export default function HomeScreen() {
   const { colors } = useTheme();
   const { languageMode } = useLanguageMode();
   const { uiLanguage } = useUILanguage();
+  
+  // Helper function that depends on uiLanguage to trigger re-renders
+  const t = (key: string) => i18n.t(key);
 
   const categories: Category[] = [
     {
