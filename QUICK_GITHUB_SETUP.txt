@@ -1,0 +1,153 @@
+═══════════════════════════════════════════════════════════════
+  LANGSWAP - QUICK GITHUB SETUP FOR jakemadamson2k14@gmail.com
+═══════════════════════════════════════════════════════════════
+
+STEP 1: CREATE GITHUB REPOSITORY
+─────────────────────────────────
+1. Go to: https://github.com/new
+2. Login with: jakemadamson2k14@gmail.com
+3. Repository name: langswap-app
+4. Description: Bidirectional Language Learning Platform - Thai ⇄ English
+5. Make it: ⭕ Public (or 🔒 Private if you prefer)
+6. ❌ DO NOT initialize with README (we have one)
+7. ❌ DO NOT add .gitignore (we have one)
+8. Click "Create repository"
+
+STEP 2: CONNECT LOCAL TO GITHUB
+────────────────────────────────
+Copy these commands and run them in your terminal:
+
+cd /app
+git remote add origin https://github.com/jakemadamson2k14/langswap-app.git
+git branch -M main
+git push -u origin main
+
+When prompted:
+Username: jakemadamson2k14
+Password: [Use Personal Access Token - see below]
+
+STEP 3: CREATE PERSONAL ACCESS TOKEN
+────────────────────────────────────
+1. Go to: https://github.com/settings/tokens
+2. Click "Generate new token (classic)"
+3. Token name: LangSwap Repository Access
+4. Expiration: 90 days (or No expiration)
+5. Select scopes:
+   ✅ repo (all)
+   ✅ workflow
+6. Click "Generate token"
+7. ⚠️  COPY THE TOKEN IMMEDIATELY (you won't see it again!)
+8. Use this token as your password when pushing
+
+ALTERNATIVE: USE SSH (RECOMMENDED)
+───────────────────────────────────
+# Generate SSH key
+ssh-keygen -t ed25519 -C "jakemadamson2k14@gmail.com"
+# Press Enter for all prompts
+
+# Display public key
+cat ~/.ssh/id_ed25519.pub
+
+# Copy the output and add to GitHub:
+# 1. Go to: https://github.com/settings/ssh/new
+# 2. Title: LangSwap Development
+# 3. Paste the key
+# 4. Click "Add SSH key"
+
+# Change remote to SSH
+cd /app
+git remote set-url origin git@github.com:jakemadamson2k14/langswap-app.git
+git push -u origin main
+
+═══════════════════════════════════════════════════════════════
+  WHAT'S IN THIS REPOSITORY
+═══════════════════════════════════════════════════════════════
+
+✅ Complete LangSwap application
+✅ Frontend (Expo/React Native)
+✅ Backend (FastAPI/Python)
+✅ 350+ lessons ready
+✅ Microphone permissions
+✅ 30+ language support
+✅ Dark mode optimized
+✅ Complete documentation
+✅ Performance guide
+✅ Setup instructions
+
+═══════════════════════════════════════════════════════════════
+  AFTER PUSHING TO GITHUB
+═══════════════════════════════════════════════════════════════
+
+1. ADD COLLABORATOR (Northerner1993@gmail.com):
+   - Go to: https://github.com/jakemadamson2k14/langswap-app/settings/access
+   - Click "Add people"
+   - Enter: Northerner1993@gmail.com
+   - Role: Admin
+   - Click "Add Northerner1993@gmail.com to this repository"
+
+2. ADD REPOSITORY DESCRIPTION:
+   - Go to repository main page
+   - Click ⚙️  next to "About"
+   - Description: "Bidirectional Thai-English language learning app with 350+ lessons, voice translation, and gamification"
+   - Website: [Your app URL when deployed]
+   - Topics: language-learning, thai, english, react-native, expo, mobile-app, education
+
+3. ENABLE GITHUB PAGES (Optional):
+   - Settings → Pages
+   - Source: Deploy from branch
+   - Branch: main / docs (if you create docs folder)
+
+4. SET UP REPOSITORY SECRETS (for CI/CD):
+   - Settings → Secrets and variables → Actions
+   - Add:
+     * EXPO_TOKEN (for Expo builds)
+     * MONGODB_URL (for production)
+     * API_KEY (for external APIs)
+
+═══════════════════════════════════════════════════════════════
+  TROUBLESHOOTING
+═══════════════════════════════════════════════════════════════
+
+ERROR: "remote origin already exists"
+→ Run: git remote remove origin
+→ Then retry adding origin
+
+ERROR: "Authentication failed"
+→ Make sure you're using Personal Access Token, not password
+→ GitHub no longer accepts passwords for git operations
+
+ERROR: "Permission denied (publickey)"
+→ Your SSH key isn't added to GitHub
+→ Follow SSH setup steps above
+
+ERROR: "Repository not found"
+→ Check repository name spelling
+→ Make sure you own the repository
+→ Try: git remote -v (to see current remote)
+
+═══════════════════════════════════════════════════════════════
+  FUTURE UPDATES
+═══════════════════════════════════════════════════════════════
+
+To push future changes:
+
+cd /app
+git add -A
+git commit -m "Your commit message"
+git push origin main
+
+═══════════════════════════════════════════════════════════════
+  CONGRATULATIONS! 🎉
+═══════════════════════════════════════════════════════════════
+
+Your LangSwap app is ready to be pushed to GitHub!
+
+Repository will include:
+• Complete source code
+• Documentation (README, RECOMMENDATIONS, PERFORMANCE_GUIDE)
+• GitHub setup guide
+• All new features and improvements
+
+Questions? Contact: jakemadamson2k14@gmail.com
+
+Happy coding! 🚀
