@@ -125,11 +125,11 @@ export default function WorldLanguagesSelector({ colors }: WorldLanguagesSelecto
     <View style={[styles.card, { backgroundColor: colors.card, borderColor: colors.border }]}>
       <View style={styles.cardHeader}>
         <Ionicons name="globe-outline" size={24} color={colors.primary} />
-        <Text style={[styles.cardTitle, { color: colors.text }]}>App Language Preference</Text>
+        <Text style={[styles.cardTitle, { color: colors.text }]}>{t('settings.appLanguagePreference')}</Text>
       </View>
 
       <Text style={[styles.description, { color: colors.textSecondary }]}>
-        Choose your preferred language for the app interface. This doesn't affect your learning language.
+        {t('settings.choosePreferredLanguage')}
       </Text>
 
       {/* Current Selection */}
