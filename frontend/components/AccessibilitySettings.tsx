@@ -202,7 +202,7 @@ export default function AccessibilitySettings({ colors }: AccessibilitySettingsP
             maximumTrackTintColor={colors.border}
             thumbTintColor={colors.primary}
           />
-          <Text style={[styles.sliderLabel, { color: colors.textSecondary }]}>Large</Text>
+          <Text style={[styles.sliderLabel, { color: colors.textSecondary }]}>{t('settings.large')}</Text>
         </View>
       </View>
 
@@ -212,9 +212,9 @@ export default function AccessibilitySettings({ colors }: AccessibilitySettingsP
           <View style={styles.optionLeft}>
             <Ionicons name="contrast" size={20} color={colors.text} />
             <View style={styles.optionTextContainer}>
-              <Text style={[styles.optionTitle, { color: colors.text }]}>High Contrast Mode</Text>
+              <Text style={[styles.optionTitle, { color: colors.text }]}>{t('settings.highContrastMode')}</Text>
               <Text style={[styles.optionDescription, { color: colors.textSecondary }]}>
-                Increase contrast for better visibility
+                {t('settings.increaseContrast')}
               </Text>
             </View>
           </View>
