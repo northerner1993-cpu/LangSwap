@@ -9,6 +9,8 @@ import {
 import { Ionicons } from '@expo/vector-icons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Slider from '@react-native-community/slider';
+import { useUILanguage } from '../contexts/UILanguageContext';
+import i18n from '../i18n';
 
 interface AccessibilitySettingsProps {
   colors: any;
@@ -17,11 +19,21 @@ interface AccessibilitySettingsProps {
 type ColorBlindMode = 'none' | 'protanopia' | 'deuteranopia' | 'tritanopia' | 'achromatopsia';
 
 export default function AccessibilitySettings({ colors }: AccessibilitySettingsProps) {
+  const { uiLanguage } = useUILanguage();
+  const [, forceUpdate] = useState(0);
   const [textScale, setTextScale] = useState(1.0);
   const [cardScale, setCardScale] = useState(1.0);
   const [highContrast, setHighContrast] = useState(false);
   const [colorBlindMode, setColorBlindMode] = useState<ColorBlindMode>('none');
   const [reducedMotion, setReducedMotion] = useState(false);
+  
+  // Force re-render when language changes
+  useEffect(() => {
+    forceUpdate(prev => prev + 1);
+  }, [uiLanguage]);
+  
+  // Helper function for translations
+  const t = (key: string) => i18n.t(key);
 
   useEffect(() => {
     loadAccessibilitySettings();
