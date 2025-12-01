@@ -1,43 +1,36 @@
 <analysis>
-The trajectory details the iterative development of LangSwap, a language learning application, evolving from a simple tool to a feature-rich, commercial-ready platform. The process was highly reactive to user feedback, leading to significant scope expansion.
+The trajectory chronicles the iterative development of LangSwap, a full-stack language learning application. The process was highly reactive to user feedback, leading to significant scope creep beyond the initial MVP. The AI engineer started with a basic Thai-English learning app and progressively added complex features, including a three-tiered authentication system (user, staff, admin), staff management tools, and extensive settings options.
 
-Initial work focused on establishing a bidirectional learning model (Thai-English) and core UI/UX features like dark mode and i18n. The project's complexity grew substantially with requests for a full-stack authentication system (users, staff, admins), monetization features (premium subscriptions, coupons), and advanced staff management tools like an access code generator.
+A substantial portion of the development was dedicated to UI/UX refinement and bug fixing. Recurring issues included implementing a fully functional dark mode, ensuring UI elements (like tab icons and text) were consistently visible and styled correctly, making the app's UI translatable (i18n), and debugging the Speech-to-Translate feature, which remains non-functional in the web preview environment.
 
-A significant portion of the development cycle was dedicated to implementing and repeatedly debugging a Speech-to-Translate feature, particularly its microphone detection and speech recognition capabilities across iOS and Android. UI refinement was a constant theme, with numerous iterations on the tab bar to add, hide, and fix icons for features like Songs, Premium, and Translate.
-
-The final phase involved preparing the application for deployment by creating documentation (, ), initializing a Git repository, and integrating external services like SerpAPI. The last interactions revolved around fixing a persistent UI bug with a tab icon and adding more user-centric features to the settings screen.
+The engineer also handled deployment preparation by creating documentation, configuring the backend for production (specifically for MongoDB Atlas), and setting up build configurations for the Google Play Store. The development cycles often involved the user providing screenshots of bugs, followed by the engineer attempting fixes, restarting services, and taking new screenshots for verification. The most recent interactions focus on critical UI bugs reported by the user: invisible text in dark mode and the failure of the language selection feature to translate the application's UI.
 
 The user's primary language is English. All future communications should be in English.
 </analysis>
 
 <product_requirements>
-The goal is to build LangSwap, a commercial-grade, bidirectional language learning app for iOS and Android, initially for Thai and English.
+The goal is to build LangSwap, a commercial-grade, bidirectional language learning application for iOS and Android, focusing initially on Thai and English.
 
 **Core Functionality:**
--   **Learning Modes:** Switch between Learn Thai 🇹🇭 and Learn English 🇬🇧.
--   **Interactive Content:** Flashcards with TTS, swipe navigation, a Play All feature for song lessons (with a 3-second delay), and difficulty tiers (Beginner/Intermediate).
--   **Speech-to-Translate:** A home screen feature for real-time voice translation with forced microphone permissions.
-
-**User & Staff Management:**
--   **Authentication:** A three-tiered role system (user, staff, admin) with email/password and Google Sign-In.
--   **Admin Hierarchy:** Two owner accounts (, ) with full permissions.
--   **Staff Tools:** A secure staff login and a system for admins to generate single-use registration access codes for new staff, with all generation requests logged.
+*   **Learning Modes:** Switch between Learn Thai 🇹🇭 and Learn English 🇬🇧. All lesson categories available in Thai should be mirrored for English learners.
+*   **Interactive Content:** Flashcards with TTS, swipe navigation, and images corresponding to the card's subject. Categories should include Alphabet, Numbers, Animals, Clothes, Plants, Vehicle Parts, and Household Items (e.g., mobile, ring, watch). Content must be expanded to 100+ items per category.
+*   **Speech-to-Translate:** A home screen feature for real-time voice translation. The microphone must be detected and user input must appear in the text box.
 
 **Application & Settings:**
--   **UI:** A dedicated Songs tab, a functional translate icon on the tab bar, and a settings page.
--   **Personalization:** The ability for users to change the app's UI language from an extensive list of world languages.
--   **Monetization (Currently Disabled):** The premium tab is hidden, and all paywalls/ads are disabled to allow for full testing.
+*   **UI/UX:** A clean UI with a functional bottom tab bar. A floating action button for translation was added and then removed due to user request. Dark mode must be fully implemented across all screens, with no invisible text or un-themed components.
+*   **Internationalization (i18n):** The app's UI must fully translate into the language selected by the user in the settings.
+*   **Accessibility:** Settings must include features for visually impaired users (text/card scaling) and colorblind-friendly modes.
+*   **Permissions:** The app must explicitly ask for necessary device permissions (e.g., microphone) in the settings.
 </product_requirements>
 
 <key_technical_concepts>
--   **Full-Stack:** Expo (React Native) frontend and FastAPI (Python) backend.
--   **Database:** MongoDB.
--   **Navigation:**  for file-based routing and tab navigation.
--   **State Management:** React Context API for Theme, Language Mode, UI Language, and Authentication.
--   **Authentication:** JWT-based system using  and  on the backend.
--   **Audio:**  for TTS and  for Speech-to-Text.
--   **API Integration:** Securely configured for SerpAPI and a generic external API key.
--   **Internationalization:**  for UI translations.
+- **Full-Stack:** Expo (React Native) frontend, FastAPI (Python) backend.
+- **Database:** MongoDB, with the backend configured to be compatible with Atlas for deployment.
+- **Navigation:**  for file-based routing and bottom tab navigation.
+- **State Management:** React Context API for , , , and .
+- **Authentication:** JWT-based system with user, staff, and admin roles.
+- **Audio:**  for Text-to-Speech and  for Speech-to-Text.
+- **Internationalization (i18n):**  for UI translations, managed via .
 </key_technical_concepts>
 
 <code_architecture>
@@ -45,42 +38,45 @@ The application is a full-stack monorepo with an Expo frontend and a FastAPI bac
 
 
 
--   ****
-    -   **Importance:** This is the monolithic backend service. It handles all API logic, including serving lessons, user authentication (register, login, roles), staff access code generation, premium feature flags, and proxying requests to external APIs like SerpAPI.
-    -   **Summary of Changes:** Grew from a simple content server to a complex application backend. It was heavily modified to add user/staff/admin roles, JWT authentication, owner account initialization, SerpAPI integration, and numerous endpoints for staff and admin functionalities.
+- ****
+    - **Importance:** The monolithic backend API. It manages user authentication, roles, lesson data, and health checks.
+    - **Summary of Changes:** It was significantly refactored to support production deployment on Atlas by adding robust MongoDB connection logic with retry mechanisms, timeouts, and a  endpoint. An image URL field was added to the  model to support images on flashcards. A massive data generation script () was created but not yet integrated to populate the database.
 
--   ****
-    -   **Importance:** This file configures the main bottom tab navigator, defining which screens are accessible and their corresponding icons.
-    -   **Summary of Changes:** This file was edited frequently. A Songs tab was added. A Premium tab was added and later hidden by setting  to disable it for testing. The Translate tab icon was a recurring issue, with multiple attempts made to fix its display, culminating in simplifying the component wrapper around the icon.
+- ****
+    - **Importance:** Defines the primary bottom tab navigation structure. It controls which screens appear as tabs and their icons.
+    - **Summary of Changes:** This file was edited multiple times to manage the tabs. A floating/duplicate translate tab, caused by a separate  file, was hidden by adding  to its screen definition. The styling of the tab bar was also enhanced to improve clickability.
 
--   ****
-    -   **Importance:** The core component for the voice translation feature on the home screen.
-    -   **Summary of Changes:** This component underwent multiple major rewrites to fix microphone detection and speech recognition. It was updated to use , request permissions programmatically, and handle platform-specific (iOS/Android) implementation details.
+- ****
+    - **Importance:** The main home screen of the application. It displays lesson categories and the  component.
+    - **Summary of Changes:** A critical fix was applied here to solve a persistent dark mode bug. The main container had a hardcoded light background (), which was removed and replaced with theme-aware styling. The  was also removed from this file to eliminate a duplicate translate button.
 
--   ****
-    -   **Importance:** The screen where users interact with individual lesson flashcards.
-    -   **Summary of Changes:** Enhanced with a Play All feature, specifically for song lessons, which includes logic to automatically advance to the next card after a 3-second delay. It also includes swipe gestures and a mute button for TTS.
+- ****
+    - **Importance:** The user settings screen.
+    - **Summary of Changes:** This screen was heavily modified to incorporate new, complex features. It now renders several new components: , , and , making it a central hub for user configuration.
 
--   ****
-    -   **Importance:** The main configuration file for the Expo app. It controls app metadata, icons, and permissions.
-    -   **Summary of Changes:** Modified to include the app logo, a user-facing name LangSwap, and, most importantly, added the  permission under the  and  keys to ensure the speech recognition feature could function.
+- ** & **
+    - **Importance:** These context providers manage the app's global state for dark/light mode and internationalization.
+    - **Summary of Changes:** The  was updated to use a true-black background for OLED optimization. The  was created and integrated with the  component, but the UI text is not yet fully connected to the  instance, causing translations to fail. The logic for setting the  was refined to prevent crashes.
 </code_architecture>
 
 <pending_tasks>
--   Fix the translation tab icon, which is still not displaying correctly as per the user's latest screenshot.
--   Update the Settings tab to include detailed information about the application's new features.
--   Add a new section or screen within Settings for World Languages, allowing users to change their language preference from an expanded list (English, French, Russian, Thai, Chinese, German, Spanish, Dutch, Finnish, etc.).
+- Fix invisible text in dark mode (e.g., white text on white backgrounds).
+- Implement full UI translation so that selecting a language in settings translates all static text on all pages.
+- Add new lesson content (personal items, household items) and corresponding images to all relevant categories in both Learn Thai and Learn English modes.
+- Implement and verify swipe gestures (left/right) for navigating lesson cards.
+- Ensure the Learn English track mirrors the same lesson structure and content as Learn Thai.
+- Fix voice recognition so it shows transcribed text in the input box.
 </pending_tasks>
 
 <current_work>
-The immediate last task was a multi-part user request focusing on UI fixes and feature enhancements. The AI engineer was actively addressing the following points from the user's message ():
+The AI engineer was in the process of addressing a critical set of UI bugs reported by the user in , accompanied by screenshots. The primary issues were:
+1.  **Invisible Text in Dark Mode:** The user's screenshot () clearly showed that text on the home screen was invisible (white text on a white background) when dark mode was enabled.
+2.  **Failed UI Translation:** Another screenshot () showed that selecting a new language from the settings did not translate the app's UI elements as expected.
+3.  **Missing Content:** The user reiterated the request for new lesson categories and images, which had not yet been implemented.
 
-1.  **Fixing the Translation Tab Icon:** The user reported for the *n-th* time that the icon for the translation tab was not showing, providing a screenshot. The engineer identified the issue as a problematic component wrapper.
-2.  **Updating Settings:** A request to add details about new application features to the settings tab.
-3.  **Adding World Languages:** A request to add a comprehensive language preference selector in settings.
-
-The very last action taken () was an attempt to fix the icon issue by editing  to simplify the icon's implementation, removing the wrapper that was believed to be causing the problem. The frontend was rebuilding with this fix when the work was passed on. Work on the settings screen and language list had not yet begun.
+The engineer's immediate last action () was to acknowledge these critical issues and start work on the most urgent one: fixing the invisible text. The thought process correctly identified that the header text was likely using a hardcoded color that did not respect the active theme, and the engineer was about to start editing the relevant files to fix this styling issue. The work was interrupted just before the file edits began.
 </current_work>
 
 <optional_next_step>
-Complete the user's latest request: update the settings screen to include app features and a comprehensive World Languages preference list, and verify that the translation tab icon is now correctly displayed.
+Urgent: Fix the invisible text in dark mode by removing hardcoded text colors in the main application layout and components and replacing them with theme-aware colors from the .
+</optional_next_step>
