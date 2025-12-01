@@ -182,25 +182,25 @@ export default function SettingsScreen() {
             {/* Voice Features */}
             <View style={[styles.featureSection, { borderLeftColor: colors.error }]}>
               <Text style={[styles.featureSectionTitle, { color: colors.text }]}>
-                🎤 Voice Translation Features
+                🎤 {t('settings.voiceTranslationFeatures')}
               </Text>
               <View style={styles.featureList}>
                 <View style={styles.featureItem}>
                   <Ionicons name="mic" size={18} color={colors.success} />
                   <Text style={[styles.featureText, { color: colors.textSecondary }]}>
-                    Speech-to-Translate (Real-time)
+                    {t('settings.speechToTranslate')}
                   </Text>
                 </View>
                 <View style={styles.featureItem}>
                   <Ionicons name="globe" size={18} color={colors.success} />
                   <Text style={[styles.featureText, { color: colors.textSecondary }]}>
-                    Voice Recognition for Practice
+                    {t('settings.voiceRecognition')}
                   </Text>
                 </View>
                 <View style={styles.featureItem}>
                   <Ionicons name="chatbubbles" size={18} color={colors.success} />
                   <Text style={[styles.featureText, { color: colors.textSecondary }]}>
-                    Conversation Practice Tools
+                    {t('settings.conversationTools')}
                   </Text>
                 </View>
               </View>
@@ -209,31 +209,31 @@ export default function SettingsScreen() {
             {/* Content */}
             <View style={[styles.featureSection, { borderLeftColor: colors.warning }]}>
               <Text style={[styles.featureSectionTitle, { color: colors.text }]}>
-                📚 Rich Content Library
+                📚 {t('settings.richContentLibrary')}
               </Text>
               <View style={styles.featureList}>
                 <View style={styles.featureItem}>
                   <Ionicons name="library" size={18} color={colors.success} />
                   <Text style={[styles.featureText, { color: colors.textSecondary }]}>
-                    350+ Comprehensive Lessons
+                    {t('settings.comprehensiveLessons')}
                   </Text>
                 </View>
                 <View style={styles.featureItem}>
                   <Ionicons name="musical-notes" size={18} color={colors.success} />
                   <Text style={[styles.featureText, { color: colors.textSecondary }]}>
-                    100+ Song-Based Lessons
+                    {t('settings.songBasedLessons')}
                   </Text>
                 </View>
                 <View style={styles.featureItem}>
                   <Ionicons name="restaurant" size={18} color={colors.success} />
                   <Text style={[styles.featureText, { color: colors.textSecondary }]}>
-                    Day-to-Day Conversations (Restaurant, Shopping, Travel)
+                    {t('settings.dayToDayConversations')}
                   </Text>
                 </View>
                 <View style={styles.featureItem}>
                   <Ionicons name="school" size={18} color={colors.success} />
                   <Text style={[styles.featureText, { color: colors.textSecondary }]}>
-                    Alphabet, Numbers, Grammar & Vocabulary
+                    {t('settings.alphabetNumbers')}
                   </Text>
                 </View>
               </View>
