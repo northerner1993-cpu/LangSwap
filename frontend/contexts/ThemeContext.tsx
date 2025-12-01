@@ -36,17 +36,17 @@ const lightColors = {
 };
 
 const darkColors = {
-  background: '#111827',
-  card: '#1F2937',
-  text: '#F9FAFB',
-  textSecondary: '#9CA3AF',
-  primary: '#818CF8',
-  border: '#374151',
-  success: '#34D399',
-  error: '#F87171',
-  warning: '#FBBF24',
-  cardBackground: '#1F2937',
-  inputBackground: '#374151',
+  background: '#000000',  // True black for OLED screens
+  card: '#1A1A1A',       // Slightly lighter for contrast
+  text: '#FFFFFF',       // Pure white for maximum contrast
+  textSecondary: '#A0A0A0',  // Lighter gray for better readability
+  primary: '#8B5CF6',    // Vibrant purple for dark mode
+  border: '#2A2A2A',     // Subtle border
+  success: '#22C55E',    // Bright green
+  error: '#EF4444',      // Bright red
+  warning: '#F59E0B',    // Bright orange/yellow
+  cardBackground: '#1A1A1A',
+  inputBackground: '#2A2A2A',
 };
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
