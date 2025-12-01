@@ -125,7 +125,7 @@ export default function SettingsScreen() {
           </View>
           <View style={styles.infoContent}>
             <Text style={[styles.infoText, { color: colors.textSecondary }]}>
-              LangSwap is a comprehensive, bidirectional language learning platform for Thai and English speakers.
+              LangSwap is a comprehensive, accessible, bidirectional language learning platform for Thai and English speakers with advanced accessibility features for all users.
             </Text>
             
             {/* Core Features */}
