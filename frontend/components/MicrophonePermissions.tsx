@@ -73,7 +73,7 @@ export default function MicrophonePermissions({ colors }: MicrophonePermissionsP
     if (Platform.OS === 'ios') {
       Linking.openURL('app-settings:');
     } else {
-      Linking.openSettings();
+      Linking.openURL('app-settings:');
     }
   };
 
