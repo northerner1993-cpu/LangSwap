@@ -1,0 +1,23 @@
+{
+  "languageSelection": {
+    "learnThai": "Learn Thai",
+    "learnEnglish": "Learn English",
+    "welcome": "Welcome to LangSwap",
+    "selectLanguage": "Select Language",
+    "continue": "Continue"
+  },
+  "home": {
+    "title": "Learn",
+    "subtitle": "Choose a category to start learning",
+    "allLessons": "All Lessons",
+    "songsCatalogue": "Songs Catalogue",
+    "learnThroughMusic": "Learn through music",
+    "instantTranslator": "Instant Translator",
+    "allCategories": "All Categories"
+  },
+  "settings": {
+    "appLanguagePreference": "Налаштування Мови Застосунку",
+    "choosePreferredLanguage": "Виберіть бажану мову для інтерфейсу застосунку. Це не впливає на вашу мову навчання.",
+    "languagesAvailable": "мов доступно"
+  }
+}

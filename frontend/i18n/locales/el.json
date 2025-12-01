@@ -1,0 +1,23 @@
+{
+  "languageSelection": {
+    "learnThai": "Learn Thai",
+    "learnEnglish": "Learn English",
+    "welcome": "Welcome to LangSwap",
+    "selectLanguage": "Select Language",
+    "continue": "Continue"
+  },
+  "home": {
+    "title": "Learn",
+    "subtitle": "Choose a category to start learning",
+    "allLessons": "All Lessons",
+    "songsCatalogue": "Songs Catalogue",
+    "learnThroughMusic": "Learn through music",
+    "instantTranslator": "Instant Translator",
+    "allCategories": "All Categories"
+  },
+  "settings": {
+    "appLanguagePreference": "Προτίμηση Γλώσσας Εφαρμογής",
+    "choosePreferredLanguage": "Επιλέξτε την προτιμώμενη γλώσσα σας για τη διεπαφή της εφαρμογής. Αυτό δεν επηρεάζει τη γλώσσα εκμάθησής σας.",
+    "languagesAvailable": "γλώσσες διαθέσιμες"
+  }
+}

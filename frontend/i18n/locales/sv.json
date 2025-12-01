@@ -1,0 +1,23 @@
+{
+  "languageSelection": {
+    "learnThai": "Learn Thai",
+    "learnEnglish": "Learn English",
+    "welcome": "Welcome to LangSwap",
+    "selectLanguage": "Select Language",
+    "continue": "Continue"
+  },
+  "home": {
+    "title": "Learn",
+    "subtitle": "Choose a category to start learning",
+    "allLessons": "All Lessons",
+    "songsCatalogue": "Songs Catalogue",
+    "learnThroughMusic": "Learn through music",
+    "instantTranslator": "Instant Translator",
+    "allCategories": "All Categories"
+  },
+  "settings": {
+    "appLanguagePreference": "Appspråksinställning",
+    "choosePreferredLanguage": "Välj ditt föredragna språk för appens gränssnitt. Detta påverkar inte ditt inlärningsspråk.",
+    "languagesAvailable": "språk tillgängliga"
+  }
+}
