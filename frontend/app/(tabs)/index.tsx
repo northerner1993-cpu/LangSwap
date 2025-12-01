@@ -301,7 +301,7 @@ export default function HomeScreen() {
 
         {/* All Categories */}
         <View style={styles.categoriesContainer}>
-          <Text style={styles.sectionTitle}>All Categories</Text>
+          <Text style={[styles.sectionTitle, { color: colors.text }]}>{i18n.t('home.allCategories')}</Text>
           {categories.map((category) => {
             const categoryLessons = getLessonsByCategory(category.key);
             return (
