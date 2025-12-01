@@ -28,7 +28,9 @@
     "subtitle": "Choose a category to start learning",
     "allLessons": "All Lessons",
     "songsCatalogue": "Songs Catalogue",
-    "learnThroughMusic": "Learn through music"
+    "learnThroughMusic": "Learn through music",
+    "instantTranslator": "Instant Translator",
+    "allCategories": "All Categories"
   },
   "categories": {
     "alphabet": "Alphabet",
