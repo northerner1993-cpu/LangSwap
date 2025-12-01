@@ -260,7 +260,7 @@ export default function SpeechToTranslate() {
             <Ionicons name="volume-high" size={24} color={translatedText ? colors.primary : colors.textSecondary} />
           </TouchableOpacity>
         </View>
-        <View style={[styles.output, { backgroundColor: colors.inputBackground || colors.background }]}>
+        <View style={[styles.output, { backgroundColor: colors.inputBackground || colors.background, borderColor: colors.border }]}>
           <Text style={[styles.outputText, { color: translatedText ? colors.text : colors.textSecondary }]}>
             {translatedText || 'Translation will appear here...'}
           </Text>
