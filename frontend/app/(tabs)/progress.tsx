@@ -551,8 +551,11 @@ const styles = StyleSheet.create({
     gap: 4,
   },
   categoryPercentage: {
-    fontSize: 16,
+    fontSize: 18,
     fontWeight: 'bold',
+    textShadowColor: 'rgba(0, 0, 0, 0.15)',
+    textShadowOffset: { width: 0, height: 1 },
+    textShadowRadius: 2,
   },
   progressBarContainer: {
     height: 10,
