@@ -60,8 +60,73 @@ logger.info(f"Connecting to MongoDB at: {mongo_url.split('@')[-1] if '@' in mong
 logger.info(f"Using database: {db_name}")
 
 # Create the main app
-app = FastAPI()
+app = FastAPI(title="LangSwap API", version="1.0.0")
 api_router = APIRouter(prefix="/api")
+
+# Startup and shutdown events
+@app.on_event("startup")
+async def startup_db_client():
+    """Verify MongoDB connection on startup"""
+    try:
+        # Ping the database to verify connection
+        await client.admin.command('ping')
+        logger.info("✅ Successfully connected to MongoDB")
+        
+        # Check if collections exist
+        collections = await db.list_collection_names()
+        logger.info(f"📚 Available collections: {collections}")
+        
+        # Initialize owner accounts if they don't exist
+        try:
+            await initialize_owner_accounts()
+            logger.info("✅ Owner accounts initialized")
+        except Exception as e:
+            logger.warning(f"⚠️  Owner account initialization: {e}")
+            
+    except Exception as e:
+        logger.error(f"❌ Failed to connect to MongoDB: {e}")
+        logger.error(f"MongoDB URL: {mongo_url.split('@')[-1] if '@' in mongo_url else mongo_url}")
+        raise
+
+@app.on_event("shutdown")
+async def shutdown_db_client():
+    """Close MongoDB connection on shutdown"""
+    client.close()
+    logger.info("🔌 MongoDB connection closed")
+
+# Health check endpoint
+@app.get("/health")
+async def health_check():
+    """Health check endpoint for deployment monitoring"""
+    try:
+        # Check MongoDB connection
+        await client.admin.command('ping')
+        mongo_status = "connected"
+    except Exception as e:
+        mongo_status = f"disconnected: {str(e)}"
+        
+    return {
+        "status": "healthy" if mongo_status == "connected" else "unhealthy",
+        "service": "langswap-api",
+        "version": "1.0.0",
+        "database": mongo_status,
+        "timestamp": datetime.utcnow().isoformat()
+    }
+
+# Root endpoint
+@app.get("/")
+async def root():
+    """API root endpoint"""
+    return {
+        "message": "LangSwap API",
+        "version": "1.0.0",
+        "status": "running",
+        "endpoints": {
+            "health": "/health",
+            "api": "/api",
+            "docs": "/docs"
+        }
+    }
 
 # Models
 class PyObjectId(ObjectId):
