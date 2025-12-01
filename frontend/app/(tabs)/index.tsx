@@ -531,7 +531,6 @@ const styles = StyleSheet.create({
   categoryCard: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#FFFFFF',
     borderRadius: 20,
     padding: 18,
     marginBottom: 12,
@@ -555,17 +554,14 @@ const styles = StyleSheet.create({
   categoryTitle: {
     fontSize: 18,
     fontWeight: 'bold',
-    color: '#111827',
     marginBottom: 4,
   },
   categoryDescription: {
     fontSize: 14,
-    color: '#6B7280',
     marginBottom: 4,
   },
   lessonCount: {
     fontSize: 12,
-    color: '#9CA3AF',
     marginTop: 2,
   },
   section: {
