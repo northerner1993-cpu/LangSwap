@@ -79,7 +79,7 @@ You should see:
 
 ## 🔐 Token Information
 
-**Your Token**: `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`
+**Your Token**: `[REDACTED - Use your personal GitHub token]`
 
 **Permissions** (Fine-Grained Token):
 - ✅ Read access to code and metadata
