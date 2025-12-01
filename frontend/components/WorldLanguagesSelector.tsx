@@ -62,7 +62,16 @@ export default function WorldLanguagesSelector({ colors }: WorldLanguagesSelecto
   const [currentLanguage, setCurrentLanguage] = useState<Language>(AVAILABLE_LANGUAGES[0]);
   const [modalVisible, setModalVisible] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
+  const [, forceUpdate] = useState(0);
   const { uiLanguage, setUILanguage } = useUILanguage();
+  
+  // Force re-render when language changes
+  useEffect(() => {
+    forceUpdate(prev => prev + 1);
+  }, [uiLanguage]);
+  
+  // Helper function for translations
+  const t = (key: string) => i18n.t(key);
 
   useEffect(() => {
     loadLanguagePreference();
