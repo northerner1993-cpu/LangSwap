@@ -12,6 +12,7 @@ import {
 import { Ionicons } from '@expo/vector-icons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useUILanguage } from '../contexts/UILanguageContext';
+import i18n from '../i18n';
 
 interface Language {
   code: string;
