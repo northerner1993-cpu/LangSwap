@@ -254,7 +254,7 @@ export default function HomeScreen() {
         <View style={[styles.translateSection, { backgroundColor: colors.card }]}>
           <View style={styles.translateHeader}>
             <Ionicons name="language" size={24} color={colors.primary} />
-            <Text style={[styles.translateTitle, { color: colors.text }]}>{i18n.t('home.instantTranslator')}</Text>
+            <Text style={[styles.translateTitle, { color: colors.text }]}>{t('home.instantTranslator')}</Text>
           </View>
           <SpeechToTranslate />
         </View>
