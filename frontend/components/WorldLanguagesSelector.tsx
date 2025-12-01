@@ -156,7 +156,7 @@ export default function WorldLanguagesSelector({ colors }: WorldLanguagesSelecto
       <View style={styles.infoRow}>
         <Ionicons name="information-circle-outline" size={16} color={colors.textSecondary} />
         <Text style={[styles.infoText, { color: colors.textSecondary }]}>
-          {AVAILABLE_LANGUAGES.length} languages available
+          {AVAILABLE_LANGUAGES.length} {t('settings.languagesAvailable')}
         </Text>
       </View>
 
