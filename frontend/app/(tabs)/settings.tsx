@@ -111,6 +111,9 @@ export default function SettingsScreen() {
         {/* World Languages Selector */}
         <WorldLanguagesSelector colors={colors} />
 
+        {/* Accessibility Settings */}
+        <AccessibilitySettings colors={colors} />
+
         {/* Microphone Permissions */}
         <MicrophonePermissions colors={colors} />
 
