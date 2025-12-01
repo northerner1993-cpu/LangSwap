@@ -577,10 +577,8 @@ const styles = StyleSheet.create({
   sectionTitle: {
     fontSize: 22,
     fontWeight: 'bold',
-    color: '#111827',
   },
   lessonCountBadge: {
-    backgroundColor: '#4F46E5',
     paddingHorizontal: 12,
     paddingVertical: 6,
     borderRadius: 20,
