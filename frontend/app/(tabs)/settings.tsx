@@ -143,37 +143,37 @@ export default function SettingsScreen() {
             {/* Core Features */}
             <View style={[styles.featureSection, { borderLeftColor: colors.primary }]}>
               <Text style={[styles.featureSectionTitle, { color: colors.text }]}>
-                🎯 Core Learning Features
+                🎯 {t('settings.coreLearningFeatures')}
               </Text>
               <View style={styles.featureList}>
                 <View style={styles.featureItem}>
                   <Ionicons name="swap-horizontal" size={18} color={colors.success} />
                   <Text style={[styles.featureText, { color: colors.textSecondary }]}>
-                    Bidirectional Learning (Thai ⇄ English)
+                    {t('settings.bidirectionalLearning')}
                   </Text>
                 </View>
                 <View style={styles.featureItem}>
                   <Ionicons name="card" size={18} color={colors.success} />
                   <Text style={[styles.featureText, { color: colors.textSecondary }]}>
-                    Interactive Flashcards with Swipe Gestures
+                    {t('settings.interactiveFlashcards')}
                   </Text>
                 </View>
                 <View style={styles.featureItem}>
                   <Ionicons name="volume-high" size={18} color={colors.success} />
                   <Text style={[styles.featureText, { color: colors.textSecondary }]}>
-                    Native Text-to-Speech (TTS) Audio
+                    {t('settings.nativeTTS')}
                   </Text>
                 </View>
                 <View style={styles.featureItem}>
                   <Ionicons name="play" size={18} color={colors.success} />
                   <Text style={[styles.featureText, { color: colors.textSecondary }]}>
-                    Play All Mode for Continuous Learning
+                    {t('settings.playAllMode')}
                   </Text>
                 </View>
                 <View style={styles.featureItem}>
                   <Ionicons name="trophy" size={18} color={colors.success} />
                   <Text style={[styles.featureText, { color: colors.textSecondary }]}>
-                    Difficulty Levels (Beginner/Intermediate)
+                    {t('settings.difficultyLevels')}
                   </Text>
                 </View>
               </View>
