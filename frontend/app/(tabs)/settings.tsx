@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   View,
   Text,
@@ -14,14 +14,26 @@ import { Ionicons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
 import { useTheme } from '../../contexts/ThemeContext';
 import { useLanguageMode } from '../../contexts/LanguageModeContext';
+import { useUILanguage } from '../../contexts/UILanguageContext';
 import MicrophonePermissions from '../../components/MicrophonePermissions';
 import WorldLanguagesSelector from '../../components/WorldLanguagesSelector';
 import AccessibilitySettings from '../../components/AccessibilitySettings';
+import i18n from '../../i18n';
 
 export default function SettingsScreen() {
   const { theme, toggleTheme, colors } = useTheme();
   const { languageMode, setLanguageMode } = useLanguageMode();
+  const { uiLanguage } = useUILanguage();
+  const [, forceUpdate] = useState(0);
   const router = useRouter();
+  
+  // Force re-render when language changes
+  useEffect(() => {
+    forceUpdate(prev => prev + 1);
+  }, [uiLanguage]);
+  
+  // Helper function for translations
+  const t = (key: string) => i18n.t(key);
 
   const handleEmailSupport = () => {
     const email = 'jakemadamson2k14@gmail.com';
