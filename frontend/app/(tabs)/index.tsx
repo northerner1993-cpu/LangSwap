@@ -304,7 +304,7 @@ export default function HomeScreen() {
             return (
               <TouchableOpacity
                 key={category.key}
-                style={styles.categoryCard}
+                style={[styles.categoryCard, { backgroundColor: colors.card }]}
                 onPress={() => handleCategoryPress(category.key)}
                 activeOpacity={0.7}
               >
@@ -312,13 +312,13 @@ export default function HomeScreen() {
                   <Ionicons name={category.icon as any} size={32} color={category.color} />
                 </View>
                 <View style={styles.categoryContent}>
-                  <Text style={styles.categoryTitle}>{category.title}</Text>
-                  <Text style={styles.categoryDescription}>{category.description}</Text>
-                  <Text style={styles.lessonCount}>
+                  <Text style={[styles.categoryTitle, { color: colors.text }]}>{category.title}</Text>
+                  <Text style={[styles.categoryDescription, { color: colors.textSecondary }]}>{category.description}</Text>
+                  <Text style={[styles.lessonCount, { color: colors.textSecondary }]}>
                     {categoryLessons.length} lesson{categoryLessons.length !== 1 ? 's' : ''}
                   </Text>
                 </View>
-                <Ionicons name="chevron-forward" size={24} color="#9CA3AF" />
+                <Ionicons name="chevron-forward" size={24} color={colors.textSecondary} />
               </TouchableOpacity>
             );
           })}
