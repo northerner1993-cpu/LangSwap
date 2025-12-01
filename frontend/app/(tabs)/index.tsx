@@ -597,7 +597,6 @@ const styles = StyleSheet.create({
   lessonCard: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#FFFFFF',
     borderRadius: 16,
     padding: 16,
     marginBottom: 12,
