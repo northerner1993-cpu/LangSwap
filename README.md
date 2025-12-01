@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # LangSwap - Bidirectional Language Learning Platform
 
 **Version:** 1.0.0  
@@ -44,3 +45,7 @@ curl -X POST http://localhost:8001/api/init-data
 ## 📄 License
 
 © 2025 Jake Adamson. All Rights Reserved. Proprietary Software.
+=======
+# LangSwap-
+Bilingual Learning tool
+>>>>>>> c3241fa797fe359a92e8d40c1f2e787e8a2c5b26
