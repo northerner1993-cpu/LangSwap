@@ -37,8 +37,8 @@ export function UILanguageProvider({ children }: { children: ReactNode }) {
   const setUILanguage = async (lang: UILanguage) => {
     try {
       await AsyncStorage.setItem('uiLanguage', lang);
-      setUILanguageState(lang);
       i18n.locale = lang;
+      setUILanguageState(lang); // This triggers re-render in components using uiLanguage
     } catch (error) {
       console.error('Error saving UI language:', error);
     }
