@@ -78,7 +78,7 @@ async def startup_db_client():
         
         # Initialize owner accounts if they don't exist
         try:
-            await initialize_owner_accounts()
+            await initialize_admin()
             logger.info("✅ Owner accounts initialized")
         except Exception as e:
             logger.warning(f"⚠️  Owner account initialization: {e}")
