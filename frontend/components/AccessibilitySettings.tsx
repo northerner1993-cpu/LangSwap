@@ -176,7 +176,7 @@ export default function AccessibilitySettings({ colors }: AccessibilitySettingsP
             { color: colors.text, fontSize: 16 * textScale }
           ]}
         >
-          Preview: Hello สวัสดี 你好
+          {t('settings.preview')}: Hello สวัสดี 你好
         </Text>
       </View>
 
@@ -184,13 +184,13 @@ export default function AccessibilitySettings({ colors }: AccessibilitySettingsP
       <View style={styles.section}>
         <View style={styles.sectionHeader}>
           <Ionicons name="resize" size={20} color={colors.text} />
-          <Text style={[styles.sectionTitle, { color: colors.text }]}>Card Size</Text>
+          <Text style={[styles.sectionTitle, { color: colors.text }]}>{t('settings.cardSize')}</Text>
         </View>
         <Text style={[styles.description, { color: colors.textSecondary }]}>
-          Adjust flashcard size for better readability ({Math.round(cardScale * 100)}%)
+          {t('settings.adjustCardSize')} ({Math.round(cardScale * 100)}%)
         </Text>
         <View style={styles.sliderContainer}>
-          <Text style={[styles.sliderLabel, { color: colors.textSecondary }]}>Small</Text>
+          <Text style={[styles.sliderLabel, { color: colors.textSecondary }]}>{t('settings.small')}</Text>
           <Slider
             style={styles.slider}
             minimumValue={0.8}
