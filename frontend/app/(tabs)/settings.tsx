@@ -63,7 +63,7 @@ export default function SettingsScreen() {
             LangSwap
           </Text>
           <Text style={[styles.appVersion, { color: colors.textSecondary }]}>
-            Version 1.0.0 • Bidirectional Learning
+            {t('settings.versionBidirectional')}
           </Text>
         </View>
 
