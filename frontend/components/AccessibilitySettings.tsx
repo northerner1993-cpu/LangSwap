@@ -101,11 +101,11 @@ export default function AccessibilitySettings({ colors }: AccessibilitySettingsP
   };
 
   const colorBlindModes = [
-    { id: 'none', name: 'None', icon: 'eye-outline', description: 'Standard colors' },
-    { id: 'protanopia', name: 'Protanopia', icon: 'color-filter-outline', description: 'Red-blind (1% of males)' },
-    { id: 'deuteranopia', name: 'Deuteranopia', icon: 'color-filter-outline', description: 'Green-blind (1% of males)' },
-    { id: 'tritanopia', name: 'Tritanopia', icon: 'color-filter-outline', description: 'Blue-blind (rare)' },
-    { id: 'achromatopsia', name: 'Achromatopsia', icon: 'contrast-outline', description: 'Total color blindness (very rare)' },
+    { id: 'none', nameKey: 'settings.none', icon: 'eye-outline', descKey: 'settings.standardColors' },
+    { id: 'protanopia', nameKey: 'settings.protanopia', icon: 'color-filter-outline', descKey: 'settings.redBlind' },
+    { id: 'deuteranopia', nameKey: 'settings.deuteranopia', icon: 'color-filter-outline', descKey: 'settings.greenBlind' },
+    { id: 'tritanopia', nameKey: 'settings.tritanopia', icon: 'color-filter-outline', descKey: 'settings.blueBlind' },
+    { id: 'achromatopsia', nameKey: 'settings.achromatopsia', icon: 'contrast-outline', descKey: 'settings.totalColorBlind' },
   ];
 
   const getColorBlindColor = (originalColor: string, mode: ColorBlindMode): string => {
