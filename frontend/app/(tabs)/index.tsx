@@ -238,10 +238,10 @@ export default function HomeScreen() {
       <ScrollView style={[styles.scrollView, { backgroundColor: colors.background }]} showsVerticalScrollIndicator={false}>
         {/* Header */}
         <View style={styles.header}>
-          <Text style={styles.title}>
+          <Text style={[styles.title, { color: colors.text }]}>
             {languageMode === 'learn-thai' ? 'Learn Thai' : 'Learn English'}
           </Text>
-          <Text style={styles.subtitle}>Choose a category to start learning</Text>
+          <Text style={[styles.subtitle, { color: colors.textSecondary }]}>Choose a category to start learning</Text>
         </View>
 
         {/* Speech-to-Translate Feature */}
