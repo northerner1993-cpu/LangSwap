@@ -227,7 +227,7 @@ export default function SpeechToTranslate() {
           </View>
         </View>
         <TextInput
-          style={[styles.input, { color: colors.text, backgroundColor: colors.inputBackground }]}
+          style={[styles.input, { color: colors.text, backgroundColor: colors.inputBackground || colors.background }]}
           placeholder={`Enter ${sourceLang === 'en' ? 'English' : 'Thai'} text...`}
           placeholderTextColor={colors.textSecondary}
           value={inputText}
