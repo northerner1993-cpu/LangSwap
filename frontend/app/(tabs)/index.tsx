@@ -45,6 +45,7 @@ export default function HomeScreen() {
   const router = useRouter();
   const { colors } = useTheme();
   const { languageMode } = useLanguageMode();
+  const { uiLanguage } = useUILanguage();
 
   const categories: Category[] = [
     {
