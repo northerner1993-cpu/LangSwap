@@ -28,7 +28,9 @@
     "subtitle": "カテゴリーを選んで学習を始めましょう",
     "allLessons": "すべてのレッスン",
     "songsCatalogue": "ソングカタログ",
-    "learnThroughMusic": "音楽を通じて学ぶ"
+    "learnThroughMusic": "音楽を通じて学ぶ",
+    "instantTranslator": "即時翻訳",
+    "allCategories": "すべてのカテゴリ"
   },
   "categories": {
     "alphabet": "アルファベット",
@@ -59,7 +61,31 @@
     "version": "バージョン",
     "bilingualLearning": "双方向学習",
     "copyright": "すべての権利を保有",
-    "madeWithLove": "言語学習者のために❤️で作成"
+    "madeWithLove": "言語学習者のために❤️で作成",
+    "accessibilityFeatures": "アクセシビリティ機能",
+    "textSize": "テキストサイズ",
+    "adjustTextSize": "アプリ全体のテキストサイズを調整",
+    "preview": "プレビュー",
+    "cardSize": "カードサイズ",
+    "adjustCardSize": "読みやすさを向上させるためにカードサイズを調整",
+    "small": "小",
+    "large": "大",
+    "highContrastMode": "高コントラストモード",
+    "increaseContrast": "視認性向上のためにコントラストを上げる",
+    "colorblindMode": "色覚異常モード",
+    "selectColorblindMode": "ニーズに最適なモードを選択",
+    "reducedMotion": "モーション軽減",
+    "reduceAnimations": "動きに敏感な方向けにアニメーションを軽減",
+    "none": "なし",
+    "protanopia": "1型色覚",
+    "deuteranopia": "2型色覚",
+    "tritanopia": "3型色覚",
+    "achromatopsia": "全色盲",
+    "standardColors": "標準色",
+    "redBlind": "赤色盲（男性の1%）",
+    "greenBlind": "緑色盲（男性の1%）",
+    "blueBlind": "青色盲（まれ）",
+    "totalColorBlind": "全色盲（非常にまれ）"
   },
   "lessons": {
     "loading": "レッスンを読み込んでいます...",

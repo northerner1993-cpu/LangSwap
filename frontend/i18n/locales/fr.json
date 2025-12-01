@@ -28,7 +28,9 @@
     "subtitle": "Choisissez une catégorie pour commencer l'apprentissage",
     "allLessons": "Toutes les leçons",
     "songsCatalogue": "Catalogue de chansons",
-    "learnThroughMusic": "Apprendre par la musique"
+    "learnThroughMusic": "Apprendre par la musique",
+    "instantTranslator": "Traducteur Instantané",
+    "allCategories": "Toutes les Catégories"
   },
   "categories": {
     "alphabet": "Alphabet",
@@ -59,7 +61,31 @@
     "version": "Version",
     "bilingualLearning": "Apprentissage bidirectionnel",
     "copyright": "Tous droits réservés",
-    "madeWithLove": "Fait avec ❤️ pour les apprenants de langues"
+    "madeWithLove": "Fait avec ❤️ pour les apprenants de langues",
+    "accessibilityFeatures": "Fonctionnalités d'Accessibilité",
+    "textSize": "Taille du Texte",
+    "adjustTextSize": "Ajuster la taille du texte dans l'application",
+    "preview": "Aperçu",
+    "cardSize": "Taille de Carte",
+    "adjustCardSize": "Ajuster la taille des cartes pour une meilleure lisibilité",
+    "small": "Petit",
+    "large": "Grand",
+    "highContrastMode": "Mode Contraste Élevé",
+    "increaseContrast": "Augmenter le contraste pour une meilleure visibilité",
+    "colorblindMode": "Mode Daltonien",
+    "selectColorblindMode": "Sélectionnez le mode qui vous convient le mieux",
+    "reducedMotion": "Mouvement Réduit",
+    "reduceAnimations": "Réduire les animations pour la sensibilité au mouvement",
+    "none": "Aucun",
+    "protanopia": "Protanopie",
+    "deuteranopia": "Deutéranopie",
+    "tritanopia": "Tritanopie",
+    "achromatopsia": "Achromatopsie",
+    "standardColors": "Couleurs standard",
+    "redBlind": "Daltonien rouge (1% des hommes)",
+    "greenBlind": "Daltonien vert (1% des hommes)",
+    "blueBlind": "Daltonien bleu (rare)",
+    "totalColorBlind": "Daltonisme total (très rare)"
   },
   "lessons": {
     "loading": "Chargement des leçons...",

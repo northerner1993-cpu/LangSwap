@@ -28,7 +28,9 @@
     "subtitle": "Chọn một danh mục để bắt đầu học",
     "allLessons": "Tất cả bài học",
     "songsCatalogue": "Danh mục bài hát",
-    "learnThroughMusic": "Học qua âm nhạc"
+    "learnThroughMusic": "Học qua âm nhạc",
+    "instantTranslator": "Dịch Tức Thì",
+    "allCategories": "Tất Cả Danh Mục"
   },
   "categories": {
     "alphabet": "Bảng chữ cái",
@@ -59,7 +61,31 @@
     "version": "Phiên bản",
     "bilingualLearning": "Học hai chiều",
     "copyright": "Đã đăng ký bản quyền",
-    "madeWithLove": "Được tạo với ❤️ cho người học ngôn ngữ"
+    "madeWithLove": "Được tạo với ❤️ cho người học ngôn ngữ",
+    "accessibilityFeatures": "Tính Năng Hỗ Trợ Tiếp Cận",
+    "textSize": "Cỡ Chữ",
+    "adjustTextSize": "Điều chỉnh cỡ chữ trong toàn bộ ứng dụng",
+    "preview": "Xem Trước",
+    "cardSize": "Kích Thước Thẻ",
+    "adjustCardSize": "Điều chỉnh kích thước thẻ để dễ đọc hơn",
+    "small": "Nhỏ",
+    "large": "Lớn",
+    "highContrastMode": "Chế Độ Tương Phản Cao",
+    "increaseContrast": "Tăng độ tương phản để nhìn rõ hơn",
+    "colorblindMode": "Chế Độ Mù Màu",
+    "selectColorblindMode": "Chọn chế độ phù hợp nhất với nhu cầu của bạn",
+    "reducedMotion": "Giảm Chuyển Động",
+    "reduceAnimations": "Giảm hiệu ứng chuyển động cho người nhạy cảm",
+    "none": "Không",
+    "protanopia": "Mù Màu Đỏ",
+    "deuteranopia": "Mù Màu Xanh Lá",
+    "tritanopia": "Mù Màu Xanh Dương",
+    "achromatopsia": "Mù Màu Hoàn Toàn",
+    "standardColors": "Màu chuẩn",
+    "redBlind": "Mù màu đỏ (1% nam giới)",
+    "greenBlind": "Mù màu xanh lá (1% nam giới)",
+    "blueBlind": "Mù màu xanh dương (hiếm)",
+    "totalColorBlind": "Mù màu hoàn toàn (rất hiếm)"
   },
   "lessons": {
     "loading": "Đang tải bài học...",

@@ -28,7 +28,9 @@
     "subtitle": "选择一个类别开始学习",
     "allLessons": "所有课程",
     "songsCatalogue": "歌曲目录",
-    "learnThroughMusic": "通过音乐学习"
+    "learnThroughMusic": "通过音乐学习",
+    "instantTranslator": "即时翻译",
+    "allCategories": "所有类别"
   },
   "categories": {
     "alphabet": "字母",
@@ -59,7 +61,31 @@
     "version": "版本",
     "bilingualLearning": "双向学习",
     "copyright": "保留所有权利",
-    "madeWithLove": "为语言学习者用❤️制作"
+    "madeWithLove": "为语言学习者用❤️制作",
+    "accessibilityFeatures": "无障碍功能",
+    "textSize": "文字大小",
+    "adjustTextSize": "调整整个应用程序的文字大小",
+    "preview": "预览",
+    "cardSize": "卡片大小",
+    "adjustCardSize": "调整卡片大小以提高可读性",
+    "small": "小",
+    "large": "大",
+    "highContrastMode": "高对比度模式",
+    "increaseContrast": "提高对比度以改善可见性",
+    "colorblindMode": "色盲模式",
+    "selectColorblindMode": "选择最适合您需求的模式",
+    "reducedMotion": "减少动画",
+    "reduceAnimations": "减少动画以适应动作敏感",
+    "none": "无",
+    "protanopia": "红色盲",
+    "deuteranopia": "绿色盲",
+    "tritanopia": "蓝色盲",
+    "achromatopsia": "全色盲",
+    "standardColors": "标准颜色",
+    "redBlind": "红色盲（1%的男性）",
+    "greenBlind": "绿色盲（1%的男性）",
+    "blueBlind": "蓝色盲（罕见）",
+    "totalColorBlind": "全色盲（非常罕见）"
   },
   "lessons": {
     "loading": "正在加载课程...",

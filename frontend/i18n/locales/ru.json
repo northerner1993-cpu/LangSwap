@@ -28,7 +28,9 @@
     "subtitle": "Выберите категорию, чтобы начать обучение",
     "allLessons": "Все уроки",
     "songsCatalogue": "Каталог песен",
-    "learnThroughMusic": "Учитесь через музыку"
+    "learnThroughMusic": "Учитесь через музыку",
+    "instantTranslator": "Мгновенный Переводчик",
+    "allCategories": "Все Категории"
   },
   "categories": {
     "alphabet": "Алфавит",
@@ -59,7 +61,31 @@
     "version": "Версия",
     "bilingualLearning": "Двустороннее обучение",
     "copyright": "Все права защищены",
-    "madeWithLove": "Сделано с ❤️ для изучающих языки"
+    "madeWithLove": "Сделано с ❤️ для изучающих языки",
+    "accessibilityFeatures": "Специальные Возможности",
+    "textSize": "Размер Текста",
+    "adjustTextSize": "Настроить размер текста в приложении",
+    "preview": "Предпросмотр",
+    "cardSize": "Размер Карточки",
+    "adjustCardSize": "Настроить размер карточек для лучшей читаемости",
+    "small": "Маленький",
+    "large": "Большой",
+    "highContrastMode": "Режим Высокой Контрастности",
+    "increaseContrast": "Увеличить контрастность для лучшей видимости",
+    "colorblindMode": "Режим Дальтонизма",
+    "selectColorblindMode": "Выберите режим, наиболее подходящий для вас",
+    "reducedMotion": "Уменьшенное Движение",
+    "reduceAnimations": "Уменьшить анимацию при чувствительности к движению",
+    "none": "Нет",
+    "protanopia": "Протанопия",
+    "deuteranopia": "Дейтеранопия",
+    "tritanopia": "Тританопия",
+    "achromatopsia": "Ахроматопсия",
+    "standardColors": "Стандартные цвета",
+    "redBlind": "Красная слепота (1% мужчин)",
+    "greenBlind": "Зеленая слепота (1% мужчин)",
+    "blueBlind": "Синяя слепота (редко)",
+    "totalColorBlind": "Полная цветовая слепота (очень редко)"
   },
   "lessons": {
     "loading": "Загрузка уроков...",

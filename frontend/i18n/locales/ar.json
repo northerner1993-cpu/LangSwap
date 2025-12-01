@@ -28,7 +28,9 @@
     "subtitle": "اختر فئة لبدء التعلم",
     "allLessons": "جميع الدروس",
     "songsCatalogue": "كتالوج الأغاني",
-    "learnThroughMusic": "تعلم من خلال الموسيقى"
+    "learnThroughMusic": "تعلم من خلال الموسيقى",
+    "instantTranslator": "المترجم الفوري",
+    "allCategories": "جميع الفئات"
   },
   "categories": {
     "alphabet": "الأبجدية",
@@ -59,7 +61,31 @@
     "version": "الإصدار",
     "bilingualLearning": "التعلم ثنائي الاتجاه",
     "copyright": "جميع الحقوق محفوظة",
-    "madeWithLove": "صُنع بـ ❤️ لمتعلمي اللغات"
+    "madeWithLove": "صُنع بـ ❤️ لمتعلمي اللغات",
+    "accessibilityFeatures": "ميزات إمكانية الوصول",
+    "textSize": "حجم النص",
+    "adjustTextSize": "ضبط حجم النص في التطبيق",
+    "preview": "معاينة",
+    "cardSize": "حجم البطاقة",
+    "adjustCardSize": "ضبط حجم البطاقات لتحسين القراءة",
+    "small": "صغير",
+    "large": "كبير",
+    "highContrastMode": "وضع التباين العالي",
+    "increaseContrast": "زيادة التباين لتحسين الرؤية",
+    "colorblindMode": "وضع عمى الألوان",
+    "selectColorblindMode": "اختر الوضع الأنسب لاحتياجاتك",
+    "reducedMotion": "تقليل الحركة",
+    "reduceAnimations": "تقليل الرسوم المتحركة لحساسية الحركة",
+    "none": "لا شيء",
+    "protanopia": "عمى الأحمر",
+    "deuteranopia": "عمى الأخضر",
+    "tritanopia": "عمى الأزرق",
+    "achromatopsia": "عمى الألوان الكامل",
+    "standardColors": "الألوان القياسية",
+    "redBlind": "عمى الأحمر (1٪ من الذكور)",
+    "greenBlind": "عمى الأخضر (1٪ من الذكور)",
+    "blueBlind": "عمى الأزرق (نادر)",
+    "totalColorBlind": "عمى الألوان الكامل (نادر جداً)"
   },
   "lessons": {
     "loading": "جارٍ تحميل الدروس...",

@@ -28,7 +28,9 @@
     "subtitle": "Wählen Sie eine Kategorie, um mit dem Lernen zu beginnen",
     "allLessons": "Alle Lektionen",
     "songsCatalogue": "Liederkatalog",
-    "learnThroughMusic": "Lernen durch Musik"
+    "learnThroughMusic": "Lernen durch Musik",
+    "instantTranslator": "Sofortübersetzer",
+    "allCategories": "Alle Kategorien"
   },
   "categories": {
     "alphabet": "Alphabet",
@@ -59,7 +61,31 @@
     "version": "Version",
     "bilingualLearning": "Bidirektionales Lernen",
     "copyright": "Alle Rechte vorbehalten",
-    "madeWithLove": "Mit ❤️ für Sprachlernende gemacht"
+    "madeWithLove": "Mit ❤️ für Sprachlernende gemacht",
+    "accessibilityFeatures": "Barrierefreiheit",
+    "textSize": "Textgröße",
+    "adjustTextSize": "Textgröße in der App anpassen",
+    "preview": "Vorschau",
+    "cardSize": "Kartengröße",
+    "adjustCardSize": "Kartengröße für bessere Lesbarkeit anpassen",
+    "small": "Klein",
+    "large": "Groß",
+    "highContrastMode": "Hoher Kontrast Modus",
+    "increaseContrast": "Kontrast für bessere Sichtbarkeit erhöhen",
+    "colorblindMode": "Farbblindmodus",
+    "selectColorblindMode": "Wählen Sie den Modus, der Ihren Bedürfnissen entspricht",
+    "reducedMotion": "Reduzierte Bewegung",
+    "reduceAnimations": "Animationen bei Bewegungsempfindlichkeit reduzieren",
+    "none": "Keine",
+    "protanopia": "Protanopie",
+    "deuteranopia": "Deuteranopie",
+    "tritanopia": "Tritanopie",
+    "achromatopsia": "Achromatopsie",
+    "standardColors": "Standardfarben",
+    "redBlind": "Rotblind (1% der Männer)",
+    "greenBlind": "Grünblind (1% der Männer)",
+    "blueBlind": "Blaublind (selten)",
+    "totalColorBlind": "Totale Farbenblindheit (sehr selten)"
   },
   "lessons": {
     "loading": "Lektionen werden geladen...",

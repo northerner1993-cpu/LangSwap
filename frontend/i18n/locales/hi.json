@@ -28,7 +28,9 @@
     "subtitle": "सीखना शुरू करने के लिए एक श्रेणी चुनें",
     "allLessons": "सभी पाठ",
     "songsCatalogue": "गीत कैटलॉग",
-    "learnThroughMusic": "संगीत के माध्यम से सीखें"
+    "learnThroughMusic": "संगीत के माध्यम से सीखें",
+    "instantTranslator": "तत्काल अनुवादक",
+    "allCategories": "सभी श्रेणियां"
   },
   "categories": {
     "alphabet": "वर्णमाला",
@@ -59,7 +61,31 @@
     "version": "संस्करण",
     "bilingualLearning": "द्विदिशात्मक सीखना",
     "copyright": "सर्वाधिकार सुरक्षित",
-    "madeWithLove": "भाषा सीखने वालों के लिए ❤️ से बनाया गया"
+    "madeWithLove": "भाषा सीखने वालों के लिए ❤️ से बनाया गया",
+    "accessibilityFeatures": "सुलभता सुविधाएँ",
+    "textSize": "टेक्स्ट आकार",
+    "adjustTextSize": "ऐप में टेक्स्ट आकार समायोजित करें",
+    "preview": "पूर्वावलोकन",
+    "cardSize": "कार्ड आकार",
+    "adjustCardSize": "बेहतर पठनीयता के लिए कार्ड आकार समायोजित करें",
+    "small": "छोटा",
+    "large": "बड़ा",
+    "highContrastMode": "उच्च कंट्रास्ट मोड",
+    "increaseContrast": "बेहतर दृश्यता के लिए कंट्रास्ट बढ़ाएं",
+    "colorblindMode": "वर्णान्धता मोड",
+    "selectColorblindMode": "अपनी आवश्यकताओं के लिए सबसे उपयुक्त मोड चुनें",
+    "reducedMotion": "कम गति",
+    "reduceAnimations": "गति संवेदनशीलता के लिए एनिमेशन कम करें",
+    "none": "कोई नहीं",
+    "protanopia": "प्रोटानोपिया",
+    "deuteranopia": "ड्यूटेरानोपिया",
+    "tritanopia": "ट्राइटानोपिया",
+    "achromatopsia": "एक्रोमैटोप्सिया",
+    "standardColors": "मानक रंग",
+    "redBlind": "लाल-अंधापन (1% पुरुष)",
+    "greenBlind": "हरा-अंधापन (1% पुरुष)",
+    "blueBlind": "नीला-अंधापन (दुर्लभ)",
+    "totalColorBlind": "पूर्ण वर्णान्धता (बहुत दुर्लभ)"
   },
   "lessons": {
     "loading": "पाठ लोड हो रहे हैं...",

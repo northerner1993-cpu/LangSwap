@@ -28,7 +28,9 @@
     "subtitle": "학습을 시작할 카테고리를 선택하세요",
     "allLessons": "모든 수업",
     "songsCatalogue": "노래 카탈로그",
-    "learnThroughMusic": "음악을 통한 학습"
+    "learnThroughMusic": "음악을 통한 학습",
+    "instantTranslator": "즉시 번역기",
+    "allCategories": "모든 카테고리"
   },
   "categories": {
     "alphabet": "알파벳",
@@ -59,7 +61,31 @@
     "version": "버전",
     "bilingualLearning": "양방향 학습",
     "copyright": "모든 권리 보유",
-    "madeWithLove": "언어 학습자를 위해 ❤️로 제작"
+    "madeWithLove": "언어 학습자를 위해 ❤️로 제작",
+    "accessibilityFeatures": "접근성 기능",
+    "textSize": "텍스트 크기",
+    "adjustTextSize": "앱 전체의 텍스트 크기 조정",
+    "preview": "미리보기",
+    "cardSize": "카드 크기",
+    "adjustCardSize": "가독성 향상을 위해 카드 크기 조정",
+    "small": "작게",
+    "large": "크게",
+    "highContrastMode": "고대비 모드",
+    "increaseContrast": "가시성 향상을 위해 대비 증가",
+    "colorblindMode": "색맹 모드",
+    "selectColorblindMode": "필요에 가장 적합한 모드 선택",
+    "reducedMotion": "모션 감소",
+    "reduceAnimations": "동작 민감성을 위한 애니메이션 감소",
+    "none": "없음",
+    "protanopia": "적색맹",
+    "deuteranopia": "녹색맹",
+    "tritanopia": "청색맹",
+    "achromatopsia": "전색맹",
+    "standardColors": "표준 색상",
+    "redBlind": "적색맹 (남성의 1%)",
+    "greenBlind": "녹색맹 (남성의 1%)",
+    "blueBlind": "청색맹 (드물음)",
+    "totalColorBlind": "전색맹 (매우 드물음)"
   },
   "lessons": {
     "loading": "수업을 로드하는 중...",
