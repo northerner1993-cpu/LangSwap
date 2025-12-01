@@ -419,7 +419,6 @@ const styles = StyleSheet.create({
   translateSection: {
     marginHorizontal: 16,
     marginBottom: 24,
-    backgroundColor: '#FFFFFF',
     borderRadius: 20,
     padding: 16,
     shadowColor: '#000',
@@ -437,7 +436,6 @@ const styles = StyleSheet.create({
   translateTitle: {
     fontSize: 18,
     fontWeight: '700',
-    color: '#111827',
   },
   songsBanner: {
     flexDirection: 'row',
