@@ -48,7 +48,7 @@ git status
 git log --oneline -5
 
 # Add remote (GitHub repository)
-git remote add origin https://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@github.com/northerner1993-cpu/langswap.git
+git remote add origin https://YOUR_GITHUB_TOKEN@github.com/northerner1993-cpu/LangSwap-.git
 
 # Verify remote
 git remote -v
