@@ -143,17 +143,17 @@ export default function AccessibilitySettings({ colors }: AccessibilitySettingsP
     <View style={[styles.card, { backgroundColor: colors.card, borderColor: colors.border }]}>
       <View style={styles.cardHeader}>
         <Ionicons name="accessibility" size={24} color={colors.primary} />
-        <Text style={[styles.cardTitle, { color: colors.text }]}>Accessibility Features</Text>
+        <Text style={[styles.cardTitle, { color: colors.text }]}>{t('settings.accessibilityFeatures')}</Text>
       </View>
 
       {/* Text Size */}
       <View style={styles.section}>
         <View style={styles.sectionHeader}>
           <Ionicons name="text" size={20} color={colors.text} />
-          <Text style={[styles.sectionTitle, { color: colors.text }]}>Text Size</Text>
+          <Text style={[styles.sectionTitle, { color: colors.text }]}>{t('settings.textSize')}</Text>
         </View>
         <Text style={[styles.description, { color: colors.textSecondary }]}>
-          Adjust text size throughout the app ({Math.round(textScale * 100)}%)
+          {t('settings.adjustTextSize')} ({Math.round(textScale * 100)}%)
         </Text>
         <View style={styles.sliderContainer}>
           <Text style={[styles.sliderLabel, { color: colors.textSecondary }]}>A</Text>
