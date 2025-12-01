@@ -333,7 +333,7 @@ export default function HomeScreen() {
         {/* All Lessons */}
         <View style={styles.section}>
           <View style={styles.sectionHeader}>
-            <Text style={[styles.sectionTitle, { color: colors.text }]}>{i18n.t('home.allLessons')}</Text>
+            <Text style={[styles.sectionTitle, { color: colors.text }]}>{t('home.allLessons')}</Text>
             <View style={[styles.lessonCountBadge, { backgroundColor: colors.primary }]}>
               <Text style={styles.lessonCountText}>{lessons.length}</Text>
             </View>
