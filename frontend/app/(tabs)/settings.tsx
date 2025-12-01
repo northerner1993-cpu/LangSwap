@@ -16,6 +16,7 @@ import { useTheme } from '../../contexts/ThemeContext';
 import { useLanguageMode } from '../../contexts/LanguageModeContext';
 import MicrophonePermissions from '../../components/MicrophonePermissions';
 import WorldLanguagesSelector from '../../components/WorldLanguagesSelector';
+import AccessibilitySettings from '../../components/AccessibilitySettings';
 
 export default function SettingsScreen() {
   const { theme, toggleTheme, colors } = useTheme();
