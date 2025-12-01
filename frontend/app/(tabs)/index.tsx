@@ -287,8 +287,8 @@ export default function HomeScreen() {
                 <View style={[styles.featuredIconCircle, { backgroundColor: category.color }]}>
                   <Ionicons name={category.icon as any} size={28} color="#FFFFFF" />
                 </View>
-                <Text style={styles.featuredTitle}>{category.title}</Text>
-                <Text style={styles.featuredCount}>
+                <Text style={[styles.featuredTitle, { color: colors.text }]}>{category.title}</Text>
+                <Text style={[styles.featuredCount, { color: colors.textSecondary }]}>
                   {categoryLessons.length} {categoryLessons.length === 1 ? 'lesson' : 'lessons'}
                 </Text>
               </TouchableOpacity>
