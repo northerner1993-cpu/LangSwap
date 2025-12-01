@@ -264,10 +264,10 @@ export default function AccessibilitySettings({ colors }: AccessibilitySettingsP
                     fontWeight: colorBlindMode === mode.id ? '600' : '400'
                   }
                 ]}>
-                  {mode.name}
+                  {t(mode.nameKey)}
                 </Text>
                 <Text style={[styles.modeDescription, { color: colors.textSecondary }]}>
-                  {mode.description}
+                  {t(mode.descKey)}
                 </Text>
               </View>
             </View>
