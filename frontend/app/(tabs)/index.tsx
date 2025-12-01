@@ -339,7 +339,11 @@ export default function HomeScreen() {
                 key={lesson._id}
                 style={[
                   styles.lessonCard,
-                  { borderLeftColor: categoryInfo.color, borderLeftWidth: 4 }
+                  { 
+                    backgroundColor: colors.card,
+                    borderLeftColor: categoryInfo.color, 
+                    borderLeftWidth: 4 
+                  }
                 ]}
                 onPress={() => handleLessonPress(lesson._id)}
                 activeOpacity={0.7}
